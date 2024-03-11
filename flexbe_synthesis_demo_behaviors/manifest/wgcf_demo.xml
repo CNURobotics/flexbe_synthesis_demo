@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="wgcf_demo">
+
+    <executable package_path="flexbe_synthesis_demo_behaviors.wgcf_demo_sm" class="wgcf_demoSM" />
+    <tagstring>flexbe</tagstring>
+    <author>David Conner</author>
+    <date>Sun Oct 15 2023</date>
+    <description>
+        Hand crafted demo
+
+    </description>
+
+
+    <!-- Contained Behaviors -->
+
+    <!-- Available Parameters -->
+
+</behavior>
