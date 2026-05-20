@@ -1,0 +1,142 @@
+# PyRoboSim FlexBE Synthesis Startup
+
+## Full Spec Demos
+
+Choose 1
+* `clear; ros2 launch pyrobosim_flexbe_synthesis p0_full_spec.launch.py`
+  * `system_name: p0_full_spec_demo`
+* `clear; ros2 launch pyrobosim_flexbe_synthesis p0_move_only_spec.launch.py`
+  * `system_name: p0_move_only_spec_demo`
+* `clear; ros2 launch pyrobosim_flexbe_synthesis p1_full_spec.launch.py`
+  * `system_name: p1_full_spec_demo`
+
+Request synthesis:
+* `clear; ros2 run pyrobosim_flexbe_synthesis request_synthesis --ros-args -p system_name:=p0_full_spec_demo`
+* `clear; ros2 run pyrobosim_flexbe_synthesis request_synthesis --ros-args -p system_name:=p0_move_only_spec_demo`
+* `clear; ros2 run pyrobosim_flexbe_synthesis request_synthesis --ros-args -p system_name:=p1_full_spec_demo`
+
+
+## Capabilities Demos
+
+Choose 1
+* `clear; ros2 launch pyrobosim_flexbe_synthesis p0_capabilities.launch.py`
+  * `system_name: p0_capabilities_demo`
+* `clear; ros2 launch pyrobosim_flexbe_synthesis p1_capabilities.launch.py`
+  * `system_name: p1_capabilities_demo`
+
+Request synthesis:
+* `clear; ros2 run pyrobosim_flexbe_synthesis request_synthesis --ros-args -p system_name:=p0_capabilities_demo`
+* `clear; ros2 run pyrobosim_flexbe_synthesis request_synthesis --ros-args -p system_name:=p1_capabilities_demo`
+
+
+## Capabilities Parsed Demos
+
+Choose 1
+* `clear; ros2 launch pyrobosim_flexbe_synthesis p0_capabilities_parsed.launch.py`
+  * `system_name: p0_capabilities_parsed_demo`
+* `clear; ros2 launch pyrobosim_flexbe_synthesis p1_capabilities_parsed.launch.py`
+  * `system_name: p1_capabilities_parsed_demo`
+
+Request synthesis:
+* `clear; ros2 run pyrobosim_flexbe_synthesis request_synthesis --ros-args -p system_name:=p0_capabilities_parsed_demo`
+* `clear; ros2 run pyrobosim_flexbe_synthesis request_synthesis --ros-args -p system_name:=p1_capabilities_parsed_demo`
+
+
+## Prebuilt Automaton Load Path
+
+Choose 1 saved automaton prefix.  In FlexBE, enter the matching `system_name`
+and `spec_name` shown below.
+
+* P0 full spec
+  * Server:
+    `clear; ros2 launch pyrobosim_flexbe_synthesis load_automaton.launch.py prefix:=p0_full_spec_demo`
+  * Request:
+    `clear; ros2 run pyrobosim_flexbe_synthesis request_synthesis --ros-args -p system_name:=p0_full_spec_demo`
+  * FlexBE:
+    `system_name: p0_full_spec_demo`
+    `spec_name: p0_full_spec`
+  * Automaton:
+    `slugs/p0_full_spec_demo_automaton.yaml`
+
+* P0 move-only spec
+  * Server:
+    `clear; ros2 launch pyrobosim_flexbe_synthesis load_automaton.launch.py prefix:=p0_move_only_spec_demo`
+  * Request:
+    `clear; ros2 run pyrobosim_flexbe_synthesis request_synthesis --ros-args -p system_name:=p0_move_only_spec_demo`
+  * FlexBE:
+    `system_name: p0_move_only_spec_demo`
+    `spec_name: p0_move_only_spec`
+  * Automaton:
+    `slugs/p0_move_only_spec_demo_automaton.yaml`
+
+* P0 capabilities
+  * Server:
+    `clear; ros2 launch pyrobosim_flexbe_synthesis load_automaton.launch.py prefix:=p0_capabilities_demo`
+  * Request:
+    `clear; ros2 run pyrobosim_flexbe_synthesis request_synthesis --ros-args -p system_name:=p0_capabilities_demo`
+  * FlexBE:
+    `system_name: p0_capabilities_demo`
+    `spec_name: p0_capabilities`
+  * Automaton:
+    `slugs/p0_capabilities_demo_automaton.yaml`
+
+* P0 capabilities parsed
+  * Server:
+    `clear; ros2 launch pyrobosim_flexbe_synthesis load_automaton.launch.py prefix:=p0_capabilities_parsed_demo`
+  * Request:
+    `clear; ros2 run pyrobosim_flexbe_synthesis request_synthesis --ros-args -p system_name:=p0_capabilities_parsed_demo`
+  * FlexBE:
+    `system_name: p0_capabilities_parsed_demo`
+    `spec_name: p0_parsed`
+  * Automaton:
+    `slugs/p0_capabilities_parsed_demo_automaton.yaml`
+
+* P1 full spec
+  * Server:
+    `clear; ros2 launch pyrobosim_flexbe_synthesis load_automaton.launch.py prefix:=p1_full_spec_demo`
+  * Request:
+    `clear; ros2 run pyrobosim_flexbe_synthesis request_synthesis --ros-args -p system_name:=p1_full_spec_demo`
+  * FlexBE:
+    `system_name: p1_full_spec_demo`
+    `spec_name: p1_full_spec`
+  * Automaton:
+    `slugs/p1_full_spec_demo_automaton.yaml`
+
+* P1 capabilities parsed
+  * Server:
+    `clear; ros2 launch pyrobosim_flexbe_synthesis load_automaton.launch.py prefix:=p1_capabilities_parsed_demo`
+  * Request:
+    `clear; ros2 run pyrobosim_flexbe_synthesis request_synthesis --ros-args -p system_name:=p1_capabilities_parsed_demo`
+  * FlexBE:
+    `system_name: p1_capabilities_parsed_demo`
+    `spec_name: p1_parsed`
+  * Automaton:
+    `slugs/p1_capabilities_parsed_demo_automaton.yaml`
+
+
+## Runtime Steps (FlexBE + Problems)
+
+* `clear; ros2 run pyrobosim_flexbe_problems run --ros-args -p problem_number:=0`
+* `clear; ros2 launch flexbe_webui flexbe_ocs.launch.py headless:=true`
+* `clear; ros2 run flexbe_webui webui_client`
+* `clear; ros2 launch flexbe_onboard behavior_onboard.launch.py`
+
+
+## Notes
+
+* Set up system in FlexBE config to match the launch mode (for example `p0_full_spec_demo`).
+* Goals are string arrays: pass each predicate as a separate element.
+* Full-spec pipelines encode their goals in YAML; request goal overrides only affect capability pipelines.
+* Typical capability goal example: `bread0=3` and `butter0=3`.
+
+
+## Goal Override Examples
+
+Goals use `string[]` — pass each predicate as a separate array element:
+
+* P0 capabilities system:
+  `clear; ros2 run pyrobosim_flexbe_synthesis request_synthesis --ros-args -p system_name:=p0_capabilities_demo -p goals:='["bread0=3", "butter0=3"]'`
+* Parsed p0 capabilities system:
+  `clear; ros2 run pyrobosim_flexbe_synthesis request_synthesis --ros-args -p system_name:=p0_capabilities_parsed_demo -p goals:='["bread0=3", "butter0=3"]'`
+* Parsed p1 capabilities system:
+  `clear; ros2 run pyrobosim_flexbe_synthesis request_synthesis --ros-args -p system_name:=p1_capabilities_parsed_demo -p goals:='["bread0=3", "butter0=3"]'`

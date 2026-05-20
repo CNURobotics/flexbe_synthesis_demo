@@ -1,0 +1,696 @@
+digraph StateMachine {
+  outputorder="edgesfirst";
+  layout="dot";
+  splines=true;
+  rankdir=LR;
+  nodesep=0.8;
+  ranksep=1.2;
+  overlap=false;
+  dpi=150;
+  fontname="Liberation Sans";
+  node [fontname="Liberation Sans", fontweight="bold", penwidth=2.0];
+  edge [fontname="Liberation Sans", fontweight="bold", penwidth=2.0];
+  "Init" [shape=point];
+  "0" [width=0.4, height=0.4, fontsize=6, xlabel="0
+hall_closet_dining
+hall_closet_office
+hall_dining_kitchen
+hall_dining_office
+hall_kitchen_office
+hall_trash_closet
+hall_trash_dining
+hall_trash_kitchen
+bread0=4
+butter0=5
+robot_loc=18
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "0_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="0_sys
+capability=0
+move_dest=0
+pick=21", label=""];
+  "20" [width=0.4, height=0.4, fontsize=6, xlabel="20
+completed
+hall_closet_dining
+hall_closet_office
+hall_dining_kitchen
+hall_dining_office
+hall_kitchen_office
+hall_trash_closet
+hall_trash_dining
+hall_trash_kitchen
+bread0=4
+butter0=5
+robot_loc=18
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "20_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="20_sys
+capability=7
+move_dest=3
+pick=21", label=""];
+  "21" [width=0.4, height=0.4, fontsize=6, xlabel="21
+failure
+hall_closet_dining
+hall_closet_office
+hall_dining_kitchen
+hall_dining_office
+hall_kitchen_office
+hall_trash_closet
+hall_trash_dining
+hall_trash_kitchen
+bread0=4
+butter0=5
+robot_loc=18
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "21_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="21_sys
+capability=4
+move_dest=0
+pick=21", label=""];
+  "22" [width=0.4, height=0.4, fontsize=6, xlabel="22
+completed
+hall_closet_dining
+hall_closet_office
+hall_dining_kitchen
+hall_dining_office
+hall_kitchen_office
+hall_trash_closet
+hall_trash_dining
+hall_trash_kitchen
+bread0=4
+butter0=5
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "22_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="22_sys
+capability=8
+move_dest=0
+pick=21", label=""];
+  "23" [width=0.4, height=0.4, fontsize=6, xlabel="23
+failure
+hall_closet_dining
+hall_closet_office
+hall_dining_kitchen
+hall_dining_office
+hall_kitchen_office
+hall_trash_closet
+hall_trash_dining
+hall_trash_kitchen
+bread0=4
+butter0=5
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "23_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="23_sys
+capability=5
+move_dest=0
+pick=21", label=""];
+  "24" [width=0.4, height=0.4, fontsize=6, xlabel="24
+completed
+hall_closet_dining
+hall_closet_office
+hall_dining_kitchen
+hall_dining_office
+hall_kitchen_office
+hall_trash_closet
+hall_trash_dining
+hall_trash_kitchen
+table
+bread0=4
+butter0=5
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "24_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="24_sys
+capability=7
+move_dest=4
+pick=21", label=""];
+  "25" [width=0.4, height=0.4, fontsize=6, xlabel="25
+failure
+hall_closet_dining
+hall_closet_office
+hall_dining_kitchen
+hall_dining_office
+hall_kitchen_office
+hall_trash_closet
+hall_trash_dining
+hall_trash_kitchen
+table
+bread0=4
+butter0=5
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "25_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="25_sys
+capability=4
+move_dest=0
+pick=21", label=""];
+  "26" [width=0.4, height=0.4, fontsize=6, xlabel="26
+completed
+hall_closet_dining
+hall_closet_office
+hall_dining_kitchen
+hall_dining_office
+hall_kitchen_office
+hall_trash_closet
+hall_trash_dining
+hall_trash_kitchen
+table
+bread0=4
+butter0=5
+robot_loc=4
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "26_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="26_sys
+capability=8
+move_dest=0
+pick=21", label=""];
+  "27" [width=0.4, height=0.4, fontsize=6, xlabel="27
+failure
+hall_closet_dining
+hall_closet_office
+hall_dining_kitchen
+hall_dining_office
+hall_kitchen_office
+hall_trash_closet
+hall_trash_dining
+hall_trash_kitchen
+table
+bread0=4
+butter0=5
+robot_loc=4
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "27_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="27_sys
+capability=5
+move_dest=0
+pick=21", label=""];
+  "28" [width=0.4, height=0.4, fontsize=6, xlabel="28
+completed
+hall_closet_dining
+hall_closet_office
+hall_dining_kitchen
+hall_dining_office
+hall_kitchen_office
+hall_trash_closet
+hall_trash_dining
+hall_trash_kitchen
+pantry
+table
+bread0=4
+butter0=5
+robot_loc=4
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "28_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="28_sys
+capability=1
+move_dest=0
+pick=23", label=""];
+  "29" [width=0.4, height=0.4, fontsize=6, xlabel="29
+completed
+hall_closet_dining
+hall_closet_office
+hall_dining_kitchen
+hall_dining_office
+hall_kitchen_office
+hall_trash_closet
+hall_trash_dining
+hall_trash_kitchen
+pantry
+table
+bread0=0
+butter0=5
+robot_loc=4
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "29_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="29_sys
+capability=7
+move_dest=3
+pick=21", label=""];
+  "30" [width=0.4, height=0.4, fontsize=6, xlabel="30
+failure
+hall_closet_dining
+hall_closet_office
+hall_dining_kitchen
+hall_dining_office
+hall_kitchen_office
+hall_trash_closet
+hall_trash_dining
+hall_trash_kitchen
+pantry
+table
+bread0=4
+butter0=5
+robot_loc=4
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "30_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="30_sys
+capability=3
+move_dest=0
+pick=21", label=""];
+  "31" [width=0.4, height=0.4, fontsize=6, xlabel="31
+failure
+hall_closet_dining
+hall_closet_office
+hall_dining_kitchen
+hall_dining_office
+hall_kitchen_office
+hall_trash_closet
+hall_trash_dining
+hall_trash_kitchen
+pantry
+table
+bread0=0
+butter0=5
+robot_loc=4
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "31_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="31_sys
+capability=4
+move_dest=0
+pick=21", label=""];
+  "32" [width=0.4, height=0.4, fontsize=6, xlabel="32
+completed
+hall_closet_dining
+hall_closet_office
+hall_dining_kitchen
+hall_dining_office
+hall_kitchen_office
+hall_trash_closet
+hall_trash_dining
+hall_trash_kitchen
+pantry
+table
+bread0=0
+butter0=5
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "32_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="32_sys
+capability=9
+move_dest=0
+pick=21", label=""];
+  "33" [width=0.4, height=0.4, fontsize=6, xlabel="33
+failure
+hall_closet_dining
+hall_closet_office
+hall_dining_kitchen
+hall_dining_office
+hall_kitchen_office
+hall_trash_closet
+hall_trash_dining
+hall_trash_kitchen
+pantry
+table
+bread0=0
+butter0=5
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "33_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="33_sys
+capability=6
+move_dest=0
+pick=21", label=""];
+  "34" [width=0.4, height=0.4, fontsize=6, xlabel="34
+completed
+hall_closet_dining
+hall_closet_office
+hall_dining_kitchen
+hall_dining_office
+hall_kitchen_office
+hall_trash_closet
+hall_trash_dining
+hall_trash_kitchen
+pantry
+table
+bread0=3
+butter0=5
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "34_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="34_sys
+capability=7
+move_dest=5
+pick=21", label=""];
+  "35" [width=0.4, height=0.4, fontsize=6, xlabel="35
+failure
+hall_closet_dining
+hall_closet_office
+hall_dining_kitchen
+hall_dining_office
+hall_kitchen_office
+hall_trash_closet
+hall_trash_dining
+hall_trash_kitchen
+pantry
+table
+bread0=3
+butter0=5
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "35_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="35_sys
+capability=4
+move_dest=0
+pick=21", label=""];
+  "36" [width=0.4, height=0.4, fontsize=6, xlabel="36
+completed
+hall_closet_dining
+hall_closet_office
+hall_dining_kitchen
+hall_dining_office
+hall_kitchen_office
+hall_trash_closet
+hall_trash_dining
+hall_trash_kitchen
+pantry
+table
+bread0=3
+butter0=5
+robot_loc=5
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "36_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="36_sys
+capability=8
+move_dest=0
+pick=21", label=""];
+  "37" [width=0.4, height=0.4, fontsize=6, xlabel="37
+failure
+hall_closet_dining
+hall_closet_office
+hall_dining_kitchen
+hall_dining_office
+hall_kitchen_office
+hall_trash_closet
+hall_trash_dining
+hall_trash_kitchen
+pantry
+table
+bread0=3
+butter0=5
+robot_loc=5
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "37_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="37_sys
+capability=5
+move_dest=0
+pick=21", label=""];
+  "38" [width=0.4, height=0.4, fontsize=6, xlabel="38
+completed
+fridge
+hall_closet_dining
+hall_closet_office
+hall_dining_kitchen
+hall_dining_office
+hall_kitchen_office
+hall_trash_closet
+hall_trash_dining
+hall_trash_kitchen
+pantry
+table
+bread0=3
+butter0=5
+robot_loc=5
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "38_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="38_sys
+capability=1
+move_dest=0
+pick=22", label=""];
+  "39" [width=0.4, height=0.4, fontsize=6, xlabel="39
+completed
+fridge
+hall_closet_dining
+hall_closet_office
+hall_dining_kitchen
+hall_dining_office
+hall_kitchen_office
+hall_trash_closet
+hall_trash_dining
+hall_trash_kitchen
+pantry
+table
+bread0=3
+butter0=0
+robot_loc=5
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "39_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="39_sys
+capability=7
+move_dest=3
+pick=21", label=""];
+  "40" [width=0.4, height=0.4, fontsize=6, xlabel="40
+failure
+fridge
+hall_closet_dining
+hall_closet_office
+hall_dining_kitchen
+hall_dining_office
+hall_kitchen_office
+hall_trash_closet
+hall_trash_dining
+hall_trash_kitchen
+pantry
+table
+bread0=3
+butter0=5
+robot_loc=5
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "40_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="40_sys
+capability=3
+move_dest=0
+pick=21", label=""];
+  "41" [width=0.4, height=0.4, fontsize=6, xlabel="41
+failure
+fridge
+hall_closet_dining
+hall_closet_office
+hall_dining_kitchen
+hall_dining_office
+hall_kitchen_office
+hall_trash_closet
+hall_trash_dining
+hall_trash_kitchen
+pantry
+table
+bread0=3
+butter0=0
+robot_loc=5
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "41_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="41_sys
+capability=4
+move_dest=0
+pick=21", label=""];
+  "42" [width=0.4, height=0.4, fontsize=6, xlabel="42
+completed
+fridge
+hall_closet_dining
+hall_closet_office
+hall_dining_kitchen
+hall_dining_office
+hall_kitchen_office
+hall_trash_closet
+hall_trash_dining
+hall_trash_kitchen
+pantry
+table
+bread0=3
+butter0=0
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "42_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="42_sys
+capability=9
+move_dest=0
+pick=21", label=""];
+  "43" [width=0.4, height=0.4, fontsize=6, xlabel="43
+failure
+fridge
+hall_closet_dining
+hall_closet_office
+hall_dining_kitchen
+hall_dining_office
+hall_kitchen_office
+hall_trash_closet
+hall_trash_dining
+hall_trash_kitchen
+pantry
+table
+bread0=3
+butter0=0
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "43_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="43_sys
+capability=6
+move_dest=0
+pick=21", label=""];
+  "44" [width=0.4, height=0.4, fontsize=6, xlabel="44
+completed
+fridge
+hall_closet_dining
+hall_closet_office
+hall_dining_kitchen
+hall_dining_office
+hall_kitchen_office
+hall_trash_closet
+hall_trash_dining
+hall_trash_kitchen
+pantry
+table
+bread0=3
+butter0=3
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "44_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="44_sys
+capability=2
+move_dest=0
+pick=21", label=""];
+  "45" [width=0.4, height=0.4, fontsize=6, xlabel="45
+completed
+fridge
+hall_closet_dining
+hall_closet_office
+hall_dining_kitchen
+hall_dining_office
+hall_kitchen_office
+hall_trash_closet
+hall_trash_dining
+hall_trash_kitchen
+pantry
+table
+bread0=3
+butter0=3
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "45_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="45_sys
+finished
+capability=2
+move_dest=0
+pick=21", label=""];
+  "Init" -> "0";
+  "0" -> "0_sys" [color="green"];
+  "0_sys" -> "20" [color="red"];
+  "20" -> "20_sys" [color="green"];
+  "20_sys" -> "21" [color="red"];
+  "20_sys" -> "22" [color="red"];
+  "21" -> "21_sys" [color="green"];
+  "21_sys" -> "20" [color="red"];
+  "22" -> "22_sys" [color="green"];
+  "22_sys" -> "23" [color="red"];
+  "22_sys" -> "24" [color="red"];
+  "23" -> "23_sys" [color="green"];
+  "23_sys" -> "22" [color="red"];
+  "24" -> "24_sys" [color="green"];
+  "24_sys" -> "25" [color="red"];
+  "24_sys" -> "26" [color="red"];
+  "25" -> "25_sys" [color="green"];
+  "25_sys" -> "24" [color="red"];
+  "26" -> "26_sys" [color="green"];
+  "26_sys" -> "27" [color="red"];
+  "26_sys" -> "28" [color="red"];
+  "27" -> "27_sys" [color="green"];
+  "27_sys" -> "26" [color="red"];
+  "28" -> "28_sys" [color="green"];
+  "28_sys" -> "29" [color="red"];
+  "28_sys" -> "30" [color="red"];
+  "29" -> "29_sys" [color="green"];
+  "29_sys" -> "31" [color="red"];
+  "29_sys" -> "32" [color="red"];
+  "30" -> "30_sys" [color="green"];
+  "30_sys" -> "28" [color="red"];
+  "31" -> "31_sys" [color="green"];
+  "31_sys" -> "29" [color="red"];
+  "32" -> "32_sys" [color="green"];
+  "32_sys" -> "33" [color="red"];
+  "32_sys" -> "34" [color="red"];
+  "33" -> "33_sys" [color="green"];
+  "33_sys" -> "32" [color="red"];
+  "34" -> "34_sys" [color="green"];
+  "34_sys" -> "35" [color="red"];
+  "34_sys" -> "36" [color="red"];
+  "35" -> "35_sys" [color="green"];
+  "35_sys" -> "34" [color="red"];
+  "36" -> "36_sys" [color="green"];
+  "36_sys" -> "37" [color="red"];
+  "36_sys" -> "38" [color="red"];
+  "37" -> "37_sys" [color="green"];
+  "37_sys" -> "36" [color="red"];
+  "38" -> "38_sys" [color="green"];
+  "38_sys" -> "39" [color="red"];
+  "38_sys" -> "40" [color="red"];
+  "39" -> "39_sys" [color="green"];
+  "39_sys" -> "41" [color="red"];
+  "39_sys" -> "42" [color="red"];
+  "40" -> "40_sys" [color="green"];
+  "40_sys" -> "38" [color="red"];
+  "41" -> "41_sys" [color="green"];
+  "41_sys" -> "39" [color="red"];
+  "42" -> "42_sys" [color="green"];
+  "42_sys" -> "43" [color="red"];
+  "42_sys" -> "44" [color="red"];
+  "43" -> "43_sys" [color="green"];
+  "43_sys" -> "42" [color="red"];
+  "44" -> "44_sys" [color="green"];
+  "44_sys" -> "45" [color="red"];
+  "45" -> "45_sys" [color="green"];
+  "45_sys" -> "45" [color="red"];
+}

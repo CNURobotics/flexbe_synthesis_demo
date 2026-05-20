@@ -1,0 +1,5 @@
+/data:
+    system_name: 'ros:system_name'                  # Get from ROS 2 launch parameter
+    capabilities_path: 'ros:capabilities_path'        # Get from ROS 2 launch parameter
+    global_mappings_path: 'ros:global_mappings_path'  # Get from ROS 2 launch parameter
+    custom_mappings_path: 'ros:custom_mappings_path'  # Get from ROS 2 launch parameter

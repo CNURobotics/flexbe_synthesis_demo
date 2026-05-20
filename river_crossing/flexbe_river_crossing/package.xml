@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package format="3">
+    <name>flexbe_river_crossing</name>
+    <version>0.0.1</version>
+    <description>
+        Meta-package that aggregates all FlexBE river-crossing synthesis
+        demonstration packages.
+    </description>
+    <maintainer email="robotics@cnu.edu">David Conner</maintainer>
+    <license>Apache-2.0</license>
+
+    <url type="website">https://github.com/CNURobotics/flexbe_synthesis_demo</url>
+    <url type="bugtracker">https://github.com/CNURobotics/flexbe_synthesis_demo/issues</url>
+    <url type="repository">https://github.com/CNURobotics/flexbe_synthesis_demo</url>
+
+    <author>Joshua Luzier</author>
+    <author email="robotics@cnu.edu">David Conner</author>
+
+    <depend>flexbe_river_crossing_msgs</depend>
+    <depend>flexbe_river_crossing_behaviors</depend>
+    <depend>flexbe_river_crossing_flexbe_states</depend>
+    <depend>flexbe_river_crossing_synthesis</depend>
+    <depend>flexbe_river_crossing_visualization</depend>
+
+    <buildtool_depend>ament_cmake</buildtool_depend>
+
+    <export>
+        <build_type>ament_cmake</build_type>
+    </export>
+
+</package>

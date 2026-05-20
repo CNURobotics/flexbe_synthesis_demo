@@ -1,0 +1,8 @@
+[flake8]
+exclude = .git
+max-line-length = 135
+per-file-ignores =
+    # FlexBE behavior files always include container/logger imports and use a
+    # fixed import order, double-quoted strings, long generated lines, and a
+    # fixed blank-line style — all code-generator artifacts.
+    *_sm.py: E301,E303,E501,F401,I100,I201,Q000

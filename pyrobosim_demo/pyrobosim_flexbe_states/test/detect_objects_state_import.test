@@ -1,0 +1,4 @@
+path: pyrobosim_flexbe_states.detect_objects_state
+class: DetectObjectsState
+
+import_only: true

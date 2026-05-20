@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<package format="3">
+    <name>flexbe_river_crossing_flexbe_states</name>
+    <version>0.0.1</version>
+    <description>
+        Custom FlexBE states for the wolf-goat-corn-farmer synthesis demonstration.
+        Provides MoveState (single river) and MoveState2R (two rivers) to simulate
+        river crossings and publish WGCFStatus updates for visualization.
+    </description>
+    <maintainer email="robotics@cnu.edu">David Conner</maintainer>
+    <license>Apache-2.0</license>
+
+    <url type="website">https://github.com/CNURobotics/flexbe_synthesis_demo</url>
+    <url type="bugtracker">https://github.com/CNURobotics/flexbe_synthesis_demo/issues</url>
+    <url type="repository">https://github.com/CNURobotics/flexbe_synthesis_demo</url>
+
+    <author>Joshua Luzier</author>
+    <author email="robotics@cnu.edu">David Conner</author>
+
+    <depend>rclpy</depend>
+    <depend>flexbe_core</depend>
+    <depend>flexbe_river_crossing_msgs</depend>
+
+    <test_depend>ament_copyright</test_depend>
+    <test_depend>ament_flake8</test_depend>
+    <test_depend>ament_pep257</test_depend>
+    <test_depend>python3-pytest</test_depend>
+
+    <export>
+        <build_type>ament_python</build_type>
+        <flexbe_states/>
+    </export>
+</package>

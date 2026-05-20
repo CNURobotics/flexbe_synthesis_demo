@@ -1,0 +1,4 @@
+path: pyrobosim_flexbe_states.follow_path_state
+class: FollowPathState
+
+import_only: true

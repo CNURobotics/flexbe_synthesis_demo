@@ -1,0 +1,4 @@
+path: pyrobosim_flexbe_states.place_action_state
+class: PlaceActionState
+
+import_only: true

@@ -1,0 +1,4 @@
+path: pyrobosim_flexbe_states.monitor_battery_state
+class: MonitorBatteryState
+
+import_only: true

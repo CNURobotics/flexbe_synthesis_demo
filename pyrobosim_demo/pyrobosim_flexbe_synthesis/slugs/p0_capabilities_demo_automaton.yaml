@@ -1,0 +1,1193 @@
+"automaton":
+- "incoming": []
+  "input_valuation": 14950858840
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": true
+  "name": "0"
+  "output_valuation": 1
+  "output_values":
+    "move_dest": 0
+    "pick": 21
+  "output_variables":
+  - "begin_game_a"
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 14950858840
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "1"
+  "output_valuation": 2049
+  "output_values":
+    "move_dest": 16
+    "pick": 21
+  "output_variables":
+  - "begin_game_a"
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 14950858840
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "2"
+  "output_valuation": 1025
+  "output_values":
+    "move_dest": 8
+    "pick": 21
+  "output_variables":
+  - "begin_game_a"
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 14950858840
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "3"
+  "output_valuation": 513
+  "output_values":
+    "move_dest": 4
+    "pick": 21
+  "output_variables":
+  - "begin_game_a"
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 14950858840
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "4"
+  "output_valuation": 2561
+  "output_values":
+    "move_dest": 20
+    "pick": 21
+  "output_variables":
+  - "begin_game_a"
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 14950858840
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "5"
+  "output_valuation": 1537
+  "output_values":
+    "move_dest": 12
+    "pick": 21
+  "output_variables":
+  - "begin_game_a"
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 14950858840
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "6"
+  "output_valuation": 257
+  "output_values":
+    "move_dest": 2
+    "pick": 21
+  "output_variables":
+  - "begin_game_a"
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 14950858840
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "7"
+  "output_valuation": 1281
+  "output_values":
+    "move_dest": 10
+    "pick": 21
+  "output_variables":
+  - "begin_game_a"
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 14950858840
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "8"
+  "output_valuation": 769
+  "output_values":
+    "move_dest": 6
+    "pick": 21
+  "output_variables":
+  - "begin_game_a"
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 14950858840
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "9"
+  "output_valuation": 1793
+  "output_values":
+    "move_dest": 14
+    "pick": 21
+  "output_variables":
+  - "begin_game_a"
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 14950858840
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "10"
+  "output_valuation": 129
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "begin_game_a"
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 14950858840
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "11"
+  "output_valuation": 2177
+  "output_values":
+    "move_dest": 17
+    "pick": 21
+  "output_variables":
+  - "begin_game_a"
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 14950858840
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "12"
+  "output_valuation": 1153
+  "output_values":
+    "move_dest": 9
+    "pick": 21
+  "output_variables":
+  - "begin_game_a"
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 14950858840
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "13"
+  "output_valuation": 641
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "begin_game_a"
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 14950858840
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "14"
+  "output_valuation": 1665
+  "output_values":
+    "move_dest": 13
+    "pick": 21
+  "output_variables":
+  - "begin_game_a"
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 14950858840
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "15"
+  "output_valuation": 385
+  "output_values":
+    "move_dest": 3
+    "pick": 21
+  "output_variables":
+  - "begin_game_a"
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 14950858840
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "16"
+  "output_valuation": 2433
+  "output_values":
+    "move_dest": 19
+    "pick": 21
+  "output_variables":
+  - "begin_game_a"
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 14950858840
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "17"
+  "output_valuation": 1409
+  "output_values":
+    "move_dest": 11
+    "pick": 21
+  "output_variables":
+  - "begin_game_a"
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 14950858840
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "18"
+  "output_valuation": 897
+  "output_values":
+    "move_dest": 7
+    "pick": 21
+  "output_variables":
+  - "begin_game_a"
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 14950858840
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "19"
+  "output_valuation": 1921
+  "output_values":
+    "move_dest": 15
+    "pick": 21
+  "output_variables":
+  - "begin_game_a"
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming":
+  - "0"
+  - "1"
+  - "2"
+  - "3"
+  - "4"
+  - "5"
+  - "6"
+  - "7"
+  - "8"
+  - "9"
+  - "10"
+  - "11"
+  - "12"
+  - "13"
+  - "14"
+  - "15"
+  - "16"
+  - "17"
+  - "18"
+  - "19"
+  "input_valuation": 14950858841
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "begin_game_c"
+  "is_initial": false
+  "name": "20"
+  "output_valuation": 4608
+  "output_values":
+    "move_dest": 4
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "21"
+  - "22"
+- "incoming":
+  - "20"
+  - "23"
+  "input_valuation": 14950875224
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "21"
+  "output_valuation": 32
+  "output_values":
+    "move_dest": 0
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "23"
+- "incoming":
+  - "20"
+  - "23"
+  "input_valuation": 14949032024
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 4
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "22"
+  "output_valuation": 16388
+  "output_values":
+    "move_dest": 0
+    "pick": 23
+  "output_variables":
+  - "grab_item_a"
+  "rank": 0
+  "transitions":
+  - "24"
+  - "25"
+- "incoming":
+  - "21"
+  "input_valuation": 14950860888
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "23"
+  "output_valuation": 4608
+  "output_values":
+    "move_dest": 4
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "21"
+  - "22"
+- "incoming":
+  - "22"
+  - "28"
+  "input_valuation": 14949023952
+  "input_values":
+    "bread0": 0
+    "butter0": 5
+    "robot_loc": 4
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "grab_item_c"
+  "is_initial": false
+  "name": "24"
+  "output_valuation": 4480
+  "output_values":
+    "move_dest": 3
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "26"
+  - "27"
+- "incoming":
+  - "22"
+  - "28"
+  "input_valuation": 14949024088
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 4
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "grab_item_f"
+  "is_initial": false
+  "name": "25"
+  "output_valuation": 16
+  "output_values":
+    "move_dest": 0
+    "pick": 21
+  "output_variables":
+  - "log_grab_failed_a"
+  "rank": 0
+  "transitions":
+  - "28"
+- "incoming":
+  - "24"
+  - "29"
+  "input_valuation": 14949040208
+  "input_values":
+    "bread0": 0
+    "butter0": 5
+    "robot_loc": 4
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "26"
+  "output_valuation": 32
+  "output_values":
+    "move_dest": 0
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "29"
+- "incoming":
+  - "24"
+  - "29"
+  "input_valuation": 14948900944
+  "input_values":
+    "bread0": 0
+    "butter0": 5
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "27"
+  "output_valuation": 65536
+  "output_values":
+    "move_dest": 0
+    "pick": 21
+  "output_variables":
+  - "place_item_a"
+  "rank": 0
+  "transitions":
+  - "30"
+  - "31"
+- "incoming":
+  - "25"
+  "input_valuation": 14949024856
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 4
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_grab_failed_c"
+  "is_initial": false
+  "name": "28"
+  "output_valuation": 16388
+  "output_values":
+    "move_dest": 0
+    "pick": 23
+  "output_variables":
+  - "grab_item_a"
+  "rank": 0
+  "transitions":
+  - "24"
+  - "25"
+- "incoming":
+  - "26"
+  "input_valuation": 14949025872
+  "input_values":
+    "bread0": 0
+    "butter0": 5
+    "robot_loc": 4
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "29"
+  "output_valuation": 4480
+  "output_values":
+    "move_dest": 3
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "26"
+  - "27"
+- "incoming":
+  - "27"
+  - "32"
+  "input_valuation": 14948958288
+  "input_values":
+    "bread0": 0
+    "butter0": 5
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "place_item_f"
+  "is_initial": false
+  "name": "30"
+  "output_valuation": 64
+  "output_values":
+    "move_dest": 0
+    "pick": 21
+  "output_variables":
+  - "log_place_failed_a"
+  "rank": 0
+  "transitions":
+  - "32"
+- "incoming":
+  - "27"
+  - "32"
+  "input_valuation": 14948925526
+  "input_values":
+    "bread0": 3
+    "butter0": 5
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "place_item_c"
+  "is_initial": false
+  "name": "31"
+  "output_valuation": 4736
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "33"
+  - "34"
+- "incoming":
+  - "30"
+  "input_valuation": 14948896848
+  "input_values":
+    "bread0": 0
+    "butter0": 5
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_place_failed_c"
+  "is_initial": false
+  "name": "32"
+  "output_valuation": 65536
+  "output_values":
+    "move_dest": 0
+    "pick": 21
+  "output_variables":
+  - "place_item_a"
+  "rank": 0
+  "transitions":
+  - "30"
+  - "31"
+- "incoming":
+  - "31"
+  - "35"
+  "input_valuation": 14948909142
+  "input_values":
+    "bread0": 3
+    "butter0": 5
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "33"
+  "output_valuation": 32
+  "output_values":
+    "move_dest": 0
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "35"
+- "incoming":
+  - "31"
+  - "35"
+  "input_valuation": 14949163094
+  "input_values":
+    "bread0": 3
+    "butter0": 5
+    "robot_loc": 5
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "34"
+  "output_valuation": 8196
+  "output_values":
+    "move_dest": 0
+    "pick": 22
+  "output_variables":
+  - "grab_item_a"
+  "rank": 0
+  "transitions":
+  - "36"
+  - "37"
+- "incoming":
+  - "33"
+  "input_valuation": 14948894806
+  "input_values":
+    "bread0": 3
+    "butter0": 5
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "35"
+  "output_valuation": 4736
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "33"
+  - "34"
+- "incoming":
+  - "34"
+  - "40"
+  "input_valuation": 14949154950
+  "input_values":
+    "bread0": 3
+    "butter0": 0
+    "robot_loc": 5
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "grab_item_c"
+  "is_initial": false
+  "name": "36"
+  "output_valuation": 4480
+  "output_values":
+    "move_dest": 3
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "38"
+  - "39"
+- "incoming":
+  - "34"
+  - "40"
+  "input_valuation": 14949155158
+  "input_values":
+    "bread0": 3
+    "butter0": 5
+    "robot_loc": 5
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "grab_item_f"
+  "is_initial": false
+  "name": "37"
+  "output_valuation": 16
+  "output_values":
+    "move_dest": 0
+    "pick": 21
+  "output_variables":
+  - "log_grab_failed_a"
+  "rank": 0
+  "transitions":
+  - "40"
+- "incoming":
+  - "36"
+  - "41"
+  "input_valuation": 14949171206
+  "input_values":
+    "bread0": 3
+    "butter0": 0
+    "robot_loc": 5
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "38"
+  "output_valuation": 32
+  "output_values":
+    "move_dest": 0
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "41"
+- "incoming":
+  - "36"
+  - "41"
+  "input_valuation": 14948900870
+  "input_values":
+    "bread0": 3
+    "butter0": 0
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "39"
+  "output_valuation": 65536
+  "output_values":
+    "move_dest": 0
+    "pick": 21
+  "output_variables":
+  - "place_item_a"
+  "rank": 0
+  "transitions":
+  - "42"
+  - "43"
+- "incoming":
+  - "37"
+  "input_valuation": 14949155926
+  "input_values":
+    "bread0": 3
+    "butter0": 5
+    "robot_loc": 5
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_grab_failed_c"
+  "is_initial": false
+  "name": "40"
+  "output_valuation": 8196
+  "output_values":
+    "move_dest": 0
+    "pick": 22
+  "output_variables":
+  - "grab_item_a"
+  "rank": 0
+  "transitions":
+  - "36"
+  - "37"
+- "incoming":
+  - "38"
+  "input_valuation": 14949156870
+  "input_values":
+    "bread0": 3
+    "butter0": 0
+    "robot_loc": 5
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "41"
+  "output_valuation": 4480
+  "output_values":
+    "move_dest": 3
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "38"
+  - "39"
+- "incoming":
+  - "39"
+  - "44"
+  "input_valuation": 14948958214
+  "input_values":
+    "bread0": 3
+    "butter0": 0
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "place_item_f"
+  "is_initial": false
+  "name": "42"
+  "output_valuation": 64
+  "output_values":
+    "move_dest": 0
+    "pick": 21
+  "output_variables":
+  - "log_place_failed_a"
+  "rank": 0
+  "transitions":
+  - "44"
+- "incoming":
+  - "39"
+  - "44"
+  "input_valuation": 14948925494
+  "input_values":
+    "bread0": 3
+    "butter0": 3
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "place_item_c"
+  "is_initial": false
+  "name": "43"
+  "output_valuation": 8
+  "output_values":
+    "move_dest": 0
+    "pick": 21
+  "output_variables":
+  - "log_finished_a"
+  "rank": 0
+  "transitions":
+  - "45"
+- "incoming":
+  - "42"
+  "input_valuation": 14948896774
+  "input_values":
+    "bread0": 3
+    "butter0": 0
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_place_failed_c"
+  "is_initial": false
+  "name": "44"
+  "output_valuation": 65536
+  "output_values":
+    "move_dest": 0
+    "pick": 21
+  "output_variables":
+  - "place_item_a"
+  "rank": 0
+  "transitions":
+  - "42"
+  - "43"
+- "incoming":
+  - "43"
+  "input_valuation": 14948893238
+  "input_values":
+    "bread0": 3
+    "butter0": 3
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_finished_c"
+  "is_initial": false
+  "name": "45"
+  "output_valuation": 2
+  "output_values":
+    "move_dest": 0
+    "pick": 21
+  "output_variables":
+  - "finished"
+  "rank": 0
+  "transitions":
+  - "46"
+- "incoming":
+  - "45"
+  - "46"
+  "input_valuation": 14948892726
+  "input_values":
+    "bread0": 3
+    "butter0": 3
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "46"
+  "output_valuation": 2
+  "output_values":
+    "move_dest": 0
+    "pick": 21
+  "output_variables":
+  - "finished"
+  "rank": 0
+  "transitions":
+  - "46"
+"input_variables":
+- "begin_game_c"
+- "bread0@0"
+- "bread0@1"
+- "bread0@2"
+- "butter0@0"
+- "butter0@1"
+- "butter0@2"
+- "grab_item_c"
+- "grab_item_f"
+- "log_finished_c"
+- "log_grab_failed_c"
+- "log_move_failed_c"
+- "log_place_failed_c"
+- "move_robot_c"
+- "move_robot_f"
+- "place_item_c"
+- "place_item_f"
+- "robot_loc@0"
+- "robot_loc@1"
+- "robot_loc@2"
+- "robot_loc@3"
+- "robot_loc@4"
+- "snacks0@0"
+- "snacks0@1"
+- "snacks0@2"
+- "soda0@0"
+- "soda0@1"
+- "soda0@2"
+- "waste0@0"
+- "waste0@1"
+- "waste0@2"
+- "waste1@0"
+- "waste1@1"
+- "waste1@2"
+"output_variables":
+- "begin_game_a"
+- "finished"
+- "grab_item_a"
+- "log_finished_a"
+- "log_grab_failed_a"
+- "log_move_failed_a"
+- "log_place_failed_a"
+- "move_dest@0"
+- "move_dest@1"
+- "move_dest@2"
+- "move_dest@3"
+- "move_dest@4"
+- "move_robot_a"
+- "pick@0"
+- "pick@1"
+- "pick@2"
+- "place_item_a"

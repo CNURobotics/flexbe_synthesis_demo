@@ -1,0 +1,47 @@
+/pipeline:
+    - entry_point:
+        name: slugs_automaton_loader
+        inputs:
+            predefined_automaton_path: FilePathStr
+        outputs:
+            automaton: Automaton
+            error_code: SynthesisErrorCode
+    - entry_point:
+        name: slugs_mealy_graph
+        inputs:
+            automaton: Automaton
+            specs_output_dir_path: FilePathStr
+            spec_name: NameStr
+        outputs:
+            error_code: SynthesisErrorCode
+    - entry_point:
+        name: slugs_sm_reducer
+        inputs:
+            automaton: Automaton
+        outputs:
+            reduced_automaton: Automaton
+            error_code: SynthesisErrorCode
+    - entry_point:
+        name: slugs_mealy_graph
+        inputs:
+            reduced_automaton: Automaton
+            specs_output_dir_path: FilePathStr
+            reduced_automaton_name: NameStr
+        outputs:
+            error_code: SynthesisErrorCode
+    - entry_point:
+        name: slugs_sm_generator
+        inputs:
+            reduced_automaton: Automaton
+            system_name: NameStr
+        outputs:
+            state_defn: List[StateInstantiation]
+            error_code: SynthesisErrorCode
+    - entry_point:
+        name: sm_layout
+        inputs:
+            state_defn: List[StateInstantiation]
+            specs_output_dir_path: FilePathStr   # Empty string or not used to avoid writing to image
+        outputs:
+            state_defn: List[StateInstantiation]
+            error_code: SynthesisErrorCode

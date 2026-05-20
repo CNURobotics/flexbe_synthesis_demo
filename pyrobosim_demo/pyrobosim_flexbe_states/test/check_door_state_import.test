@@ -1,0 +1,4 @@
+path: pyrobosim_flexbe_states.check_door_state
+class: CheckDoorState
+
+import_only: true

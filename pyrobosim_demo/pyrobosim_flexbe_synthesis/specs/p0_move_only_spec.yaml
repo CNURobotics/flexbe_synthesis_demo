@@ -1,0 +1,92 @@
+spec_name: "p0_move_only_spec"
+specs:
+    # This simplified version presumes everything is always open
+    INPUT:
+        # Where the robot is
+        - "robot_loc:1...20" #Robot is location 0 for item locations
+
+        # Open/closed boolean input, and ordered locations for pick/place items
+        # - "dumpster"                # Location 1
+        # - "charger"                 # Location 2
+        # - "table"                   # Location 3
+        # - "pantry"                  # Location 4
+        # - "fridge"                  # Location 5
+        # - "desk"                    # Location 6
+        # - "bin"                     # Location 7
+
+        # # Open/closed boolean input, and ordered locations
+        # - "hall_trash_closet"       # Location 8
+        # - "hall_trash_dining"       # Location 9
+        # - "hall_trash_kitchen"      # Location 10
+        # - "hall_closet_dining"      # Location 11
+        # - "hall_closet_office"      # Location 12
+        # - "hall_dining_kitchen"     # Location 13
+        # - "hall_dining_office"      # Location 14
+        # - "hall_kitchen_office"     # Location 16
+
+        #Rooms locations, but do not have an associated input value
+        #trash          #16
+        #closet         #17
+        #dining         #18
+        #kitchen        #19
+        #office         #20
+
+        - "move_robot_f"
+        - "move_robot_c"
+        - "log_move_failed_c"
+
+    OUTPUT:
+        - "move_robot_a"
+        - "finished"
+        - "log_move_failed_a"
+        - "move_dest:1...20"
+
+    SYS_INIT:
+        - "!finished"
+        - "!log_move_failed_a"
+        # Specifying this makes it do minimal SM
+        - "move_dest=3"
+
+    ENV_INIT:
+        - "robot_loc=18"
+        - "!move_robot_c"
+        - "!move_robot_f"
+        - "!log_move_failed_c"
+
+    SYS_TRANS:
+        # Do an action each turn
+        - "move_robot_a | finished | log_move_failed_a"
+
+        # But only do one action at a time
+        - "!(move_robot_a & (finished | log_move_failed_a))"
+        - "!(finished & (move_robot_a | log_move_failed_a))"
+        - "!(log_move_failed_a & (finished | move_robot_a))"
+
+        # Failure logging
+        - "move_robot_f <-> log_move_failed_a"           # log all failures
+        - "log_move_failed_c -> !log_move_failed_a"      # only log once per failure
+
+        # Goal transition
+        - "robot_loc!=3 -> !finished"
+        - "robot_loc=3 -> finished"
+        - "finished -> finished'"
+
+        - "!finished -> move_dest!=robot_loc"
+
+    ENV_TRANS:
+        # actions only have an outcome if activated
+        - "!move_robot_a -> !move_robot_c' & !move_robot_f'"
+        - "!log_move_failed_a -> !log_move_failed_c'"
+
+        # Actions have one and only one outcome
+        - "move_robot_a -> (move_robot_c' | move_robot_f') & (!move_robot_c' | !move_robot_f')"
+        - "log_move_failed_a -> log_move_failed_c'"
+
+        # Result of actions on environment
+        - "move_robot_c' -> (robot_loc' = move_dest)"
+        - "!move_robot_c' -> (robot_loc' = robot_loc)"
+
+    SYS_LIVENESS:
+        - "finished | !(move_robot_a -> move_robot_c')"
+
+    ENV_LIVENESS: []

@@ -1,0 +1,131 @@
+spec_name: "wgcf"
+specs:
+    INPUT:
+        # World-state: which bank each character is on (false = left, true = right)
+        - "wolf"
+        - "goat"
+        - "corn"
+        - "farmer"
+
+        # FlexBE state outcomes (_c = completed, _f = failed/canceled)
+        -  "move_wolf_c"
+        -  "move_wolf_f"
+        -  "move_goat_c"
+        -  "move_goat_f"
+        -  "move_corn_c"
+        -  "move_corn_f"
+        -  "move_null_c"
+        -  "move_null_f"
+        - "begin_game_c"
+        - "begin_game_f"
+        - "log_failed_c"
+        - "log_finished_c"
+    OUTPUT:
+        # FlexBE state activations (_a = activate)
+        - "move_wolf_a"
+        - "move_goat_a"
+        - "move_corn_a"
+        - "move_null_a"
+        - "begin_game_a"
+        - "log_failed_a"
+        - "log_finished_a"
+        - "finished"
+    ENV_INIT:
+        # Everyone starts on the left bank
+        - "!wolf"
+        - "!goat"
+        - "!corn"
+        - "!farmer"
+
+        # All outcome flags start clear; begin_game is pre-acknowledged
+        -  "!move_wolf_c"
+        -  "!move_wolf_f"
+        -  "!move_goat_c"
+        -  "!move_goat_f"
+        -  "!move_corn_c"
+        -  "!move_corn_f"
+        -  "!move_null_c"
+        -  "!move_null_f"
+        - "begin_game_c"
+        - "!begin_game_f"
+        - "!log_failed_c"
+        - "!log_finished_c"
+    ENV_TRANS:
+        # Each activated move gets exactly one outcome (completed XOR failed)
+        - "move_wolf_a -> (!move_wolf_f' | !move_wolf_c') & (move_wolf_f' | move_wolf_c')"
+        - "move_goat_a -> (!move_goat_f' | !move_goat_c') & (move_goat_f' | move_goat_c')"
+        - "move_corn_a -> (!move_corn_f' | !move_corn_c') & (move_corn_f' | move_corn_c')"
+        - "move_null_a -> (!move_null_f' | !move_null_c') & (move_null_f' | move_null_c')"
+        - "log_failed_a -> log_failed_c'"
+        - "log_finished_a -> log_finished_c'"
+
+        # Negative actions: no outcome fires if the action is not active
+        - "!move_wolf_a -> !move_wolf_c' & !move_wolf_f'"
+        - "!move_goat_a -> !move_goat_c' & !move_goat_f'"
+        - "!move_corn_a -> !move_corn_c' & !move_corn_f'"
+        - "!move_null_a -> !move_null_c' & !move_null_f'"
+        - "!log_failed_a -> !log_failed_c'"
+        - "!log_finished_a -> !log_finished_c'"
+        - "!begin_game_a -> !begin_game_c' & !begin_game_f'"
+
+        # Inertia: bank positions only change when the matching move completes
+        - "!move_wolf_c' -> ((wolf & wolf') | (!wolf & !wolf'))"
+        - "!move_goat_c' -> ((goat & goat') | (!goat & !goat'))"
+        - "!move_corn_c' -> ((corn & corn') | (!corn & !corn'))"
+        - "!move_wolf_c' & !move_goat_c' & !move_corn_c' & !move_null_c' -> ((farmer & farmer') | (!farmer & !farmer'))"
+
+        # Movement rules: completed crossing flips the character and farmer to the opposite bank
+        - "(!wolf & move_wolf_c' & !farmer) -> wolf' & farmer'"
+        - "( wolf & move_wolf_c' &  farmer) ->!wolf' &!farmer'"
+        - "(!goat & move_goat_c' & !farmer) -> goat' & farmer'"
+        - "( goat & move_goat_c' &  farmer) ->!goat' &!farmer'"
+        - "(!corn & move_corn_c' & !farmer) -> corn' & farmer'"
+        - "( corn & move_corn_c' &  farmer) ->!corn' &!farmer'"
+        - "( farmer & move_null_a) -> (!farmer' & move_null_c') | ( farmer' & move_null_f')"
+        - "(!farmer & move_null_a) -> ( farmer' & move_null_c') | (!farmer' & move_null_f')"
+    SYS_TRANS:
+        # begin_game fires only at startup (handled by the pipeline initializer)
+        - "!begin_game_a"
+
+        # Actions: exactly one must be active each step
+        - "move_wolf_a | move_goat_a | move_corn_a | move_null_a | log_failed_a | log_finished_a | finished"
+
+        # Mutual exclusion of actions
+        - "!(move_wolf_a & (move_goat_a | move_corn_a | move_null_a | log_failed_a | log_finished_a | finished))"
+        - "!(move_goat_a & (move_wolf_a | move_corn_a | move_null_a | log_failed_a | log_finished_a | finished))"
+        - "!(move_corn_a & (move_wolf_a | move_goat_a | move_null_a | log_failed_a | log_finished_a | finished))"
+        - "!(move_null_a & (move_wolf_a | move_goat_a | move_corn_a | log_failed_a | log_finished_a | finished))"
+        - "!(log_failed_a & (move_wolf_a | move_goat_a | move_corn_a | move_null_a | log_finished_a | finished))"
+        - "!(log_finished_a & (move_wolf_a | move_goat_a | move_corn_a | move_null_a | log_failed_a | finished))"
+        - "!(finished & (move_wolf_a | move_goat_a | move_corn_a | move_null_a | log_failed_a | log_finished_a))"
+
+        # Movement constraints: can only move an item if it is with the farmer
+        - "(goat & !farmer) -> !move_goat_a"
+        - "(!goat & farmer) -> !move_goat_a"
+        - "(wolf & !farmer) -> !move_wolf_a"
+        - "(!wolf & farmer) -> !move_wolf_a"
+        - "(corn & !farmer) -> !move_corn_a"
+        - "(!corn & farmer) -> !move_corn_a"
+
+        # Safety: farmer must stay with goat whenever wolf or corn is present on the same bank
+        - "(goat' & wolf') -> farmer'"
+        - "(!goat' & !wolf') -> !farmer'"
+        - "(goat' & corn') -> farmer'"
+        - "(!goat' & !corn') -> !farmer'"
+
+        # Failure handling: log once per failure, clear on acknowledgment
+        - "log_failed_c -> !log_failed_a"
+        - "log_finished_c -> !log_finished_a"
+        - "!move_wolf_f & !move_goat_f & !move_corn_f & !move_null_f -> !log_failed_a"
+        - "move_wolf_f -> log_failed_a"
+        - "move_goat_f -> log_failed_a"
+        - "move_corn_f -> log_failed_a"
+        - "move_null_f -> log_failed_a"
+
+        # Completion: once finished stays finished; trigger log_finished when all cross
+        - "finished -> finished'"
+        - "!(wolf & goat & corn) & (wolf' & goat' & corn') -> log_finished_a'"
+        - "!(wolf & goat & corn) -> !log_finished_a & !finished"
+    SYS_LIVENESS:
+        # Adversarial win: system wins if it finishes OR if any activated move is never given an outcome
+        - "finished | !(move_wolf_a -> move_wolf_c') | !(move_goat_a -> move_goat_c') | !(move_corn_a -> move_corn_c') | !(move_null_a -> move_null_c')"

@@ -1,0 +1,4 @@
+path: pyrobosim_flexbe_states.navigate_action_state
+class: NavigateActionState
+
+import_only: true

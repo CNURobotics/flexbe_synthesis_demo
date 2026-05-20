@@ -1,0 +1,106 @@
+"automaton":
+- "incoming": []
+  "input_valuation": 136
+  "input_values":
+    "robot_loc": 18
+  "input_variables": []
+  "is_initial": true
+  "name": "0"
+  "output_valuation": 136
+  "output_values":
+    "move_dest": 3
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "1"
+  - "2"
+- "incoming":
+  - "0"
+  - "3"
+  "input_valuation": 140
+  "input_values":
+    "robot_loc": 18
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "1"
+  "output_valuation": 2
+  "output_values":
+    "move_dest": 1
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "3"
+- "incoming":
+  - "0"
+  - "3"
+  "input_valuation": 18
+  "input_values":
+    "robot_loc": 3
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "2"
+  "output_valuation": 1
+  "output_values":
+    "move_dest": 1
+  "output_variables":
+  - "finished"
+  "rank": 0
+  "transitions":
+  - "4"
+- "incoming":
+  - "1"
+  "input_valuation": 137
+  "input_values":
+    "robot_loc": 18
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "3"
+  "output_valuation": 136
+  "output_values":
+    "move_dest": 3
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "1"
+  - "2"
+- "incoming":
+  - "2"
+  - "4"
+  "input_valuation": 16
+  "input_values":
+    "robot_loc": 3
+  "input_variables": []
+  "is_initial": false
+  "name": "4"
+  "output_valuation": 1
+  "output_values":
+    "move_dest": 1
+  "output_variables":
+  - "finished"
+  "rank": 0
+  "transitions":
+  - "4"
+"input_variables":
+- "log_move_failed_c"
+- "move_robot_c"
+- "move_robot_f"
+- "robot_loc@0"
+- "robot_loc@1"
+- "robot_loc@2"
+- "robot_loc@3"
+- "robot_loc@4"
+"output_variables":
+- "finished"
+- "log_move_failed_a"
+- "move_dest@0"
+- "move_dest@1"
+- "move_dest@2"
+- "move_dest@3"
+- "move_dest@4"
+- "move_robot_a"

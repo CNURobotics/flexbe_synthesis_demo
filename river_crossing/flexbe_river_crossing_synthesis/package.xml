@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>flexbe_river_crossing_synthesis</name>
+  <version>0.0.1</version>
+  <description>
+      Launch files, pipeline configurations, GR(1) specifications, capability definitions,
+      and request clients for the river-crossing synthesis demonstration (WGCF and two-rivers
+      scenarios across full-spec, capabilities, and capabilities-parsed pipeline variants).
+  </description>
+  <maintainer email="robotics@cnu.edu">David Conner</maintainer>
+  <license>Apache-2.0</license>
+
+  <url type="website">https://github.com/CNURobotics/flexbe_synthesis_demo</url>
+  <url type="bugtracker">https://github.com/CNURobotics/flexbe_synthesis_demo/issues</url>
+  <url type="repository">https://github.com/CNURobotics/flexbe_synthesis_demo</url>
+
+  <author>Joshua Luzier</author>
+  <author>William Doyle</author>
+  <author email="robotics@cnu.edu">David Conner</author>
+
+  <exec_depend>flexbe_synthesis_core</exec_depend>
+  <exec_depend>flexbe_synthesis_generic</exec_depend>
+  <exec_depend>flexbe_synthesis_msgs</exec_depend>
+  <exec_depend>flexbe_synthesis_slugs</exec_depend>
+  <exec_depend>flexbe_river_crossing_flexbe_states</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>rosidl_runtime_py</exec_depend>
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

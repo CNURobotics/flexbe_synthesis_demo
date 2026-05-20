@@ -1,0 +1,8 @@
+# Mappings used to standardize names
+state_outcome_mappings:
+    # --- Successes ---
+    ###################
+    # --- Failures  ---
+    motion_failed: failure
+    planning_failed: failure
+

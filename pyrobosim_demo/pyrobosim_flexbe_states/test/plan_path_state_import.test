@@ -1,0 +1,4 @@
+path: pyrobosim_flexbe_states.plan_path_state
+class: PlanPathState
+
+import_only: true

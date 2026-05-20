@@ -1,0 +1,4 @@
+path: pyrobosim_flexbe_states.pick_action_state
+class: PickActionState
+
+import_only: true

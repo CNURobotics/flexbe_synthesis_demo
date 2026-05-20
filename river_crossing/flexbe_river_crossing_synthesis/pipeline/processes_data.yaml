@@ -1,0 +1,9 @@
+# Allow us to input custom data into the processing pipeline at start of each run
+/data:
+    spec_path: 'ros:spec_path'   # Get from ROS 2 launch parameter
+    spec_name: 'req:spec_name'   # Use spec_name from the action request
+    slugs_specification: {}
+    synthesis_timeout_s: 60.0          # Override default 15-minute Slugs timeout for demos
+    reduced_automaton_name: 'reduced_automaton'
+    failure_outcome: ''             # Used in respec example - do NOT fail, retry
+    failure_conditions: []          # Default to check all actions

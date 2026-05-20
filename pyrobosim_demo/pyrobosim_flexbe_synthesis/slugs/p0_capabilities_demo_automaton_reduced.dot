@@ -1,0 +1,315 @@
+digraph StateMachine {
+  outputorder="edgesfirst";
+  layout="dot";
+  splines=true;
+  rankdir=LR;
+  nodesep=0.8;
+  ranksep=1.2;
+  overlap=false;
+  dpi=150;
+  fontname="Liberation Sans";
+  node [fontname="Liberation Sans", fontweight="bold", penwidth=2.0];
+  edge [fontname="Liberation Sans", fontweight="bold", penwidth=2.0];
+  "Init" [shape=point];
+  "0" [width=0.4, height=0.4, fontsize=6, xlabel="0
+bread0=4
+butter0=5
+robot_loc=18
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "0_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="0_sys
+begin_game_a
+move_dest=0
+pick=21", label=""];
+  "20" [width=0.4, height=0.4, fontsize=6, xlabel="20
+begin_game_c
+log_move_failed_c
+bread0=4
+butter0=5
+robot_loc=18
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "20_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="20_sys
+move_robot_a
+move_dest=4
+pick=21", label=""];
+  "21" [width=0.4, height=0.4, fontsize=6, xlabel="21
+move_robot_f
+bread0=4
+butter0=5
+robot_loc=18
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "21_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="21_sys
+log_move_failed_a
+move_dest=0
+pick=21", label=""];
+  "22" [width=0.4, height=0.4, fontsize=6, xlabel="22
+log_grab_failed_c
+move_robot_c
+bread0=4
+butter0=5
+robot_loc=4
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "22_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="22_sys
+grab_item_a
+move_dest=0
+pick=23", label=""];
+  "24" [width=0.4, height=0.4, fontsize=6, xlabel="24
+grab_item_c
+log_move_failed_c
+bread0=0
+butter0=5
+robot_loc=4
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "24_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="24_sys
+move_robot_a
+move_dest=3
+pick=21", label=""];
+  "25" [width=0.4, height=0.4, fontsize=6, xlabel="25
+grab_item_f
+bread0=4
+butter0=5
+robot_loc=4
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "25_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="25_sys
+log_grab_failed_a
+move_dest=0
+pick=21", label=""];
+  "26" [width=0.4, height=0.4, fontsize=6, xlabel="26
+move_robot_f
+bread0=0
+butter0=5
+robot_loc=4
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "26_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="26_sys
+log_move_failed_a
+move_dest=0
+pick=21", label=""];
+  "27" [width=0.4, height=0.4, fontsize=6, xlabel="27
+log_place_failed_c
+move_robot_c
+bread0=0
+butter0=5
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "27_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="27_sys
+place_item_a
+move_dest=0
+pick=21", label=""];
+  "30" [width=0.4, height=0.4, fontsize=6, xlabel="30
+place_item_f
+bread0=0
+butter0=5
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "30_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="30_sys
+log_place_failed_a
+move_dest=0
+pick=21", label=""];
+  "31" [width=0.4, height=0.4, fontsize=6, xlabel="31
+log_move_failed_c
+place_item_c
+bread0=3
+butter0=5
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "31_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="31_sys
+move_robot_a
+move_dest=5
+pick=21", label=""];
+  "33" [width=0.4, height=0.4, fontsize=6, xlabel="33
+move_robot_f
+bread0=3
+butter0=5
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "33_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="33_sys
+log_move_failed_a
+move_dest=0
+pick=21", label=""];
+  "34" [width=0.4, height=0.4, fontsize=6, xlabel="34
+log_grab_failed_c
+move_robot_c
+bread0=3
+butter0=5
+robot_loc=5
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "34_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="34_sys
+grab_item_a
+move_dest=0
+pick=22", label=""];
+  "36" [width=0.4, height=0.4, fontsize=6, xlabel="36
+grab_item_c
+log_move_failed_c
+bread0=3
+butter0=0
+robot_loc=5
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "36_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="36_sys
+move_robot_a
+move_dest=3
+pick=21", label=""];
+  "37" [width=0.4, height=0.4, fontsize=6, xlabel="37
+grab_item_f
+bread0=3
+butter0=5
+robot_loc=5
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "37_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="37_sys
+log_grab_failed_a
+move_dest=0
+pick=21", label=""];
+  "38" [width=0.4, height=0.4, fontsize=6, xlabel="38
+move_robot_f
+bread0=3
+butter0=0
+robot_loc=5
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "38_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="38_sys
+log_move_failed_a
+move_dest=0
+pick=21", label=""];
+  "39" [width=0.4, height=0.4, fontsize=6, xlabel="39
+log_place_failed_c
+move_robot_c
+bread0=3
+butter0=0
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "39_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="39_sys
+place_item_a
+move_dest=0
+pick=21", label=""];
+  "42" [width=0.4, height=0.4, fontsize=6, xlabel="42
+place_item_f
+bread0=3
+butter0=0
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "42_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="42_sys
+log_place_failed_a
+move_dest=0
+pick=21", label=""];
+  "43" [width=0.4, height=0.4, fontsize=6, xlabel="43
+place_item_c
+bread0=3
+butter0=3
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "43_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="43_sys
+log_finished_a
+move_dest=0
+pick=21", label=""];
+  "45" [width=0.4, height=0.4, fontsize=6, xlabel="45
+log_finished_c
+bread0=3
+butter0=3
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "45_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="45_sys
+finished
+move_dest=0
+pick=21", label=""];
+  "Init" -> "0";
+  "0" -> "0_sys" [color="green"];
+  "0_sys" -> "20" [color="red"];
+  "20" -> "20_sys" [color="green"];
+  "20_sys" -> "21" [color="red"];
+  "20_sys" -> "22" [color="red"];
+  "21" -> "21_sys" [color="green"];
+  "21_sys" -> "20" [color="red"];
+  "22" -> "22_sys" [color="green"];
+  "22_sys" -> "24" [color="red"];
+  "22_sys" -> "25" [color="red"];
+  "24" -> "24_sys" [color="green"];
+  "24_sys" -> "26" [color="red"];
+  "24_sys" -> "27" [color="red"];
+  "25" -> "25_sys" [color="green"];
+  "25_sys" -> "22" [color="red"];
+  "26" -> "26_sys" [color="green"];
+  "26_sys" -> "24" [color="red"];
+  "27" -> "27_sys" [color="green"];
+  "27_sys" -> "30" [color="red"];
+  "27_sys" -> "31" [color="red"];
+  "30" -> "30_sys" [color="green"];
+  "30_sys" -> "27" [color="red"];
+  "31" -> "31_sys" [color="green"];
+  "31_sys" -> "33" [color="red"];
+  "31_sys" -> "34" [color="red"];
+  "33" -> "33_sys" [color="green"];
+  "33_sys" -> "31" [color="red"];
+  "34" -> "34_sys" [color="green"];
+  "34_sys" -> "36" [color="red"];
+  "34_sys" -> "37" [color="red"];
+  "36" -> "36_sys" [color="green"];
+  "36_sys" -> "38" [color="red"];
+  "36_sys" -> "39" [color="red"];
+  "37" -> "37_sys" [color="green"];
+  "37_sys" -> "34" [color="red"];
+  "38" -> "38_sys" [color="green"];
+  "38_sys" -> "36" [color="red"];
+  "39" -> "39_sys" [color="green"];
+  "39_sys" -> "42" [color="red"];
+  "39_sys" -> "43" [color="red"];
+  "42" -> "42_sys" [color="green"];
+  "42_sys" -> "39" [color="red"];
+  "43" -> "43_sys" [color="green"];
+  "43_sys" -> "45" [color="red"];
+  "45" -> "45_sys" [color="green"];
+  "45_sys" -> "45" [color="red"];
+}

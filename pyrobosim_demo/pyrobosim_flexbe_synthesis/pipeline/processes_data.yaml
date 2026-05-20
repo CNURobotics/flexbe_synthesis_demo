@@ -1,0 +1,8 @@
+# Allow us to input custom data into the processing pipeline at start of each run
+/data:
+    spec_path: 'ros:spec_path'          # Get from ROS 2 launch parameter
+    spec_name: 'req:spec_name'          # Use spec_name from the action request
+    slugs_specification: {}
+    synthesis_timeout_s: 720.0          # Allow long-running demos outside tests
+    predefined_automaton_path: 'ros:automaton_path'  # Used by load pipeline only
+    reduced_automaton_name: 'reduced_automaton'

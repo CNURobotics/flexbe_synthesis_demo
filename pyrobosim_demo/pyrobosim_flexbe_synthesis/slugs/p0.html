@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+<head><title>Specification report for input file pyrobosim.structuredslugs</title>
+<style media="all" type="text/css">
+body{font-family:"Verdana", Verdana, serif;}
+h1{ text-align: center; }
+summary {
+     font-size: 150%;
+}
+pre { white-space: pre-wrap; word-wrap: break-word; }
+.details {
+      margin-left: 30px;
+}
+</style>
+</head>
+<body>
+<H1>Slugs specification analysis report for file <I>pyrobosim.structuredslugs</I></H1><HR/>
+<details>
+<summary>1. Specification</summary>
+<pre class="details">
+[INPUT]
+bread0:0...7
+log_move_failed_c
+butter0:0...7
+waste1:0...7
+grab_item_c
+log_finished_c
+move_robot_c
+soda0:0...7
+move_robot_f
+place_item_c
+place_item_f
+log_grab_failed_c
+grab_item_f
+snacks0:0...7
+waste0:0...7
+log_place_failed_c
+robot_loc:1...20
+
+[OUTPUT]
+move_dest:1...20
+grab_item_a
+move_robot_a
+log_place_failed_a
+log_finished_a
+log_move_failed_a
+log_grab_failed_a
+pick:21...27
+finished
+place_item_a
+
+[SYS_INIT]
+pick=21
+!finished
+!log_move_failed_a
+!log_grab_failed_a
+!log_place_failed_a
+!log_finished_a
+
+[ENV_INIT]
+robot_loc=18
+snacks0=4
+butter0=5
+bread0=4
+waste0=7
+waste1=6
+soda0=5
+!grab_item_c
+!grab_item_f
+!place_item_c
+!place_item_f
+!move_robot_c
+!move_robot_f
+!log_move_failed_c
+!log_grab_failed_c
+!log_place_failed_c
+!log_finished_c
+
+[SYS_TRANS]
+move_robot_a | grab_item_a | place_item_a | log_move_failed_a | log_grab_failed_a | log_place_failed_a | log_finished_a | finished
+!(move_robot_a &amp; (grab_item_a | place_item_a | log_move_failed_a | log_grab_failed_a | log_place_failed_a | log_finished_a | finished))
+!(grab_item_a &amp; (move_robot_a | place_item_a | log_move_failed_a | log_grab_failed_a | log_place_failed_a | log_finished_a | finished))
+!(place_item_a &amp; (move_robot_a | grab_item_a | log_move_failed_a | log_grab_failed_a | log_place_failed_a | log_finished_a | finished))
+!(log_move_failed_a &amp; (move_robot_a | grab_item_a | place_item_a | log_grab_failed_a | log_place_failed_a | log_finished_a | finished))
+!(log_grab_failed_a &amp; (move_robot_a | grab_item_a | place_item_a | log_move_failed_a | log_place_failed_a | log_finished_a | finished))
+!(log_place_failed_a &amp; (move_robot_a | grab_item_a | place_item_a |log_move_failed_a | log_grab_failed_a | log_finished_a | finished))
+!(log_finished_a &amp; (move_robot_a | grab_item_a | log_move_failed_a | place_item_a | log_grab_failed_a | log_place_failed_a | finished))
+!(finished &amp; (move_robot_a | grab_item_a | place_item_a | log_grab_failed_a | log_move_failed_a | log_place_failed_a | | log_finished_a))
+move_robot_f &lt;-&gt; log_move_failed_a
+grab_item_f &lt;-&gt; log_grab_failed_a
+place_item_f &lt;-&gt; log_place_failed_a
+log_move_failed_c -&gt; !log_move_failed_a
+log_grab_failed_c -&gt; !log_grab_failed_a
+log_place_failed_c -&gt; !log_place_failed_a
+bread0!=3 | butter0!=3 -&gt; !finished
+bread0=3 &amp; butter0=3 -&gt; finished
+finished -&gt; finished'
+!finished -&gt; move_dest!=robot_loc
+!log_finished_a
+(snacks0=0 | butter0=0 | bread0=0 | waste0=0 | waste1=0 | soda0=0) -&gt; !grab_item_a
+!(snacks0=0 | butter0=0 | bread0=0 | waste0=0 | waste1=0 | soda0=0) -&gt; !place_item_a
+robot_loc&gt;7 -&gt; !place_item_a &amp; !grab_item_a
+robot_loc != butter0 -&gt; pick!=22
+robot_loc != bread0 -&gt; pick!=23
+robot_loc != waste0 -&gt; pick!=24
+robot_loc != waste1 -&gt; pick!=25
+robot_loc != soda0 -&gt; pick!=26
+robot_loc != snacks0 -&gt; pick!=27
+pick=21 -&gt; !grab_item_a
+
+[ENV_TRANS]
+!move_robot_a -&gt; !move_robot_c' &amp; !move_robot_f'
+!grab_item_a -&gt; !grab_item_c' &amp; !grab_item_f'
+!place_item_a -&gt; !place_item_c' &amp; !place_item_f'
+!log_finished_a -&gt; !log_finished_c'
+!log_move_failed_a -&gt; !log_move_failed_c'
+!log_grab_failed_a -&gt; !log_grab_failed_c'
+!log_place_failed_a -&gt; !log_place_failed_c'
+move_robot_a -&gt; (move_robot_c' | move_robot_f') &amp; (!move_robot_c' | !move_robot_f')
+grab_item_a -&gt; (grab_item_c' | grab_item_f') &amp; (!grab_item_c' | !grab_item_f')
+place_item_a -&gt; (place_item_c' | place_item_f') &amp; (!place_item_c' | !place_item_f')
+log_finished_a -&gt; log_finished_c'
+log_move_failed_a -&gt; log_move_failed_c'
+log_grab_failed_a -&gt; log_grab_failed_c'
+log_place_failed_a -&gt; log_place_failed_c'
+move_robot_c' -&gt; (robot_loc' = move_dest)
+!move_robot_c' -&gt; (robot_loc' = robot_loc)
+pick=22 &amp; grab_item_c' -&gt; butter0'=0
+pick=23 &amp; grab_item_c' -&gt; bread0'=0
+pick=24 &amp; grab_item_c' -&gt; waste0'=0
+pick=25 &amp; grab_item_c' -&gt; waste1'=0
+pick=26 &amp; grab_item_c' -&gt; soda0'=0
+pick=27 &amp; grab_item_c' -&gt; snacks0'=0
+place_item_c' &amp; (snacks0=0) -&gt; (snacks0'=robot_loc)
+place_item_c' &amp; (butter0=0) -&gt; (butter0'=robot_loc)
+place_item_c' &amp; (bread0=0) -&gt; (bread0'=robot_loc)
+place_item_c' &amp; (waste0=0) -&gt; (waste0'=robot_loc)
+place_item_c' &amp; (waste1=0) -&gt; (waste1'=robot_loc)
+place_item_c' &amp; (soda0=0) -&gt; (soda0'=robot_loc)
+!(snacks0=0 &amp; (butter0=0|bread0=0|waste0=0|waste1=0|soda0=0))
+!(butter0=0 &amp; (snacks0=0|bread0=0|waste0=0|waste1=0|soda0=0))
+!(bread0=0 &amp; (snacks0=0|butter0=0|waste0=0|waste1=0|soda0=0))
+!(waste0=0 &amp; (snacks0=0|butter0=0|bread0=0|waste1=0|soda0=0))
+!(waste1=0 &amp; (snacks0=0|butter0=0|bread0=0|waste0=0|soda0=0))
+!(soda0=0 &amp; (snacks0=0|butter0=0|bread0=0|waste0=0|waste1=0))
+!((grab_item_c' &amp; pick=22) | (butter0=0 &amp; place_item_c')) -&gt; (butter0' = butter0)
+!((grab_item_c' &amp; pick=23) | (bread0=0 &amp; place_item_c'))  -&gt; (bread0'  = bread0)
+!((grab_item_c' &amp; pick=24) | (waste0=0 &amp; place_item_c'))  -&gt; (waste0'  = waste0)
+!((grab_item_c' &amp; pick=25) | (waste1=0 &amp; place_item_c'))  -&gt; (waste1'  = waste1)
+!((grab_item_c' &amp; pick=26) | (soda0=0 &amp; place_item_c'))   -&gt; (soda0'   = soda0)
+!((grab_item_c' &amp; pick=27) | (snacks0=0 &amp; place_item_c')) -&gt; (snacks0' = snacks0)
+
+[SYS_LIVENESS]
+finished | !(move_robot_a -&gt; move_robot_c') | !(place_item_a -&gt; place_item_c') | !(grab_item_a -&gt; grab_item_c')
+
+[ENV_LIVENESS]
+</pre>
+</details>
+<details>
+<summary>2. Realizability</summary>
+<p>The specification is <B>realizable</B>.</p>
+<p>However, the specification is <B>unrealizable in the robotics semantics</B>.</p>
+</details>
+<details>
+<summary>3. Assumption/Guarantee interaction analysis</summary>
+<pre class="details">
+Realizability matrix when activating/deactivating some specification parts:
+
++-------------------+-------------------++------------------------------------------+
+| Assumptions       | Guarantees        || Results                                  |
++--------+----------+--------+----------++---------------------+--------------------+
+| Safety | Liveness | Safety | Liveness || Classical semantics | Robotics semantics |
++--------+----------+--------+----------++---------------------+--------------------+
+|    -   |     -    |    -   |     -    ||          yes        |         yes        |
+|    -   |     -    |    -   |     +    ||          yes        |         yes        |
+|    -   |     -    |    +   |     -    ||          no         |         no         |
+|    -   |     -    |    +   |     +    ||          no         |         no         |
+|    -   |     +    |    -   |     -    ||          yes        |         yes        |
+|    -   |     +    |    -   |     +    ||          yes        |         yes        |
+|    -   |     +    |    +   |     -    ||          no         |         no         |
+|    -   |     +    |    +   |     +    ||          no         |         no         |
+|    +   |     -    |    -   |     -    ||          yes        |         yes        |
+|    +   |     -    |    -   |     +    ||          yes        |         yes        |
+|    +   |     -    |    +   |     -    ||          yes        |         no         |
+|    +   |     -    |    +   |     +    ||          yes        |         no         |
+|    +   |     +    |    -   |     -    ||          yes        |         yes        |
+|    +   |     +    |    -   |     +    ||          yes        |         yes        |
+|    +   |     +    |    +   |     -    ||          yes        |         no         |
+|    +   |     +    |    +   |     +    ||          yes        |         no         |
++--------+----------+--------+----------++---------------------+--------------------+
+
+With a non-strict implication,
+- nothing changes in the non-robotics semantics,
+- and nothing changes in the robotics semantics, either.
+
+Note that with only the safety assumptions and guarantees, the system can't falsify the environment's specification.
+</pre>
+</details>
+<details>
+<summary>4. Winning States/Positions</summary>
+<pre class="details">
+Number of winning positions: 3.20796e+13 out of 1.92415e+14
+Number of winning positions satisfying the initialization assumptions: 19 out of 35840
+Number of winning positions satisfying the initialization guarantees: 1.55179e+11 out of 8.58993e+11
+Number of winning positions satisfying the initialization assumptions and guarantees: 19 out of 160
+Number of initial input assignments that are allowed for the environment: 1 out of 5.36871e+09
+Number of initial input assignments that force the system to move to a losing position: 0 out of 5.36871e+09
+
+Some cubes of winning positions: 
+ - soda0=0 waste1=0
+ - snacks0=0 waste1=0
+ - snacks0=0 soda0=0
+ - butter0=0 waste1=0
+ - butter0=0 soda0=0
+ - butter0=0 snacks0=0
+ - bread0=0 waste1=0
+
+Some cubes of non-winning positions: 
+ - log_finished_a bread0=4 butter0=4 snacks0=4 soda0=4 waste1=4
+ - log_finished_a bread0=4 butter0=4 snacks0=4 soda0=4 waste1=2
+ - log_finished_a bread0=4 butter0=4 snacks0=4 soda0=4 waste1=1
+ - log_finished_a bread0=4 butter0=4 snacks0=4 soda0=2 waste1=4
+ - log_finished_a bread0=4 butter0=4 snacks0=4 soda0=2 waste1=2
+ - log_finished_a bread0=4 butter0=4 snacks0=4 soda0=2 waste1=1
+ - log_finished_a bread0=4 butter0=4 snacks0=4 soda0=1 waste1=4
+
+Some cubes of winning positions satisfying the initialization assumptions: 
+ - !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c !grab_item_a move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished !place_item_a bread0=4 butter0=5 move_dest=1 pick=21 robot_loc=18 snacks0=4 soda0=5 waste0=7 waste1=6
+ - !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c !grab_item_a move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished !place_item_a bread0=4 butter0=5 move_dest=9 pick=21 robot_loc=18 snacks0=4 soda0=5 waste0=7 waste1=6
+ - !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c !grab_item_a move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished !place_item_a bread0=4 butter0=5 move_dest=5 pick=21 robot_loc=18 snacks0=4 soda0=5 waste0=7 waste1=6
+ - !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c !grab_item_a move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished !place_item_a bread0=4 butter0=5 move_dest=3 pick=21 robot_loc=18 snacks0=4 soda0=5 waste0=7 waste1=6
+
+Some cubes of non-winning positions satisfying the initialization assumptions: 
+ - !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c log_finished_a bread0=4 butter0=5 robot_loc=18 snacks0=4 soda0=5 waste0=7 waste1=6
+ - !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c finished bread0=4 butter0=5 robot_loc=18 snacks0=4 soda0=5 waste0=7 waste1=6
+ - !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c log_move_failed_a bread0=4 butter0=5 robot_loc=18 snacks0=4 soda0=5 waste0=7 waste1=6
+ - !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c log_place_failed_a bread0=4 butter0=5 robot_loc=18 snacks0=4 soda0=5 waste0=7 waste1=6
+ - !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c !move_robot_a bread0=4 butter0=5 robot_loc=18 snacks0=4 soda0=5 waste0=7 waste1=6
+ - !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c grab_item_a bread0=4 butter0=5 robot_loc=18 snacks0=4 soda0=5 waste0=7 waste1=6
+ - !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c log_grab_failed_a bread0=4 butter0=5 robot_loc=18 snacks0=4 soda0=5 waste0=7 waste1=6
+
+Some cubes of winning positions satisfying the initialization guarantees: 
+ - !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished pick=21 soda0=0 waste1=0
+ - !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished pick=21 snacks0=0 waste1=0
+ - !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished pick=21 snacks0=0 soda0=0
+ - !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished butter0=0 pick=21 waste1=0
+ - !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished butter0=0 pick=21 soda0=0
+ - !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished butter0=0 pick=21 snacks0=0
+ - !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished bread0=0 pick=21 waste1=0
+
+Some cubes of non-winning positions satisfying the initialization guarantees: 
+ - move_robot_f !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished bread0=4 butter0=4 pick=21 snacks0=4 soda0=4 waste1=4
+ - place_item_f !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished bread0=4 butter0=4 pick=21 snacks0=4 soda0=4 waste1=4
+ - grab_item_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished bread0=4 butter0=4 pick=21 snacks0=4 soda0=4 waste1=4
+ - grab_item_f !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished bread0=4 butter0=4 pick=21 snacks0=4 soda0=4 waste1=4
+ - move_robot_f !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished bread0=4 butter0=4 pick=21 snacks0=4 soda0=4 waste1=2
+ - place_item_f !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished bread0=4 butter0=4 pick=21 snacks0=4 soda0=4 waste1=2
+ - grab_item_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished bread0=4 butter0=4 pick=21 snacks0=4 soda0=4 waste1=2
+
+Some cubes of winning positions satisfying the initialization assumptions &amp; guarantees: 
+ - !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c !grab_item_a move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished !place_item_a bread0=4 butter0=5 move_dest=1 pick=21 robot_loc=18 snacks0=4 soda0=5 waste0=7 waste1=6
+ - !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c !grab_item_a move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished !place_item_a bread0=4 butter0=5 move_dest=9 pick=21 robot_loc=18 snacks0=4 soda0=5 waste0=7 waste1=6
+ - !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c !grab_item_a move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished !place_item_a bread0=4 butter0=5 move_dest=5 pick=21 robot_loc=18 snacks0=4 soda0=5 waste0=7 waste1=6
+ - !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c !grab_item_a move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished !place_item_a bread0=4 butter0=5 move_dest=3 pick=21 robot_loc=18 snacks0=4 soda0=5 waste0=7 waste1=6
+
+Some cubes of non-winning positions satisfying the initialization assumptions &amp; guarantees: 
+ - !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished bread0=4 butter0=5 pick=21 robot_loc=18 snacks0=4 soda0=5 waste0=7 waste1=6
+ - !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c grab_item_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished bread0=4 butter0=5 pick=21 robot_loc=18 snacks0=4 soda0=5 waste0=7 waste1=6
+ - !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished place_item_a bread0=4 butter0=5 pick=21 robot_loc=18 snacks0=4 soda0=5 waste0=7 waste1=6
+ - !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished bread0=4 butter0=5 move_dest=18 pick=21 robot_loc=18 snacks0=4 soda0=5 waste0=7 waste1=6
+
+Some positions from which the environment player cannot prevent to violate some safety assumptions:
+ - soda0=0 waste1=0
+ - snacks0=0 waste1=0
+ - snacks0=0 soda0=0
+ - butter0=0 waste1=0
+ - butter0=0 soda0=0
+ - butter0=0 snacks0=0
+ - bread0=0 waste1=0
+</pre>
+</details>
+<details>
+<summary>5. States/Positions that are winning by environment falsification</summary>
+<pre class="details">
+Number of winning positions: 3.20414e+13 out of 1.92415e+14
+Number of winning positions satisfying the initialization assumptions: 0 out of 35840
+Number of winning positions satisfying the initialization guarantees: 1.43042e+11 out of 8.58993e+11
+Number of winning positions satisfying the initialization assumptions and guarantees: 0 out of 160
+Number of initial input assignments that are allowed for the environment: 1 out of 5.36871e+09
+Number of initial input assignments that force the system to move to a losing position: nan out of 5.36871e+09
+
+Some cubes of winning positions: 
+ - soda0=0 waste1=0
+ - snacks0=0 waste1=0
+ - snacks0=0 soda0=0
+ - butter0=0 waste1=0
+ - butter0=0 soda0=0
+ - butter0=0 snacks0=0
+ - bread0=0 waste1=0
+
+Some cubes of non-winning positions: 
+ - bread0=2 butter0=4 snacks0=4 soda0=1 waste1=2
+ - bread0=2 butter0=4 snacks0=4 soda0=1 waste1=4
+ - bread0=2 butter0=4 snacks0=4 soda0=1 waste1=1
+ - bread0=2 butter0=4 snacks0=4 soda0=2 waste1=2
+ - bread0=2 butter0=4 snacks0=4 soda0=2 waste1=4
+ - bread0=2 butter0=4 snacks0=4 soda0=2 waste1=1
+ - bread0=2 butter0=4 snacks0=4 soda0=4 waste1=2
+
+Some cubes of winning positions satisfying the initialization assumptions: 
+--(none)
+
+Some cubes of non-winning positions satisfying the initialization assumptions: 
+ - !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=4 butter0=5 robot_loc=18 snacks0=4 soda0=5 waste0=7 waste1=6
+
+Some cubes of winning positions satisfying the initialization guarantees: 
+ - !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished pick=21 soda0=0 waste1=0
+ - !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished pick=21 snacks0=0 waste1=0
+ - !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished pick=21 snacks0=0 soda0=0
+ - !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished butter0=0 pick=21 waste1=0
+ - !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished butter0=0 pick=21 soda0=0
+ - !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished butter0=0 pick=21 snacks0=0
+ - !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished bread0=0 pick=21 waste1=0
+
+Some cubes of non-winning positions satisfying the initialization guarantees: 
+ - !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished bread0=2 butter0=4 pick=21 snacks0=4 soda0=1 waste1=2
+ - !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished bread0=2 butter0=4 pick=21 snacks0=4 soda0=1 waste1=4
+ - !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished bread0=2 butter0=4 pick=21 snacks0=4 soda0=1 waste1=1
+ - !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished bread0=2 butter0=4 pick=21 snacks0=4 soda0=2 waste1=2
+ - !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished bread0=2 butter0=4 pick=21 snacks0=4 soda0=2 waste1=4
+ - !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished bread0=2 butter0=4 pick=21 snacks0=4 soda0=2 waste1=1
+ - !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished bread0=2 butter0=4 pick=21 snacks0=4 soda0=4 waste1=2
+
+Some cubes of winning positions satisfying the initialization assumptions &amp; guarantees: 
+--(none)
+
+Some cubes of non-winning positions satisfying the initialization assumptions &amp; guarantees: 
+ - !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished bread0=4 butter0=5 pick=21 robot_loc=18 snacks0=4 soda0=5 waste0=7 waste1=6
+
+Some positions from which the environment player cannot prevent to violate some safety assumptions:
+ - soda0=0 waste1=0
+ - snacks0=0 waste1=0
+ - snacks0=0 soda0=0
+ - butter0=0 waste1=0
+ - butter0=0 soda0=0
+ - butter0=0 snacks0=0
+ - bread0=0 waste1=0
+</pre>
+</details>
+<details>
+<summary>5b. States/Positions that are winning by environment falsification (reachable states only)</summary>
+<pre class="details">
+Number of winning positions: 0 out of 5.89013e+11
+Number of winning positions satisfying the initialization assumptions: 0 out of 160
+Number of winning positions satisfying the initialization guarantees: 0 out of 2.62933e+09
+Number of winning positions satisfying the initialization assumptions and guarantees: 0 out of 160
+Number of initial input assignments that are allowed for the environment: 1 out of 1.64357e+07
+Number of initial input assignments that force the system to move to a losing position: nan out of 1.64357e+07
+
+Some cubes of winning positions: 
+--(none)
+
+Some cubes of non-winning positions: 
+- TRUE
+
+Some cubes of winning positions satisfying the initialization assumptions: 
+--(none)
+
+Some cubes of non-winning positions satisfying the initialization assumptions: 
+ - !log_move_failed_c !move_robot_c !move_robot_f robot_loc=17
+ - !log_move_failed_c !grab_item_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c robot_loc=1
+ - !log_move_failed_c !grab_item_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c robot_loc=2
+ - !log_move_failed_c !grab_item_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c !finished
+ - !log_move_failed_c !grab_item_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c butter0=4
+ - !log_move_failed_c !grab_item_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c butter0=0
+ - !log_move_failed_c !grab_item_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=0
+
+Some cubes of winning positions satisfying the initialization guarantees: 
+--(none)
+
+Some cubes of non-winning positions satisfying the initialization guarantees: 
+ - !log_move_failed_c !move_robot_c !move_robot_f robot_loc=17
+ - !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished pick=21
+ - !log_move_failed_c !grab_item_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c robot_loc=2
+ - !log_move_failed_c !grab_item_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c robot_loc=1
+ - !log_move_failed_c !grab_item_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c !finished
+ - !log_move_failed_c !grab_item_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c butter0=4
+ - !log_move_failed_c !grab_item_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c butter0=0
+
+Some cubes of winning positions satisfying the initialization assumptions &amp; guarantees: 
+--(none)
+
+Some cubes of non-winning positions satisfying the initialization assumptions &amp; guarantees: 
+ - !log_move_failed_c !move_robot_c !move_robot_f robot_loc=17
+ - !log_move_failed_c !grab_item_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c robot_loc=2
+ - !log_move_failed_c !grab_item_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c robot_loc=1
+ - !log_move_failed_c !grab_item_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c !finished
+ - !log_move_failed_c !grab_item_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c butter0=4
+ - !log_move_failed_c !grab_item_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c butter0=0
+ - !log_move_failed_c !grab_item_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=0
+
+Some positions from which the environment player cannot prevent to violate some safety assumptions:
+--(none)
+</pre>
+</details>
+<details>
+<summary>6. Which assumptions are actually needed?</summary>
+<pre class="details">
+Starting with a realizable specification (in the standard GR(1) semantics).
+
+"Safety Assumption 1" is crucially needed.
+"Safety Assumption 2" is crucially needed.
+"Safety Assumption 3" is crucially needed.
+"Safety Assumption 4" is superfluous.
+"Safety Assumption 5" is crucially needed.
+"Safety Assumption 6" is crucially needed.
+"Safety Assumption 7" is crucially needed.
+"Safety Assumption 8" makes reaching the system goals 0 easier for the system.
+"Safety Assumption 9" makes reaching the system goals 0 easier for the system.
+"Safety Assumption 10" is crucially needed.
+"Safety Assumption 11" is superfluous.
+"Safety Assumption 12" is superfluous.
+"Safety Assumption 13" is superfluous.
+"Safety Assumption 14" is superfluous.
+"Safety Assumption 15" is crucially needed.
+"Safety Assumption 16" makes reaching the system goals 0 easier for the system.
+"Safety Assumption 17" is crucially needed.
+"Safety Assumption 18" is crucially needed.
+"Safety Assumption 19" is superfluous.
+"Safety Assumption 20" is superfluous.
+"Safety Assumption 21" is superfluous.
+"Safety Assumption 22" is superfluous.
+"Safety Assumption 23" makes more positions winning, but without any effect of the GR(1) robotics semantics.
+"Safety Assumption 24" is crucially needed.
+"Safety Assumption 25" is crucially needed.
+"Safety Assumption 26" makes more positions winning, but without any effect of the GR(1) robotics semantics.
+"Safety Assumption 27" makes more positions winning, but without any effect of the GR(1) robotics semantics.
+"Safety Assumption 28" makes more positions winning, but without any effect of the GR(1) robotics semantics.
+"Safety Assumption 29" is redundant and implied by the other safety assumptions.
+"Safety Assumption 30" is redundant and implied by the other safety assumptions.
+"Safety Assumption 31" is redundant and implied by the other safety assumptions.
+"Safety Assumption 32" is redundant and implied by the other safety assumptions.
+"Safety Assumption 33" is redundant and implied by the other safety assumptions.
+"Safety Assumption 34" is redundant and implied by the other safety assumptions.
+"Safety Assumption 35" is crucially needed.
+"Safety Assumption 36" is crucially needed.
+"Safety Assumption 37" makes reaching the system goals 0 easier for the system.
+"Safety Assumption 38" makes reaching the system goals 0 easier for the system.
+"Safety Assumption 39" makes reaching the system goals 0 easier for the system.
+"Safety Assumption 40" makes reaching the system goals 0 easier for the system.
+"Variable limits: 1&lt;=robot_loc&lt;=20" makes more positions winning, but without any effect of the GR(1) robotics semantics.
+"Variable limits: 1&lt;=robot_loc'&lt;=20" is superfluous.
+"Automatically added TRUE liveness assumption" is crucially needed.
+</pre>
+</details>
+<details>
+<summary>7. Example trace of the system</summary>
+<pre class="details">
+Env.L.A. | Sys.L.G. | Input                                                                                                                                                                                                                           | Output                                                                                                                                           
+---------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------
+      0+ |       0  | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=4 butter0=5 waste1=6 soda0=5 snacks0=4 waste0=7 robot_loc=18 | !grab_item_a  move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished !place_item_a  move_dest=1 pick=21 
+      0+ |       0  | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c  move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=4 butter0=5 waste1=6 soda0=5 snacks0=4 waste0=7 robot_loc=18 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a  log_move_failed_a !log_grab_failed_a !finished !place_item_a move_dest=16 pick=21 
+      0+ |       0  |  log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=4 butter0=5 waste1=6 soda0=5 snacks0=4 waste0=7 robot_loc=18 | !grab_item_a  move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished !place_item_a  move_dest=4 pick=21 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c  move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=4 butter0=5 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=4 |  grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished !place_item_a  move_dest=9 pick=23 
+      0+ |       0  | !log_move_failed_c  grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=0 butter0=5 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=4 | !grab_item_a  move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished !place_item_a  move_dest=3 pick=21 
+      0+ |       0  | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c  move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=0 butter0=5 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=4 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a  log_move_failed_a !log_grab_failed_a !finished !place_item_a  move_dest=3 pick=21 
+      0+ |       0  |  log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=0 butter0=5 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=4 | !grab_item_a  move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished !place_item_a  move_dest=3 pick=21 
+      0+ |       0  | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c  move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=0 butter0=5 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=4 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a  log_move_failed_a !log_grab_failed_a !finished !place_item_a  move_dest=3 pick=27 
+      0+ |       0+ |  log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=0 butter0=5 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=4 | !grab_item_a  move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished !place_item_a  move_dest=3 pick=21 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c  move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=0 butter0=5 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished  place_item_a move_dest=18 pick=21 
+      0+ |       0  | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c  place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=0 butter0=5 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a  log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished !place_item_a  move_dest=1 pick=21 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f  log_place_failed_c bread0=0 butter0=5 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished  place_item_a move_dest=12 pick=21 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f  place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=5 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a  move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished !place_item_a  move_dest=5 pick=21 
+      0+ |       0  | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c  move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=5 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a  log_move_failed_a !log_grab_failed_a !finished !place_item_a move_dest=10 pick=21 
+      0+ |       0+ |  log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=5 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a  move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished !place_item_a  move_dest=5 pick=21 
+      0+ |       0  | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c  move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=5 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a  log_move_failed_a !log_grab_failed_a !finished !place_item_a  move_dest=7 pick=21 
+      0+ |       0  |  log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=5 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a  move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished !place_item_a  move_dest=5 pick=23 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c  move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=5 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=5 |  grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished !place_item_a move_dest=20 pick=22 
+      0+ |       0  | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c  grab_item_f !log_place_failed_c bread0=3 butter0=5 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=5 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a  log_grab_failed_a !finished !place_item_a  move_dest=4 pick=26 
+      0+ |       0  | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f  log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=5 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=5 |  grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished !place_item_a  move_dest=3 pick=22 
+      0+ |       0  | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c  grab_item_f !log_place_failed_c bread0=3 butter0=5 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=5 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a  log_grab_failed_a !finished !place_item_a move_dest=11 pick=21 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f  log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=5 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=5 |  grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished !place_item_a  move_dest=2 pick=22 
+      0+ |       0  | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c  grab_item_f !log_place_failed_c bread0=3 butter0=5 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=5 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a  log_grab_failed_a !finished !place_item_a  move_dest=7 pick=21 
+      0+ |       0  | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f  log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=5 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=5 |  grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished !place_item_a move_dest=17 pick=22 
+      0+ |       0  | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c  grab_item_f !log_place_failed_c bread0=3 butter0=5 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=5 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a  log_grab_failed_a !finished !place_item_a move_dest=12 pick=21 
+      0+ |       0  | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f  log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=5 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=5 |  grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished !place_item_a move_dest=13 pick=22 
+      0+ |       0  | !log_move_failed_c  grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=0 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=5 | !grab_item_a  move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished !place_item_a  move_dest=3 pick=21 
+      0+ |       0  | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c  move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=0 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=5 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a  log_move_failed_a !log_grab_failed_a !finished !place_item_a move_dest=19 pick=21 
+      0+ |       0  |  log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=0 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=5 | !grab_item_a  move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished !place_item_a  move_dest=3 pick=21 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c  move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=0 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a !finished  place_item_a move_dest=10 pick=23 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f  place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=9 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=20 pick=21 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=8 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=8 pick=21 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=5 pick=23 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=14 pick=23 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=11 pick=21 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=16 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=11 pick=21 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=5 pick=21 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=5 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=18 pick=23 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=12 pick=23 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=10 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=17 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=14 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=13 pick=21 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=15 pick=23 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=14 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=14 pick=23 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=16 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=17 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=20 pick=23 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=17 pick=23 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=3 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=19 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=11 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=2 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=4 pick=23 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=19 pick=21 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=18 pick=23 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=5 pick=23 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=7 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=15 pick=23 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=18 pick=21 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=6 pick=23 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=5 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=7 pick=21 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=9 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=15 pick=21 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=4 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=7 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=14 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=11 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=3 pick=21 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=7 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=4 pick=23 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=14 pick=23 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=8 pick=23 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=15 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=13 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=8 pick=21 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=5 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=5 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=15 pick=23 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=13 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=19 pick=23 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=10 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=9 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=7 pick=23 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=10 pick=23 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=12 pick=23 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=14 pick=23 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=10 pick=23 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=17 pick=21 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=9 pick=23 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=8 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=2 pick=22 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a move_dest=13 pick=23 
+      0+ |       0+ | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=7 pick=23 
+      0  |       0  | !log_move_failed_c !grab_item_c !log_finished_c !move_robot_c !move_robot_f !place_item_c !place_item_f !log_grab_failed_c !grab_item_f !log_place_failed_c bread0=3 butter0=3 waste1=6 soda0=5 snacks0=4 waste0=7  robot_loc=3 | !grab_item_a !move_robot_a !log_place_failed_a !log_finished_a !log_move_failed_a !log_grab_failed_a  finished !place_item_a  move_dest=7 pick=23 
+
+</pre>
+</details>
+<details>
+<summary>8. The Effect of Stuck-at-0/1 Faults</summary>
+<pre class="details">
+Starting point is a realizable specification
+Fixing the value of the output signal move_dest changes that.
+Fixing the value of the output signal grab_item_a changes that.
+Fixing the value of the output signal move_robot_a changes that.
+Fixing the value of the output signal log_place_failed_a changes that.
+Fixing the value of the output signal log_finished_a to False does not change this fact.
+Fixing the value of the output signal log_move_failed_a changes that.
+Fixing the value of the output signal log_grab_failed_a changes that.
+Fixing the value of the output signal pick changes that.
+Fixing the value of the output signal finished changes that.
+Fixing the value of the output signal place_item_a changes that.
+</pre>
+</details>
+<details>
+<summary>9. Input/Output Signal Analysis</summary>
+<pre class="details">
+Starting point is a realizable specification.
+
+The specification stays realizable when the values of the following output signals have to be set before reading the input:
+- move_dest@0.1.20
+- move_dest@1
+- move_dest@2
+- move_dest@3
+- move_dest@4
+- log_finished_a
+- pick@0.21.27
+- pick@1
+- place_item_a
+</pre>
+</details>
+</body></html>

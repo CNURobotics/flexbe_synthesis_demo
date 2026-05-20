@@ -1,0 +1,1581 @@
+"automaton":
+- "incoming": []
+  "input_valuation": 950875971672
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": true
+  "name": "0"
+  "output_valuation": 0
+  "output_values":
+    "capability": 0
+    "move_dest": 0
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 950875971672
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "1"
+  "output_valuation": 512
+  "output_values":
+    "capability": 0
+    "move_dest": 16
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 950875971672
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "2"
+  "output_valuation": 256
+  "output_values":
+    "capability": 0
+    "move_dest": 8
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 950875971672
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "3"
+  "output_valuation": 128
+  "output_values":
+    "capability": 0
+    "move_dest": 4
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 950875971672
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "4"
+  "output_valuation": 640
+  "output_values":
+    "capability": 0
+    "move_dest": 20
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 950875971672
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "5"
+  "output_valuation": 384
+  "output_values":
+    "capability": 0
+    "move_dest": 12
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 950875971672
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "6"
+  "output_valuation": 64
+  "output_values":
+    "capability": 0
+    "move_dest": 2
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 950875971672
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "7"
+  "output_valuation": 320
+  "output_values":
+    "capability": 0
+    "move_dest": 10
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 950875971672
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "8"
+  "output_valuation": 192
+  "output_values":
+    "capability": 0
+    "move_dest": 6
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 950875971672
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "9"
+  "output_valuation": 448
+  "output_values":
+    "capability": 0
+    "move_dest": 14
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 950875971672
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "10"
+  "output_valuation": 32
+  "output_values":
+    "capability": 0
+    "move_dest": 1
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 950875971672
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "11"
+  "output_valuation": 544
+  "output_values":
+    "capability": 0
+    "move_dest": 17
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 950875971672
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "12"
+  "output_valuation": 288
+  "output_values":
+    "capability": 0
+    "move_dest": 9
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 950875971672
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "13"
+  "output_valuation": 160
+  "output_values":
+    "capability": 0
+    "move_dest": 5
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 950875971672
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "14"
+  "output_valuation": 416
+  "output_values":
+    "capability": 0
+    "move_dest": 13
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 950875971672
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "15"
+  "output_valuation": 96
+  "output_values":
+    "capability": 0
+    "move_dest": 3
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 950875971672
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "16"
+  "output_valuation": 608
+  "output_values":
+    "capability": 0
+    "move_dest": 19
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 950875971672
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "17"
+  "output_valuation": 352
+  "output_values":
+    "capability": 0
+    "move_dest": 11
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 950875971672
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "18"
+  "output_valuation": 224
+  "output_values":
+    "capability": 0
+    "move_dest": 7
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming": []
+  "input_valuation": 950875971672
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "19"
+  "output_valuation": 480
+  "output_values":
+    "capability": 0
+    "move_dest": 15
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming":
+  - "0"
+  - "1"
+  - "2"
+  - "3"
+  - "4"
+  - "5"
+  - "6"
+  - "7"
+  - "8"
+  - "9"
+  - "10"
+  - "11"
+  - "12"
+  - "13"
+  - "14"
+  - "15"
+  - "16"
+  - "17"
+  - "18"
+  - "19"
+  - "21"
+  "input_valuation": 950875971928
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "completed"
+  "is_initial": false
+  "name": "20"
+  "output_valuation": 103
+  "output_values":
+    "capability": 7
+    "move_dest": 3
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "21"
+  - "22"
+- "incoming":
+  - "20"
+  "input_valuation": 950875973720
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "failure": true
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "21"
+  "output_valuation": 4
+  "output_values":
+    "capability": 4
+    "move_dest": 0
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "20"
+- "incoming":
+  - "20"
+  - "23"
+  "input_valuation": 950813057368
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "completed"
+  "is_initial": false
+  "name": "22"
+  "output_valuation": 8
+  "output_values":
+    "capability": 8
+    "move_dest": 0
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "23"
+  - "24"
+- "incoming":
+  - "22"
+  "input_valuation": 950813059160
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "failure": true
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "23"
+  "output_valuation": 5
+  "output_values":
+    "capability": 5
+    "move_dest": 0
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "22"
+- "incoming":
+  - "22"
+  - "25"
+  "input_valuation": 959402991960
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "table": true
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "completed"
+  "is_initial": false
+  "name": "24"
+  "output_valuation": 135
+  "output_values":
+    "capability": 7
+    "move_dest": 4
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "25"
+  - "26"
+- "incoming":
+  - "24"
+  "input_valuation": 959402993752
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "failure": true
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "table": true
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "25"
+  "output_valuation": 4
+  "output_values":
+    "capability": 4
+    "move_dest": 0
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "24"
+- "incoming":
+  - "24"
+  - "27"
+  "input_valuation": 959407186264
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 4
+    "snacks0": 4
+    "soda0": 5
+    "table": true
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "completed"
+  "is_initial": false
+  "name": "26"
+  "output_valuation": 8
+  "output_values":
+    "capability": 8
+    "move_dest": 0
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "27"
+  - "28"
+- "incoming":
+  - "26"
+  "input_valuation": 959407188056
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "failure": true
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "robot_loc": 4
+    "snacks0": 4
+    "soda0": 5
+    "table": true
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "27"
+  "output_valuation": 5
+  "output_values":
+    "capability": 5
+    "move_dest": 0
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "26"
+- "incoming":
+  - "26"
+  - "30"
+  "input_valuation": 959409283416
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "pantry": true
+    "robot_loc": 4
+    "snacks0": 4
+    "soda0": 5
+    "table": true
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "completed"
+  "is_initial": false
+  "name": "28"
+  "output_valuation": 2049
+  "output_values":
+    "capability": 1
+    "move_dest": 0
+    "pick": 23
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "29"
+  - "30"
+- "incoming":
+  - "28"
+  - "31"
+  "input_valuation": 959409283408
+  "input_values":
+    "bread0": 0
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "pantry": true
+    "robot_loc": 4
+    "snacks0": 4
+    "soda0": 5
+    "table": true
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "completed"
+  "is_initial": false
+  "name": "29"
+  "output_valuation": 103
+  "output_values":
+    "capability": 7
+    "move_dest": 3
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "31"
+  - "32"
+- "incoming":
+  - "28"
+  "input_valuation": 959409285208
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "failure": true
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "pantry": true
+    "robot_loc": 4
+    "snacks0": 4
+    "soda0": 5
+    "table": true
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "30"
+  "output_valuation": 3
+  "output_values":
+    "capability": 3
+    "move_dest": 0
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "28"
+- "incoming":
+  - "29"
+  "input_valuation": 959409285200
+  "input_values":
+    "bread0": 0
+    "butter0": 5
+    "failure": true
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "pantry": true
+    "robot_loc": 4
+    "snacks0": 4
+    "soda0": 5
+    "table": true
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "31"
+  "output_valuation": 4
+  "output_values":
+    "capability": 4
+    "move_dest": 0
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "29"
+- "incoming":
+  - "29"
+  - "33"
+  "input_valuation": 959405089104
+  "input_values":
+    "bread0": 0
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "pantry": true
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "table": true
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "completed"
+  "is_initial": false
+  "name": "32"
+  "output_valuation": 9
+  "output_values":
+    "capability": 9
+    "move_dest": 0
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "33"
+  - "34"
+- "incoming":
+  - "32"
+  "input_valuation": 959405090896
+  "input_values":
+    "bread0": 0
+    "butter0": 5
+    "failure": true
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "pantry": true
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "table": true
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "33"
+  "output_valuation": 6
+  "output_values":
+    "capability": 6
+    "move_dest": 0
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "32"
+- "incoming":
+  - "32"
+  - "35"
+  "input_valuation": 959405089110
+  "input_values":
+    "bread0": 3
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "pantry": true
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "table": true
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "completed"
+  "is_initial": false
+  "name": "34"
+  "output_valuation": 167
+  "output_values":
+    "capability": 7
+    "move_dest": 5
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "35"
+  - "36"
+- "incoming":
+  - "34"
+  "input_valuation": 959405090902
+  "input_values":
+    "bread0": 3
+    "butter0": 5
+    "failure": true
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "pantry": true
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "table": true
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "35"
+  "output_valuation": 4
+  "output_values":
+    "capability": 4
+    "move_dest": 0
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "34"
+- "incoming":
+  - "34"
+  - "37"
+  "input_valuation": 959413477718
+  "input_values":
+    "bread0": 3
+    "butter0": 5
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "pantry": true
+    "robot_loc": 5
+    "snacks0": 4
+    "soda0": 5
+    "table": true
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "completed"
+  "is_initial": false
+  "name": "36"
+  "output_valuation": 8
+  "output_values":
+    "capability": 8
+    "move_dest": 0
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "37"
+  - "38"
+- "incoming":
+  - "36"
+  "input_valuation": 959413479510
+  "input_values":
+    "bread0": 3
+    "butter0": 5
+    "failure": true
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "pantry": true
+    "robot_loc": 5
+    "snacks0": 4
+    "soda0": 5
+    "table": true
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "37"
+  "output_valuation": 5
+  "output_values":
+    "capability": 5
+    "move_dest": 0
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "36"
+- "incoming":
+  - "36"
+  - "40"
+  "input_valuation": 959413481814
+  "input_values":
+    "bread0": 3
+    "butter0": 5
+    "fridge": true
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "pantry": true
+    "robot_loc": 5
+    "snacks0": 4
+    "soda0": 5
+    "table": true
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "completed"
+  "is_initial": false
+  "name": "38"
+  "output_valuation": 1025
+  "output_values":
+    "capability": 1
+    "move_dest": 0
+    "pick": 22
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "39"
+  - "40"
+- "incoming":
+  - "38"
+  - "41"
+  "input_valuation": 959413481734
+  "input_values":
+    "bread0": 3
+    "butter0": 0
+    "fridge": true
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "pantry": true
+    "robot_loc": 5
+    "snacks0": 4
+    "soda0": 5
+    "table": true
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "completed"
+  "is_initial": false
+  "name": "39"
+  "output_valuation": 103
+  "output_values":
+    "capability": 7
+    "move_dest": 3
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "41"
+  - "42"
+- "incoming":
+  - "38"
+  "input_valuation": 959413483606
+  "input_values":
+    "bread0": 3
+    "butter0": 5
+    "failure": true
+    "fridge": true
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "pantry": true
+    "robot_loc": 5
+    "snacks0": 4
+    "soda0": 5
+    "table": true
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "40"
+  "output_valuation": 3
+  "output_values":
+    "capability": 3
+    "move_dest": 0
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "38"
+- "incoming":
+  - "39"
+  "input_valuation": 959413483526
+  "input_values":
+    "bread0": 3
+    "butter0": 0
+    "failure": true
+    "fridge": true
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "pantry": true
+    "robot_loc": 5
+    "snacks0": 4
+    "soda0": 5
+    "table": true
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "41"
+  "output_valuation": 4
+  "output_values":
+    "capability": 4
+    "move_dest": 0
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "39"
+- "incoming":
+  - "39"
+  - "43"
+  "input_valuation": 959405093126
+  "input_values":
+    "bread0": 3
+    "butter0": 0
+    "fridge": true
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "pantry": true
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "table": true
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "completed"
+  "is_initial": false
+  "name": "42"
+  "output_valuation": 9
+  "output_values":
+    "capability": 9
+    "move_dest": 0
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "43"
+  - "44"
+- "incoming":
+  - "42"
+  "input_valuation": 959405094918
+  "input_values":
+    "bread0": 3
+    "butter0": 0
+    "failure": true
+    "fridge": true
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "pantry": true
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "table": true
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "43"
+  "output_valuation": 6
+  "output_values":
+    "capability": 6
+    "move_dest": 0
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "42"
+- "incoming":
+  - "42"
+  "input_valuation": 959405093174
+  "input_values":
+    "bread0": 3
+    "butter0": 3
+    "fridge": true
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "pantry": true
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "table": true
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "completed"
+  "is_initial": false
+  "name": "44"
+  "output_valuation": 2
+  "output_values":
+    "capability": 2
+    "move_dest": 0
+    "pick": 21
+  "output_variables": []
+  "rank": 0
+  "transitions":
+  - "45"
+- "incoming":
+  - "44"
+  - "45"
+  "input_valuation": 959405093174
+  "input_values":
+    "bread0": 3
+    "butter0": 3
+    "fridge": true
+    "hall_closet_dining": true
+    "hall_closet_office": true
+    "hall_dining_kitchen": true
+    "hall_dining_office": true
+    "hall_kitchen_office": true
+    "hall_trash_closet": true
+    "hall_trash_dining": true
+    "hall_trash_kitchen": true
+    "pantry": true
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "table": true
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "completed"
+  "is_initial": false
+  "name": "45"
+  "output_valuation": 18
+  "output_values":
+    "capability": 2
+    "move_dest": 0
+    "pick": 21
+  "output_variables":
+  - "finished"
+  "rank": 0
+  "transitions":
+  - "45"
+"input_variables":
+- "bin"
+- "bread0@0"
+- "bread0@1"
+- "bread0@2"
+- "butter0@0"
+- "butter0@1"
+- "butter0@2"
+- "charger"
+- "completed"
+- "desk"
+- "dumpster"
+- "failure"
+- "fridge"
+- "hall_closet_dining"
+- "hall_closet_office"
+- "hall_dining_kitchen"
+- "hall_dining_office"
+- "hall_kitchen_office"
+- "hall_trash_closet"
+- "hall_trash_dining"
+- "hall_trash_kitchen"
+- "pantry"
+- "robot_loc@0"
+- "robot_loc@1"
+- "robot_loc@2"
+- "robot_loc@3"
+- "robot_loc@4"
+- "snacks0@0"
+- "snacks0@1"
+- "snacks0@2"
+- "soda0@0"
+- "soda0@1"
+- "soda0@2"
+- "table"
+- "waste0@0"
+- "waste0@1"
+- "waste0@2"
+- "waste1@0"
+- "waste1@1"
+- "waste1@2"
+"output_variables":
+- "capability@0"
+- "capability@1"
+- "capability@2"
+- "capability@3"
+- "finished"
+- "move_dest@0"
+- "move_dest@1"
+- "move_dest@2"
+- "move_dest@3"
+- "move_dest@4"
+- "pick@0"
+- "pick@1"
+- "pick@2"

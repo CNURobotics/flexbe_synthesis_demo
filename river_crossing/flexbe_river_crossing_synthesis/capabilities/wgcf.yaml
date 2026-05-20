@@ -1,0 +1,49 @@
+#Defined capabilities of the system
+#  capability name:
+#     interface : FlexBE state implementation
+#     parameters:
+#         defined parameters for FlexBE State
+#     preconditions:
+#         optional list of preconditions
+#               capabilities that must be completed prior to activation,
+#               or values of environment or system variables
+#               treated as  comma separated list of conjunctions, so "a | b, b | c" is allowed
+#               variables matching capability names will be converted to memory elements in the specifications
+#               variables matching ENV or SYS (input/outputs) will use those values directly
+#     postconditions:
+#         optional list of post conditions to track
+#               same rules as preconditions
+name: 'wgcf_demo'
+capabilities:
+    begin_game:
+        interface: LogState
+        parameters:
+            text: Ready to begin WGCF game
+    log_finished:
+        interface: LogState
+        parameters:
+            text: Everything has crossed the river
+        postconditions: [log_finished]  # memory (for goal condition)
+    log_failed:
+        interface: LogState
+        parameters:
+            text: Error in the previous move
+    move_wolf:
+        interface: MoveState
+        parameters:
+            item: wolf
+            tracker: farmer
+    move_goat:
+        interface: MoveState
+        parameters:
+            item: goat
+            tracker: farmer
+    move_corn:
+        interface: MoveState
+        parameters:
+            item: corn
+            tracker: farmer
+    move_null:
+        interface: MoveState
+        parameters:
+            tracker: farmer

@@ -1,0 +1,2980 @@
+"automaton":
+- "incoming": []
+  "input_valuation": 7475363884
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": true
+  "name": "0"
+  "output_valuation": 2048
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "19"
+  - "20"
+- "incoming": []
+  "input_valuation": 7475363884
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "1"
+  "output_valuation": 3072
+  "output_values":
+    "move_dest": 17
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "19"
+  - "21"
+- "incoming": []
+  "input_valuation": 7475363884
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "2"
+  "output_valuation": 2560
+  "output_values":
+    "move_dest": 9
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "19"
+  - "22"
+- "incoming": []
+  "input_valuation": 7475363884
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "3"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "19"
+  - "23"
+- "incoming": []
+  "input_valuation": 7475363884
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "4"
+  "output_valuation": 2816
+  "output_values":
+    "move_dest": 13
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "19"
+  - "24"
+- "incoming": []
+  "input_valuation": 7475363884
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "5"
+  "output_valuation": 2176
+  "output_values":
+    "move_dest": 3
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "19"
+  - "25"
+- "incoming": []
+  "input_valuation": 7475363884
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "6"
+  "output_valuation": 3200
+  "output_values":
+    "move_dest": 19
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "19"
+  - "26"
+- "incoming": []
+  "input_valuation": 7475363884
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "7"
+  "output_valuation": 2688
+  "output_values":
+    "move_dest": 11
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "19"
+  - "27"
+- "incoming": []
+  "input_valuation": 7475363884
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "8"
+  "output_valuation": 2432
+  "output_values":
+    "move_dest": 7
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "19"
+  - "28"
+- "incoming": []
+  "input_valuation": 7475363884
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "9"
+  "output_valuation": 2944
+  "output_values":
+    "move_dest": 15
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "19"
+  - "29"
+- "incoming": []
+  "input_valuation": 7475363884
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "10"
+  "output_valuation": 2112
+  "output_values":
+    "move_dest": 2
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "19"
+  - "30"
+- "incoming": []
+  "input_valuation": 7475363884
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "11"
+  "output_valuation": 2624
+  "output_values":
+    "move_dest": 10
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "19"
+  - "31"
+- "incoming": []
+  "input_valuation": 7475363884
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "12"
+  "output_valuation": 2368
+  "output_values":
+    "move_dest": 6
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "19"
+  - "32"
+- "incoming": []
+  "input_valuation": 7475363884
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "13"
+  "output_valuation": 2880
+  "output_values":
+    "move_dest": 14
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "19"
+  - "33"
+- "incoming": []
+  "input_valuation": 7475363884
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "14"
+  "output_valuation": 2240
+  "output_values":
+    "move_dest": 4
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "19"
+  - "34"
+- "incoming": []
+  "input_valuation": 7475363884
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "15"
+  "output_valuation": 3264
+  "output_values":
+    "move_dest": 20
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "19"
+  - "35"
+- "incoming": []
+  "input_valuation": 7475363884
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "16"
+  "output_valuation": 2752
+  "output_values":
+    "move_dest": 12
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "19"
+  - "36"
+- "incoming": []
+  "input_valuation": 7475363884
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "17"
+  "output_valuation": 2496
+  "output_values":
+    "move_dest": 8
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "19"
+  - "37"
+- "incoming": []
+  "input_valuation": 7475363884
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "18"
+  "output_valuation": 3008
+  "output_values":
+    "move_dest": 16
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "19"
+  - "38"
+- "incoming":
+  - "0"
+  - "1"
+  - "2"
+  - "3"
+  - "4"
+  - "5"
+  - "6"
+  - "7"
+  - "8"
+  - "9"
+  - "10"
+  - "11"
+  - "12"
+  - "13"
+  - "14"
+  - "15"
+  - "16"
+  - "17"
+  - "18"
+  - "39"
+  "input_valuation": 7475372076
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "19"
+  "output_valuation": 16
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "39"
+- "incoming":
+  - "0"
+  "input_valuation": 7474253868
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 1
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "20"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "40"
+- "incoming":
+  - "1"
+  "input_valuation": 7475302444
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 17
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "21"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "41"
+- "incoming":
+  - "2"
+  "input_valuation": 7474778156
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 9
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "22"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "42"
+- "incoming":
+  - "3"
+  - "20"
+  - "21"
+  - "22"
+  - "24"
+  - "25"
+  - "26"
+  - "27"
+  - "28"
+  - "29"
+  - "30"
+  - "31"
+  - "32"
+  - "33"
+  - "35"
+  - "36"
+  - "37"
+  - "38"
+  - "39"
+  - "61"
+  - "62"
+  - "63"
+  - "67"
+  - "68"
+  - "69"
+  - "70"
+  - "71"
+  - "72"
+  - "73"
+  - "74"
+  - "75"
+  - "76"
+  - "80"
+  - "81"
+  - "82"
+  - "83"
+  "input_valuation": 7474516012
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 5
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "23"
+  "output_valuation": 4098
+  "output_values":
+    "move_dest": 1
+    "pick": 22
+  "output_variables":
+  - "grab_item_a"
+  "rank": 0
+  "transitions":
+  - "43"
+  - "44"
+- "incoming":
+  - "4"
+  "input_valuation": 7475040300
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 13
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "24"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "45"
+- "incoming":
+  - "5"
+  "input_valuation": 7474384940
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "25"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "46"
+- "incoming":
+  - "6"
+  "input_valuation": 7475433516
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 19
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "26"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "47"
+- "incoming":
+  - "7"
+  "input_valuation": 7474909228
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 11
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "27"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "48"
+- "incoming":
+  - "8"
+  "input_valuation": 7474647084
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 7
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "28"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "49"
+- "incoming":
+  - "9"
+  "input_valuation": 7475171372
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 15
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "29"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "50"
+- "incoming":
+  - "10"
+  "input_valuation": 7474319404
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 2
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "30"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "51"
+- "incoming":
+  - "11"
+  "input_valuation": 7474843692
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 10
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "31"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "52"
+- "incoming":
+  - "12"
+  "input_valuation": 7474581548
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 6
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "32"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "53"
+- "incoming":
+  - "13"
+  "input_valuation": 7475105836
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 14
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "33"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "54"
+- "incoming":
+  - "14"
+  "input_valuation": 7474450476
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 4
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "34"
+  "output_valuation": 8194
+  "output_values":
+    "move_dest": 1
+    "pick": 23
+  "output_variables":
+  - "grab_item_a"
+  "rank": 0
+  "transitions":
+  - "55"
+  - "56"
+- "incoming":
+  - "15"
+  "input_valuation": 7475499052
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 20
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "35"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "57"
+- "incoming":
+  - "16"
+  "input_valuation": 7474974764
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 12
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "36"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "58"
+- "incoming":
+  - "17"
+  "input_valuation": 7474712620
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 8
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "37"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "59"
+- "incoming":
+  - "18"
+  "input_valuation": 7475236908
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 16
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "38"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "60"
+- "incoming":
+  - "19"
+  "input_valuation": 7475364908
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 18
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "39"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "19"
+  - "23"
+- "incoming":
+  - "20"
+  - "61"
+  "input_valuation": 7474257964
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 1
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "40"
+  "output_valuation": 1040
+  "output_values":
+    "move_dest": 17
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "61"
+- "incoming":
+  - "21"
+  - "62"
+  "input_valuation": 7475306540
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 17
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "41"
+  "output_valuation": 16
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "62"
+- "incoming":
+  - "22"
+  - "63"
+  "input_valuation": 7474782252
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 9
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "42"
+  "output_valuation": 16
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "63"
+- "incoming":
+  - "23"
+  - "66"
+  "input_valuation": 7474511940
+  "input_values":
+    "bread0": 4
+    "butter0": 0
+    "robot_loc": 5
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "grab_item_c"
+  "is_initial": false
+  "name": "43"
+  "output_valuation": 2176
+  "output_values":
+    "move_dest": 3
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "64"
+  - "65"
+- "incoming":
+  - "23"
+  - "66"
+  "input_valuation": 7474512044
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 5
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "grab_item_f"
+  "is_initial": false
+  "name": "44"
+  "output_valuation": 8
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_grab_failed_a"
+  "rank": 0
+  "transitions":
+  - "66"
+- "incoming":
+  - "24"
+  - "67"
+  "input_valuation": 7475044396
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 13
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "45"
+  "output_valuation": 16
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "67"
+- "incoming":
+  - "25"
+  - "68"
+  "input_valuation": 7474389036
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "46"
+  "output_valuation": 16
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "68"
+- "incoming":
+  - "26"
+  - "69"
+  "input_valuation": 7475437612
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 19
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "47"
+  "output_valuation": 16
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "69"
+- "incoming":
+  - "27"
+  - "70"
+  "input_valuation": 7474913324
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 11
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "48"
+  "output_valuation": 16
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "70"
+- "incoming":
+  - "28"
+  - "71"
+  "input_valuation": 7474651180
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 7
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "49"
+  "output_valuation": 16
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "71"
+- "incoming":
+  - "29"
+  - "72"
+  "input_valuation": 7475175468
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 15
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "50"
+  "output_valuation": 16
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "72"
+- "incoming":
+  - "30"
+  - "73"
+  "input_valuation": 7474323500
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 2
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "51"
+  "output_valuation": 16
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "73"
+- "incoming":
+  - "31"
+  - "74"
+  "input_valuation": 7474847788
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 10
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "52"
+  "output_valuation": 16
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "74"
+- "incoming":
+  - "32"
+  - "75"
+  "input_valuation": 7474585644
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 6
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "53"
+  "output_valuation": 16
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "75"
+- "incoming":
+  - "33"
+  - "76"
+  "input_valuation": 7475109932
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 14
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "54"
+  "output_valuation": 16
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "76"
+- "incoming":
+  - "34"
+  - "79"
+  "input_valuation": 7474446440
+  "input_values":
+    "bread0": 0
+    "butter0": 5
+    "robot_loc": 4
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "grab_item_c"
+  "is_initial": false
+  "name": "55"
+  "output_valuation": 2176
+  "output_values":
+    "move_dest": 3
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "77"
+  - "78"
+- "incoming":
+  - "34"
+  - "79"
+  "input_valuation": 7474446508
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 4
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "grab_item_f"
+  "is_initial": false
+  "name": "56"
+  "output_valuation": 8
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_grab_failed_a"
+  "rank": 0
+  "transitions":
+  - "79"
+- "incoming":
+  - "35"
+  - "80"
+  "input_valuation": 7475503148
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 20
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "57"
+  "output_valuation": 16
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "80"
+- "incoming":
+  - "36"
+  - "81"
+  "input_valuation": 7474978860
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 12
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "58"
+  "output_valuation": 16
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "81"
+- "incoming":
+  - "37"
+  - "82"
+  "input_valuation": 7474716716
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 8
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "59"
+  "output_valuation": 16
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "82"
+- "incoming":
+  - "38"
+  - "83"
+  "input_valuation": 7475241004
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 16
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "60"
+  "output_valuation": 16
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "83"
+- "incoming":
+  - "40"
+  "input_valuation": 7474250796
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 1
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "61"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "40"
+- "incoming":
+  - "41"
+  "input_valuation": 7475299372
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 17
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "62"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "41"
+- "incoming":
+  - "42"
+  "input_valuation": 7474775084
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 9
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "63"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "42"
+- "incoming":
+  - "43"
+  - "84"
+  "input_valuation": 7474520068
+  "input_values":
+    "bread0": 4
+    "butter0": 0
+    "robot_loc": 5
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "64"
+  "output_valuation": 16
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "84"
+- "incoming":
+  - "43"
+  - "84"
+  "input_valuation": 7474384900
+  "input_values":
+    "bread0": 4
+    "butter0": 0
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "65"
+  "output_valuation": 32768
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "place_item_a"
+  "rank": 0
+  "transitions":
+  - "85"
+  - "86"
+- "incoming":
+  - "44"
+  "input_valuation": 7474512428
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 5
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_grab_failed_c"
+  "is_initial": false
+  "name": "66"
+  "output_valuation": 4098
+  "output_values":
+    "move_dest": 1
+    "pick": 22
+  "output_variables":
+  - "grab_item_a"
+  "rank": 0
+  "transitions":
+  - "43"
+  - "44"
+- "incoming":
+  - "45"
+  "input_valuation": 7475037228
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 13
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "67"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "45"
+- "incoming":
+  - "46"
+  "input_valuation": 7474381868
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "68"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "46"
+- "incoming":
+  - "47"
+  "input_valuation": 7475430444
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 19
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "69"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "47"
+- "incoming":
+  - "48"
+  "input_valuation": 7474906156
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 11
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "70"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "48"
+- "incoming":
+  - "49"
+  "input_valuation": 7474644012
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 7
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "71"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "49"
+- "incoming":
+  - "50"
+  "input_valuation": 7475168300
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 15
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "72"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "50"
+- "incoming":
+  - "51"
+  "input_valuation": 7474316332
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 2
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "73"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "51"
+- "incoming":
+  - "52"
+  "input_valuation": 7474840620
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 10
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "74"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "52"
+- "incoming":
+  - "53"
+  "input_valuation": 7474578476
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 6
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "75"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "53"
+- "incoming":
+  - "54"
+  "input_valuation": 7475102764
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 14
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "76"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "54"
+- "incoming":
+  - "55"
+  - "87"
+  "input_valuation": 7474454568
+  "input_values":
+    "bread0": 0
+    "butter0": 5
+    "robot_loc": 4
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "77"
+  "output_valuation": 16
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "87"
+- "incoming":
+  - "55"
+  - "87"
+  "input_valuation": 7474384936
+  "input_values":
+    "bread0": 0
+    "butter0": 5
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "78"
+  "output_valuation": 32768
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "place_item_a"
+  "rank": 0
+  "transitions":
+  - "88"
+  - "89"
+- "incoming":
+  - "56"
+  "input_valuation": 7474446892
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 4
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_grab_failed_c"
+  "is_initial": false
+  "name": "79"
+  "output_valuation": 8194
+  "output_values":
+    "move_dest": 1
+    "pick": 23
+  "output_variables":
+  - "grab_item_a"
+  "rank": 0
+  "transitions":
+  - "55"
+  - "56"
+- "incoming":
+  - "57"
+  "input_valuation": 7475495980
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 20
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "80"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "57"
+- "incoming":
+  - "58"
+  "input_valuation": 7474971692
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 12
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "81"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "58"
+- "incoming":
+  - "59"
+  "input_valuation": 7474709548
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 8
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "82"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "59"
+- "incoming":
+  - "60"
+  "input_valuation": 7475233836
+  "input_values":
+    "bread0": 4
+    "butter0": 5
+    "robot_loc": 16
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "83"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "23"
+  - "60"
+- "incoming":
+  - "64"
+  "input_valuation": 7474512900
+  "input_values":
+    "bread0": 4
+    "butter0": 0
+    "robot_loc": 5
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "84"
+  "output_valuation": 2176
+  "output_values":
+    "move_dest": 3
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "64"
+  - "65"
+- "incoming":
+  - "65"
+  - "90"
+  "input_valuation": 7474413572
+  "input_values":
+    "bread0": 4
+    "butter0": 0
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "place_item_f"
+  "is_initial": false
+  "name": "85"
+  "output_valuation": 32
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_place_failed_a"
+  "rank": 0
+  "transitions":
+  - "90"
+- "incoming":
+  - "65"
+  - "90"
+  "input_valuation": 7474397212
+  "input_values":
+    "bread0": 4
+    "butter0": 3
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "place_item_c"
+  "is_initial": false
+  "name": "86"
+  "output_valuation": 2240
+  "output_values":
+    "move_dest": 4
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "91"
+  - "92"
+- "incoming":
+  - "77"
+  "input_valuation": 7474447400
+  "input_values":
+    "bread0": 0
+    "butter0": 5
+    "robot_loc": 4
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "87"
+  "output_valuation": 2176
+  "output_values":
+    "move_dest": 3
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "77"
+  - "78"
+- "incoming":
+  - "78"
+  - "93"
+  "input_valuation": 7474413608
+  "input_values":
+    "bread0": 0
+    "butter0": 5
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "place_item_f"
+  "is_initial": false
+  "name": "88"
+  "output_valuation": 32
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_place_failed_a"
+  "rank": 0
+  "transitions":
+  - "93"
+- "incoming":
+  - "78"
+  - "93"
+  "input_valuation": 7474397227
+  "input_values":
+    "bread0": 3
+    "butter0": 5
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "place_item_c"
+  "is_initial": false
+  "name": "89"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "94"
+  - "95"
+- "incoming":
+  - "85"
+  "input_valuation": 7474382852
+  "input_values":
+    "bread0": 4
+    "butter0": 0
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_place_failed_c"
+  "is_initial": false
+  "name": "90"
+  "output_valuation": 32768
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "place_item_a"
+  "rank": 0
+  "transitions":
+  - "85"
+  - "86"
+- "incoming":
+  - "86"
+  - "96"
+  "input_valuation": 7474389020
+  "input_values":
+    "bread0": 4
+    "butter0": 3
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "91"
+  "output_valuation": 16
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "96"
+- "incoming":
+  - "86"
+  - "96"
+  "input_valuation": 7474450460
+  "input_values":
+    "bread0": 4
+    "butter0": 3
+    "robot_loc": 4
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "92"
+  "output_valuation": 8194
+  "output_values":
+    "move_dest": 1
+    "pick": 23
+  "output_variables":
+  - "grab_item_a"
+  "rank": 0
+  "transitions":
+  - "97"
+  - "98"
+- "incoming":
+  - "88"
+  "input_valuation": 7474382888
+  "input_values":
+    "bread0": 0
+    "butter0": 5
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_place_failed_c"
+  "is_initial": false
+  "name": "93"
+  "output_valuation": 32768
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "place_item_a"
+  "rank": 0
+  "transitions":
+  - "88"
+  - "89"
+- "incoming":
+  - "89"
+  - "99"
+  "input_valuation": 7474389035
+  "input_values":
+    "bread0": 3
+    "butter0": 5
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "94"
+  "output_valuation": 16
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "99"
+- "incoming":
+  - "89"
+  - "99"
+  "input_valuation": 7474516011
+  "input_values":
+    "bread0": 3
+    "butter0": 5
+    "robot_loc": 5
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "95"
+  "output_valuation": 4098
+  "output_values":
+    "move_dest": 1
+    "pick": 22
+  "output_variables":
+  - "grab_item_a"
+  "rank": 0
+  "transitions":
+  - "100"
+  - "101"
+- "incoming":
+  - "91"
+  "input_valuation": 7474381852
+  "input_values":
+    "bread0": 4
+    "butter0": 3
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "96"
+  "output_valuation": 2240
+  "output_values":
+    "move_dest": 4
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "91"
+  - "92"
+- "incoming":
+  - "92"
+  - "104"
+  "input_valuation": 7474446424
+  "input_values":
+    "bread0": 0
+    "butter0": 3
+    "robot_loc": 4
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "grab_item_c"
+  "is_initial": false
+  "name": "97"
+  "output_valuation": 2176
+  "output_values":
+    "move_dest": 3
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "102"
+  - "103"
+- "incoming":
+  - "92"
+  - "104"
+  "input_valuation": 7474446492
+  "input_values":
+    "bread0": 4
+    "butter0": 3
+    "robot_loc": 4
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "grab_item_f"
+  "is_initial": false
+  "name": "98"
+  "output_valuation": 8
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_grab_failed_a"
+  "rank": 0
+  "transitions":
+  - "104"
+- "incoming":
+  - "94"
+  "input_valuation": 7474381867
+  "input_values":
+    "bread0": 3
+    "butter0": 5
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "99"
+  "output_valuation": 2304
+  "output_values":
+    "move_dest": 5
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "94"
+  - "95"
+- "incoming":
+  - "95"
+  - "107"
+  "input_valuation": 7474511939
+  "input_values":
+    "bread0": 3
+    "butter0": 0
+    "robot_loc": 5
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "grab_item_c"
+  "is_initial": false
+  "name": "100"
+  "output_valuation": 2176
+  "output_values":
+    "move_dest": 3
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "105"
+  - "106"
+- "incoming":
+  - "95"
+  - "107"
+  "input_valuation": 7474512043
+  "input_values":
+    "bread0": 3
+    "butter0": 5
+    "robot_loc": 5
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "grab_item_f"
+  "is_initial": false
+  "name": "101"
+  "output_valuation": 8
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_grab_failed_a"
+  "rank": 0
+  "transitions":
+  - "107"
+- "incoming":
+  - "97"
+  - "108"
+  "input_valuation": 7474454552
+  "input_values":
+    "bread0": 0
+    "butter0": 3
+    "robot_loc": 4
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "102"
+  "output_valuation": 16
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "108"
+- "incoming":
+  - "97"
+  - "108"
+  "input_valuation": 7474384920
+  "input_values":
+    "bread0": 0
+    "butter0": 3
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "103"
+  "output_valuation": 32768
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "place_item_a"
+  "rank": 0
+  "transitions":
+  - "109"
+  - "110"
+- "incoming":
+  - "98"
+  "input_valuation": 7474446876
+  "input_values":
+    "bread0": 4
+    "butter0": 3
+    "robot_loc": 4
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_grab_failed_c"
+  "is_initial": false
+  "name": "104"
+  "output_valuation": 8194
+  "output_values":
+    "move_dest": 1
+    "pick": 23
+  "output_variables":
+  - "grab_item_a"
+  "rank": 0
+  "transitions":
+  - "97"
+  - "98"
+- "incoming":
+  - "100"
+  - "111"
+  "input_valuation": 7474520067
+  "input_values":
+    "bread0": 3
+    "butter0": 0
+    "robot_loc": 5
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_f"
+  "is_initial": false
+  "name": "105"
+  "output_valuation": 16
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_move_failed_a"
+  "rank": 0
+  "transitions":
+  - "111"
+- "incoming":
+  - "100"
+  - "111"
+  "input_valuation": 7474384899
+  "input_values":
+    "bread0": 3
+    "butter0": 0
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "move_robot_c"
+  "is_initial": false
+  "name": "106"
+  "output_valuation": 32768
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "place_item_a"
+  "rank": 0
+  "transitions":
+  - "110"
+  - "112"
+- "incoming":
+  - "101"
+  "input_valuation": 7474512427
+  "input_values":
+    "bread0": 3
+    "butter0": 5
+    "robot_loc": 5
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_grab_failed_c"
+  "is_initial": false
+  "name": "107"
+  "output_valuation": 4098
+  "output_values":
+    "move_dest": 1
+    "pick": 22
+  "output_variables":
+  - "grab_item_a"
+  "rank": 0
+  "transitions":
+  - "100"
+  - "101"
+- "incoming":
+  - "102"
+  "input_valuation": 7474447384
+  "input_values":
+    "bread0": 0
+    "butter0": 3
+    "robot_loc": 4
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "108"
+  "output_valuation": 2176
+  "output_values":
+    "move_dest": 3
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "102"
+  - "103"
+- "incoming":
+  - "103"
+  - "113"
+  "input_valuation": 7474413592
+  "input_values":
+    "bread0": 0
+    "butter0": 3
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "place_item_f"
+  "is_initial": false
+  "name": "109"
+  "output_valuation": 32
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_place_failed_a"
+  "rank": 0
+  "transitions":
+  - "113"
+- "incoming":
+  - "103"
+  - "106"
+  - "113"
+  - "115"
+  "input_valuation": 7474397211
+  "input_values":
+    "bread0": 3
+    "butter0": 3
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "place_item_c"
+  "is_initial": false
+  "name": "110"
+  "output_valuation": 1
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "finished"
+  "rank": 0
+  "transitions":
+  - "114"
+- "incoming":
+  - "105"
+  "input_valuation": 7474512899
+  "input_values":
+    "bread0": 3
+    "butter0": 0
+    "robot_loc": 5
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_move_failed_c"
+  "is_initial": false
+  "name": "111"
+  "output_valuation": 2176
+  "output_values":
+    "move_dest": 3
+    "pick": 21
+  "output_variables":
+  - "move_robot_a"
+  "rank": 0
+  "transitions":
+  - "105"
+  - "106"
+- "incoming":
+  - "106"
+  - "115"
+  "input_valuation": 7474413571
+  "input_values":
+    "bread0": 3
+    "butter0": 0
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "place_item_f"
+  "is_initial": false
+  "name": "112"
+  "output_valuation": 32
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "log_place_failed_a"
+  "rank": 0
+  "transitions":
+  - "115"
+- "incoming":
+  - "109"
+  "input_valuation": 7474382872
+  "input_values":
+    "bread0": 0
+    "butter0": 3
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_place_failed_c"
+  "is_initial": false
+  "name": "113"
+  "output_valuation": 32768
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "place_item_a"
+  "rank": 0
+  "transitions":
+  - "109"
+  - "110"
+- "incoming":
+  - "110"
+  - "114"
+  "input_valuation": 7474380827
+  "input_values":
+    "bread0": 3
+    "butter0": 3
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables": []
+  "is_initial": false
+  "name": "114"
+  "output_valuation": 1
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "finished"
+  "rank": 0
+  "transitions":
+  - "114"
+- "incoming":
+  - "112"
+  "input_valuation": 7474382851
+  "input_values":
+    "bread0": 3
+    "butter0": 0
+    "robot_loc": 3
+    "snacks0": 4
+    "soda0": 5
+    "waste0": 7
+    "waste1": 6
+  "input_variables":
+  - "log_place_failed_c"
+  "is_initial": false
+  "name": "115"
+  "output_valuation": 32768
+  "output_values":
+    "move_dest": 1
+    "pick": 21
+  "output_variables":
+  - "place_item_a"
+  "rank": 0
+  "transitions":
+  - "110"
+  - "112"
+"input_variables":
+- "bread0@0"
+- "bread0@1"
+- "bread0@2"
+- "butter0@0"
+- "butter0@1"
+- "butter0@2"
+- "grab_item_c"
+- "grab_item_f"
+- "log_finished_c"
+- "log_grab_failed_c"
+- "log_move_failed_c"
+- "log_place_failed_c"
+- "move_robot_c"
+- "move_robot_f"
+- "place_item_c"
+- "place_item_f"
+- "robot_loc@0"
+- "robot_loc@1"
+- "robot_loc@2"
+- "robot_loc@3"
+- "robot_loc@4"
+- "snacks0@0"
+- "snacks0@1"
+- "snacks0@2"
+- "soda0@0"
+- "soda0@1"
+- "soda0@2"
+- "waste0@0"
+- "waste0@1"
+- "waste0@2"
+- "waste1@0"
+- "waste1@1"
+- "waste1@2"
+"output_variables":
+- "finished"
+- "grab_item_a"
+- "log_finished_a"
+- "log_grab_failed_a"
+- "log_move_failed_a"
+- "log_place_failed_a"
+- "move_dest@0"
+- "move_dest@1"
+- "move_dest@2"
+- "move_dest@3"
+- "move_dest@4"
+- "move_robot_a"
+- "pick@0"
+- "pick@1"
+- "pick@2"
+- "place_item_a"

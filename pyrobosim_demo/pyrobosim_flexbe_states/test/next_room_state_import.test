@@ -1,0 +1,4 @@
+path: pyrobosim_flexbe_states.next_room_state
+class: NextRoomState
+
+import_only: true

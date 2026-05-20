@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="two_rivers_parsed">
+
+    <executable package_path="flexbe_river_crossing_behaviors.two_rivers_parsed_sm" class="two_rivers_parsedSM" />
+    <tagstring>flexbe</tagstring>
+    <author>David Conner</author>
+    <date>Friday 11-July-2025</date>
+    <description>
+        Synthesis generated demo
+    </description>
+
+
+    <!-- Contained Behaviors -->
+
+    <!-- Available Parameters -->
+
+</behavior>

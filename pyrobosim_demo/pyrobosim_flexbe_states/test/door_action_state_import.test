@@ -1,0 +1,4 @@
+path: pyrobosim_flexbe_states.door_action_state
+class: DoorActionState
+
+import_only: true

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<package format="3">
+    <name>flexbe_river_crossing_behaviors</name>
+    <version>0.0.1</version>
+    <description>
+        Hand-crafted and synthesized FlexBE behavior state machines for the
+        wolf-goat-corn-farmer river-crossing synthesis demonstration.
+    </description>
+    <maintainer email="robotics@cnu.edu">David Conner</maintainer>
+    <license>Apache-2.0</license>
+
+    <url type="website">https://github.com/CNURobotics/flexbe_synthesis_demo</url>
+    <url type="bugtracker">https://github.com/CNURobotics/flexbe_synthesis_demo/issues</url>
+    <url type="repository">https://github.com/CNURobotics/flexbe_synthesis_demo</url>
+
+    <author>Joshua Luzier</author>
+    <author email="robotics@cnu.edu">David Conner</author>
+
+    <exec_depend>rclpy</exec_depend>
+    <exec_depend>flexbe_core</exec_depend>
+    <exec_depend>flexbe_states</exec_depend>
+    <exec_depend>flexbe_river_crossing_flexbe_states</exec_depend>
+
+    <test_depend>ament_cmake_pytest</test_depend>
+    <test_depend>ament_copyright</test_depend>
+    <test_depend>ament_flake8</test_depend>
+    <test_depend>ament_pep257</test_depend>
+    <test_depend>python3-pytest</test_depend>
+
+    <buildtool_depend>ament_cmake</buildtool_depend>
+    <buildtool_depend>ament_cmake_python</buildtool_depend>
+
+    <export>
+        <flexbe_behaviors />
+        <build_type>ament_cmake</build_type>
+    </export>
+</package>

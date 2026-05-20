@@ -1,0 +1,1051 @@
+digraph StateMachine {
+  outputorder="edgesfirst";
+  layout="dot";
+  splines=true;
+  rankdir=LR;
+  nodesep=0.8;
+  ranksep=1.2;
+  overlap=false;
+  dpi=150;
+  fontname="Liberation Sans";
+  node [fontname="Liberation Sans", fontweight="bold", penwidth=2.0];
+  edge [fontname="Liberation Sans", fontweight="bold", penwidth=2.0];
+  "Init" [shape=point];
+  "0" [width=0.4, height=0.4, fontsize=6, xlabel="0
+bread0=4
+butter0=5
+robot_loc=18
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "0_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="0_sys
+move_robot_a
+move_dest=1
+pick=21", label=""];
+  "19" [width=0.4, height=0.4, fontsize=6, xlabel="19
+move_robot_f
+bread0=4
+butter0=5
+robot_loc=18
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "19_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="19_sys
+log_move_failed_a
+move_dest=1
+pick=21", label=""];
+  "20" [width=0.4, height=0.4, fontsize=6, xlabel="20
+log_move_failed_c
+move_robot_c
+bread0=4
+butter0=5
+robot_loc=1
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "20_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="20_sys
+move_robot_a
+move_dest=5
+pick=21", label=""];
+  "23" [width=0.4, height=0.4, fontsize=6, xlabel="23
+log_grab_failed_c
+move_robot_c
+bread0=4
+butter0=5
+robot_loc=5
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "23_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="23_sys
+grab_item_a
+move_dest=1
+pick=22", label=""];
+  "39" [width=0.4, height=0.4, fontsize=6, xlabel="39
+log_move_failed_c
+bread0=4
+butter0=5
+robot_loc=18
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "39_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="39_sys
+move_robot_a
+move_dest=5
+pick=21", label=""];
+  "40" [width=0.4, height=0.4, fontsize=6, xlabel="40
+move_robot_f
+bread0=4
+butter0=5
+robot_loc=1
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "40_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="40_sys
+log_move_failed_a
+move_dest=17
+pick=21", label=""];
+  "41" [width=0.4, height=0.4, fontsize=6, xlabel="41
+move_robot_f
+bread0=4
+butter0=5
+robot_loc=17
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "41_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="41_sys
+log_move_failed_a
+move_dest=1
+pick=21", label=""];
+  "42" [width=0.4, height=0.4, fontsize=6, xlabel="42
+move_robot_f
+bread0=4
+butter0=5
+robot_loc=9
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "42_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="42_sys
+log_move_failed_a
+move_dest=1
+pick=21", label=""];
+  "43" [width=0.4, height=0.4, fontsize=6, xlabel="43
+grab_item_c
+log_move_failed_c
+bread0=4
+butter0=0
+robot_loc=5
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "43_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="43_sys
+move_robot_a
+move_dest=3
+pick=21", label=""];
+  "44" [width=0.4, height=0.4, fontsize=6, xlabel="44
+grab_item_f
+bread0=4
+butter0=5
+robot_loc=5
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "44_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="44_sys
+log_grab_failed_a
+move_dest=1
+pick=21", label=""];
+  "45" [width=0.4, height=0.4, fontsize=6, xlabel="45
+move_robot_f
+bread0=4
+butter0=5
+robot_loc=13
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "45_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="45_sys
+log_move_failed_a
+move_dest=1
+pick=21", label=""];
+  "46" [width=0.4, height=0.4, fontsize=6, xlabel="46
+move_robot_f
+bread0=4
+butter0=5
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "46_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="46_sys
+log_move_failed_a
+move_dest=1
+pick=21", label=""];
+  "47" [width=0.4, height=0.4, fontsize=6, xlabel="47
+move_robot_f
+bread0=4
+butter0=5
+robot_loc=19
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "47_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="47_sys
+log_move_failed_a
+move_dest=1
+pick=21", label=""];
+  "48" [width=0.4, height=0.4, fontsize=6, xlabel="48
+move_robot_f
+bread0=4
+butter0=5
+robot_loc=11
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "48_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="48_sys
+log_move_failed_a
+move_dest=1
+pick=21", label=""];
+  "49" [width=0.4, height=0.4, fontsize=6, xlabel="49
+move_robot_f
+bread0=4
+butter0=5
+robot_loc=7
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "49_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="49_sys
+log_move_failed_a
+move_dest=1
+pick=21", label=""];
+  "50" [width=0.4, height=0.4, fontsize=6, xlabel="50
+move_robot_f
+bread0=4
+butter0=5
+robot_loc=15
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "50_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="50_sys
+log_move_failed_a
+move_dest=1
+pick=21", label=""];
+  "51" [width=0.4, height=0.4, fontsize=6, xlabel="51
+move_robot_f
+bread0=4
+butter0=5
+robot_loc=2
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "51_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="51_sys
+log_move_failed_a
+move_dest=1
+pick=21", label=""];
+  "52" [width=0.4, height=0.4, fontsize=6, xlabel="52
+move_robot_f
+bread0=4
+butter0=5
+robot_loc=10
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "52_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="52_sys
+log_move_failed_a
+move_dest=1
+pick=21", label=""];
+  "53" [width=0.4, height=0.4, fontsize=6, xlabel="53
+move_robot_f
+bread0=4
+butter0=5
+robot_loc=6
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "53_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="53_sys
+log_move_failed_a
+move_dest=1
+pick=21", label=""];
+  "54" [width=0.4, height=0.4, fontsize=6, xlabel="54
+move_robot_f
+bread0=4
+butter0=5
+robot_loc=14
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "54_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="54_sys
+log_move_failed_a
+move_dest=1
+pick=21", label=""];
+  "55" [width=0.4, height=0.4, fontsize=6, xlabel="55
+grab_item_c
+log_move_failed_c
+bread0=0
+butter0=5
+robot_loc=4
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "55_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="55_sys
+move_robot_a
+move_dest=3
+pick=21", label=""];
+  "56" [width=0.4, height=0.4, fontsize=6, xlabel="56
+grab_item_f
+bread0=4
+butter0=5
+robot_loc=4
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "56_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="56_sys
+log_grab_failed_a
+move_dest=1
+pick=21", label=""];
+  "57" [width=0.4, height=0.4, fontsize=6, xlabel="57
+move_robot_f
+bread0=4
+butter0=5
+robot_loc=20
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "57_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="57_sys
+log_move_failed_a
+move_dest=1
+pick=21", label=""];
+  "58" [width=0.4, height=0.4, fontsize=6, xlabel="58
+move_robot_f
+bread0=4
+butter0=5
+robot_loc=12
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "58_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="58_sys
+log_move_failed_a
+move_dest=1
+pick=21", label=""];
+  "59" [width=0.4, height=0.4, fontsize=6, xlabel="59
+move_robot_f
+bread0=4
+butter0=5
+robot_loc=8
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "59_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="59_sys
+log_move_failed_a
+move_dest=1
+pick=21", label=""];
+  "60" [width=0.4, height=0.4, fontsize=6, xlabel="60
+move_robot_f
+bread0=4
+butter0=5
+robot_loc=16
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "60_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="60_sys
+log_move_failed_a
+move_dest=1
+pick=21", label=""];
+  "62" [width=0.4, height=0.4, fontsize=6, xlabel="62
+log_move_failed_c
+bread0=4
+butter0=5
+robot_loc=17
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "62_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="62_sys
+move_robot_a
+move_dest=5
+pick=21", label=""];
+  "63" [width=0.4, height=0.4, fontsize=6, xlabel="63
+log_move_failed_c
+bread0=4
+butter0=5
+robot_loc=9
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "63_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="63_sys
+move_robot_a
+move_dest=5
+pick=21", label=""];
+  "64" [width=0.4, height=0.4, fontsize=6, xlabel="64
+move_robot_f
+bread0=4
+butter0=0
+robot_loc=5
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "64_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="64_sys
+log_move_failed_a
+move_dest=1
+pick=21", label=""];
+  "65" [width=0.4, height=0.4, fontsize=6, xlabel="65
+log_place_failed_c
+move_robot_c
+bread0=4
+butter0=0
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "65_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="65_sys
+place_item_a
+move_dest=1
+pick=21", label=""];
+  "67" [width=0.4, height=0.4, fontsize=6, xlabel="67
+log_move_failed_c
+bread0=4
+butter0=5
+robot_loc=13
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "67_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="67_sys
+move_robot_a
+move_dest=5
+pick=21", label=""];
+  "68" [width=0.4, height=0.4, fontsize=6, xlabel="68
+log_move_failed_c
+bread0=4
+butter0=5
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "68_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="68_sys
+move_robot_a
+move_dest=5
+pick=21", label=""];
+  "69" [width=0.4, height=0.4, fontsize=6, xlabel="69
+log_move_failed_c
+bread0=4
+butter0=5
+robot_loc=19
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "69_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="69_sys
+move_robot_a
+move_dest=5
+pick=21", label=""];
+  "70" [width=0.4, height=0.4, fontsize=6, xlabel="70
+log_move_failed_c
+bread0=4
+butter0=5
+robot_loc=11
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "70_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="70_sys
+move_robot_a
+move_dest=5
+pick=21", label=""];
+  "71" [width=0.4, height=0.4, fontsize=6, xlabel="71
+log_move_failed_c
+bread0=4
+butter0=5
+robot_loc=7
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "71_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="71_sys
+move_robot_a
+move_dest=5
+pick=21", label=""];
+  "72" [width=0.4, height=0.4, fontsize=6, xlabel="72
+log_move_failed_c
+bread0=4
+butter0=5
+robot_loc=15
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "72_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="72_sys
+move_robot_a
+move_dest=5
+pick=21", label=""];
+  "73" [width=0.4, height=0.4, fontsize=6, xlabel="73
+log_move_failed_c
+bread0=4
+butter0=5
+robot_loc=2
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "73_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="73_sys
+move_robot_a
+move_dest=5
+pick=21", label=""];
+  "74" [width=0.4, height=0.4, fontsize=6, xlabel="74
+log_move_failed_c
+bread0=4
+butter0=5
+robot_loc=10
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "74_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="74_sys
+move_robot_a
+move_dest=5
+pick=21", label=""];
+  "75" [width=0.4, height=0.4, fontsize=6, xlabel="75
+log_move_failed_c
+bread0=4
+butter0=5
+robot_loc=6
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "75_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="75_sys
+move_robot_a
+move_dest=5
+pick=21", label=""];
+  "76" [width=0.4, height=0.4, fontsize=6, xlabel="76
+log_move_failed_c
+bread0=4
+butter0=5
+robot_loc=14
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "76_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="76_sys
+move_robot_a
+move_dest=5
+pick=21", label=""];
+  "77" [width=0.4, height=0.4, fontsize=6, xlabel="77
+move_robot_f
+bread0=0
+butter0=5
+robot_loc=4
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "77_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="77_sys
+log_move_failed_a
+move_dest=1
+pick=21", label=""];
+  "78" [width=0.4, height=0.4, fontsize=6, xlabel="78
+log_place_failed_c
+move_robot_c
+bread0=0
+butter0=5
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "78_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="78_sys
+place_item_a
+move_dest=1
+pick=21", label=""];
+  "79" [width=0.4, height=0.4, fontsize=6, xlabel="79
+log_grab_failed_c
+bread0=4
+butter0=5
+robot_loc=4
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "79_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="79_sys
+grab_item_a
+move_dest=1
+pick=23", label=""];
+  "80" [width=0.4, height=0.4, fontsize=6, xlabel="80
+log_move_failed_c
+bread0=4
+butter0=5
+robot_loc=20
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "80_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="80_sys
+move_robot_a
+move_dest=5
+pick=21", label=""];
+  "81" [width=0.4, height=0.4, fontsize=6, xlabel="81
+log_move_failed_c
+bread0=4
+butter0=5
+robot_loc=12
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "81_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="81_sys
+move_robot_a
+move_dest=5
+pick=21", label=""];
+  "82" [width=0.4, height=0.4, fontsize=6, xlabel="82
+log_move_failed_c
+bread0=4
+butter0=5
+robot_loc=8
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "82_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="82_sys
+move_robot_a
+move_dest=5
+pick=21", label=""];
+  "83" [width=0.4, height=0.4, fontsize=6, xlabel="83
+log_move_failed_c
+bread0=4
+butter0=5
+robot_loc=16
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "83_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="83_sys
+move_robot_a
+move_dest=5
+pick=21", label=""];
+  "85" [width=0.4, height=0.4, fontsize=6, xlabel="85
+place_item_f
+bread0=4
+butter0=0
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "85_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="85_sys
+log_place_failed_a
+move_dest=1
+pick=21", label=""];
+  "86" [width=0.4, height=0.4, fontsize=6, xlabel="86
+log_move_failed_c
+place_item_c
+bread0=4
+butter0=3
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "86_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="86_sys
+move_robot_a
+move_dest=4
+pick=21", label=""];
+  "88" [width=0.4, height=0.4, fontsize=6, xlabel="88
+place_item_f
+bread0=0
+butter0=5
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "88_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="88_sys
+log_place_failed_a
+move_dest=1
+pick=21", label=""];
+  "89" [width=0.4, height=0.4, fontsize=6, xlabel="89
+log_move_failed_c
+place_item_c
+bread0=3
+butter0=5
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "89_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="89_sys
+move_robot_a
+move_dest=5
+pick=21", label=""];
+  "91" [width=0.4, height=0.4, fontsize=6, xlabel="91
+move_robot_f
+bread0=4
+butter0=3
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "91_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="91_sys
+log_move_failed_a
+move_dest=1
+pick=21", label=""];
+  "92" [width=0.4, height=0.4, fontsize=6, xlabel="92
+log_grab_failed_c
+move_robot_c
+bread0=4
+butter0=3
+robot_loc=4
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "92_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="92_sys
+grab_item_a
+move_dest=1
+pick=23", label=""];
+  "94" [width=0.4, height=0.4, fontsize=6, xlabel="94
+move_robot_f
+bread0=3
+butter0=5
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "94_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="94_sys
+log_move_failed_a
+move_dest=1
+pick=21", label=""];
+  "95" [width=0.4, height=0.4, fontsize=6, xlabel="95
+log_grab_failed_c
+move_robot_c
+bread0=3
+butter0=5
+robot_loc=5
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "95_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="95_sys
+grab_item_a
+move_dest=1
+pick=22", label=""];
+  "97" [width=0.4, height=0.4, fontsize=6, xlabel="97
+grab_item_c
+log_move_failed_c
+bread0=0
+butter0=3
+robot_loc=4
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "97_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="97_sys
+move_robot_a
+move_dest=3
+pick=21", label=""];
+  "98" [width=0.4, height=0.4, fontsize=6, xlabel="98
+grab_item_f
+bread0=4
+butter0=3
+robot_loc=4
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "98_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="98_sys
+log_grab_failed_a
+move_dest=1
+pick=21", label=""];
+  "100" [width=0.4, height=0.4, fontsize=6, xlabel="100
+grab_item_c
+log_move_failed_c
+bread0=3
+butter0=0
+robot_loc=5
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "100_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="100_sys
+move_robot_a
+move_dest=3
+pick=21", label=""];
+  "101" [width=0.4, height=0.4, fontsize=6, xlabel="101
+grab_item_f
+bread0=3
+butter0=5
+robot_loc=5
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "101_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="101_sys
+log_grab_failed_a
+move_dest=1
+pick=21", label=""];
+  "102" [width=0.4, height=0.4, fontsize=6, xlabel="102
+move_robot_f
+bread0=0
+butter0=3
+robot_loc=4
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "102_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="102_sys
+log_move_failed_a
+move_dest=1
+pick=21", label=""];
+  "103" [width=0.4, height=0.4, fontsize=6, xlabel="103
+log_place_failed_c
+move_robot_c
+bread0=0
+butter0=3
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "103_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="103_sys
+place_item_a
+move_dest=1
+pick=21", label=""];
+  "105" [width=0.4, height=0.4, fontsize=6, xlabel="105
+move_robot_f
+bread0=3
+butter0=0
+robot_loc=5
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "105_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="105_sys
+log_move_failed_a
+move_dest=1
+pick=21", label=""];
+  "106" [width=0.4, height=0.4, fontsize=6, xlabel="106
+log_place_failed_c
+move_robot_c
+bread0=3
+butter0=0
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "106_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="106_sys
+place_item_a
+move_dest=1
+pick=21", label=""];
+  "109" [width=0.4, height=0.4, fontsize=6, xlabel="109
+place_item_f
+bread0=0
+butter0=3
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "109_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="109_sys
+log_place_failed_a
+move_dest=1
+pick=21", label=""];
+  "110" [width=0.4, height=0.4, fontsize=6, xlabel="110
+place_item_c
+bread0=3
+butter0=3
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "110_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="110_sys
+finished
+move_dest=1
+pick=21", label=""];
+  "112" [width=0.4, height=0.4, fontsize=6, xlabel="112
+place_item_f
+bread0=3
+butter0=0
+robot_loc=3
+snacks0=4
+soda0=5
+waste0=7
+waste1=6"];
+  "112_sys" [width=0.1, height=0.1, style=filled, fillcolor=black, fontsize=6, xlabel="112_sys
+log_place_failed_a
+move_dest=1
+pick=21", label=""];
+  "Init" -> "0";
+  "0" -> "0_sys" [color="green"];
+  "0_sys" -> "19" [color="red"];
+  "0_sys" -> "20" [color="red"];
+  "19" -> "19_sys" [color="green"];
+  "19_sys" -> "39" [color="red"];
+  "20" -> "20_sys" [color="green"];
+  "20_sys" -> "23" [color="red"];
+  "20_sys" -> "40" [color="red"];
+  "23" -> "23_sys" [color="green"];
+  "23_sys" -> "43" [color="red"];
+  "23_sys" -> "44" [color="red"];
+  "39" -> "39_sys" [color="green"];
+  "39_sys" -> "19" [color="red"];
+  "39_sys" -> "23" [color="red"];
+  "40" -> "40_sys" [color="green"];
+  "40_sys" -> "20" [color="red"];
+  "41" -> "41_sys" [color="green"];
+  "41_sys" -> "62" [color="red"];
+  "42" -> "42_sys" [color="green"];
+  "42_sys" -> "63" [color="red"];
+  "43" -> "43_sys" [color="green"];
+  "43_sys" -> "64" [color="red"];
+  "43_sys" -> "65" [color="red"];
+  "44" -> "44_sys" [color="green"];
+  "44_sys" -> "23" [color="red"];
+  "45" -> "45_sys" [color="green"];
+  "45_sys" -> "67" [color="red"];
+  "46" -> "46_sys" [color="green"];
+  "46_sys" -> "68" [color="red"];
+  "47" -> "47_sys" [color="green"];
+  "47_sys" -> "69" [color="red"];
+  "48" -> "48_sys" [color="green"];
+  "48_sys" -> "70" [color="red"];
+  "49" -> "49_sys" [color="green"];
+  "49_sys" -> "71" [color="red"];
+  "50" -> "50_sys" [color="green"];
+  "50_sys" -> "72" [color="red"];
+  "51" -> "51_sys" [color="green"];
+  "51_sys" -> "73" [color="red"];
+  "52" -> "52_sys" [color="green"];
+  "52_sys" -> "74" [color="red"];
+  "53" -> "53_sys" [color="green"];
+  "53_sys" -> "75" [color="red"];
+  "54" -> "54_sys" [color="green"];
+  "54_sys" -> "76" [color="red"];
+  "55" -> "55_sys" [color="green"];
+  "55_sys" -> "77" [color="red"];
+  "55_sys" -> "78" [color="red"];
+  "56" -> "56_sys" [color="green"];
+  "56_sys" -> "79" [color="red"];
+  "57" -> "57_sys" [color="green"];
+  "57_sys" -> "80" [color="red"];
+  "58" -> "58_sys" [color="green"];
+  "58_sys" -> "81" [color="red"];
+  "59" -> "59_sys" [color="green"];
+  "59_sys" -> "82" [color="red"];
+  "60" -> "60_sys" [color="green"];
+  "60_sys" -> "83" [color="red"];
+  "62" -> "62_sys" [color="green"];
+  "62_sys" -> "23" [color="red"];
+  "62_sys" -> "41" [color="red"];
+  "63" -> "63_sys" [color="green"];
+  "63_sys" -> "23" [color="red"];
+  "63_sys" -> "42" [color="red"];
+  "64" -> "64_sys" [color="green"];
+  "64_sys" -> "43" [color="red"];
+  "65" -> "65_sys" [color="green"];
+  "65_sys" -> "85" [color="red"];
+  "65_sys" -> "86" [color="red"];
+  "67" -> "67_sys" [color="green"];
+  "67_sys" -> "23" [color="red"];
+  "67_sys" -> "45" [color="red"];
+  "68" -> "68_sys" [color="green"];
+  "68_sys" -> "23" [color="red"];
+  "68_sys" -> "46" [color="red"];
+  "69" -> "69_sys" [color="green"];
+  "69_sys" -> "23" [color="red"];
+  "69_sys" -> "47" [color="red"];
+  "70" -> "70_sys" [color="green"];
+  "70_sys" -> "23" [color="red"];
+  "70_sys" -> "48" [color="red"];
+  "71" -> "71_sys" [color="green"];
+  "71_sys" -> "23" [color="red"];
+  "71_sys" -> "49" [color="red"];
+  "72" -> "72_sys" [color="green"];
+  "72_sys" -> "23" [color="red"];
+  "72_sys" -> "50" [color="red"];
+  "73" -> "73_sys" [color="green"];
+  "73_sys" -> "23" [color="red"];
+  "73_sys" -> "51" [color="red"];
+  "74" -> "74_sys" [color="green"];
+  "74_sys" -> "23" [color="red"];
+  "74_sys" -> "52" [color="red"];
+  "75" -> "75_sys" [color="green"];
+  "75_sys" -> "23" [color="red"];
+  "75_sys" -> "53" [color="red"];
+  "76" -> "76_sys" [color="green"];
+  "76_sys" -> "23" [color="red"];
+  "76_sys" -> "54" [color="red"];
+  "77" -> "77_sys" [color="green"];
+  "77_sys" -> "55" [color="red"];
+  "78" -> "78_sys" [color="green"];
+  "78_sys" -> "88" [color="red"];
+  "78_sys" -> "89" [color="red"];
+  "79" -> "79_sys" [color="green"];
+  "79_sys" -> "55" [color="red"];
+  "79_sys" -> "56" [color="red"];
+  "80" -> "80_sys" [color="green"];
+  "80_sys" -> "23" [color="red"];
+  "80_sys" -> "57" [color="red"];
+  "81" -> "81_sys" [color="green"];
+  "81_sys" -> "23" [color="red"];
+  "81_sys" -> "58" [color="red"];
+  "82" -> "82_sys" [color="green"];
+  "82_sys" -> "23" [color="red"];
+  "82_sys" -> "59" [color="red"];
+  "83" -> "83_sys" [color="green"];
+  "83_sys" -> "23" [color="red"];
+  "83_sys" -> "60" [color="red"];
+  "85" -> "85_sys" [color="green"];
+  "85_sys" -> "65" [color="red"];
+  "86" -> "86_sys" [color="green"];
+  "86_sys" -> "91" [color="red"];
+  "86_sys" -> "92" [color="red"];
+  "88" -> "88_sys" [color="green"];
+  "88_sys" -> "78" [color="red"];
+  "89" -> "89_sys" [color="green"];
+  "89_sys" -> "94" [color="red"];
+  "89_sys" -> "95" [color="red"];
+  "91" -> "91_sys" [color="green"];
+  "91_sys" -> "86" [color="red"];
+  "92" -> "92_sys" [color="green"];
+  "92_sys" -> "97" [color="red"];
+  "92_sys" -> "98" [color="red"];
+  "94" -> "94_sys" [color="green"];
+  "94_sys" -> "89" [color="red"];
+  "95" -> "95_sys" [color="green"];
+  "95_sys" -> "100" [color="red"];
+  "95_sys" -> "101" [color="red"];
+  "97" -> "97_sys" [color="green"];
+  "97_sys" -> "102" [color="red"];
+  "97_sys" -> "103" [color="red"];
+  "98" -> "98_sys" [color="green"];
+  "98_sys" -> "92" [color="red"];
+  "100" -> "100_sys" [color="green"];
+  "100_sys" -> "105" [color="red"];
+  "100_sys" -> "106" [color="red"];
+  "101" -> "101_sys" [color="green"];
+  "101_sys" -> "95" [color="red"];
+  "102" -> "102_sys" [color="green"];
+  "102_sys" -> "97" [color="red"];
+  "103" -> "103_sys" [color="green"];
+  "103_sys" -> "109" [color="red"];
+  "103_sys" -> "110" [color="red"];
+  "105" -> "105_sys" [color="green"];
+  "105_sys" -> "100" [color="red"];
+  "106" -> "106_sys" [color="green"];
+  "106_sys" -> "110" [color="red"];
+  "106_sys" -> "112" [color="red"];
+  "109" -> "109_sys" [color="green"];
+  "109_sys" -> "103" [color="red"];
+  "110" -> "110_sys" [color="green"];
+  "110_sys" -> "110" [color="red"];
+  "112" -> "112_sys" [color="green"];
+  "112_sys" -> "106" [color="red"];
+}

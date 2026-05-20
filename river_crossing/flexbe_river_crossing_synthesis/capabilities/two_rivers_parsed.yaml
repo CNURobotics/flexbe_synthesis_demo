@@ -1,0 +1,87 @@
+#Defined capabilities of the system
+#  capability name:
+#     interface : FlexBE state implementation
+#     parameters:
+#         defined parameters for FlexBE State
+#     preconditions:
+#         optional list of preconditions
+#               capabilities that must be completed prior to activation,
+#               or values of environment or system variables
+#               treated as  comma separated list of conjunctions, so "a | b, b | c" is allowed
+#               variables matching capability names will be converted to memory elements in the specifications
+#               variables matching ENV or SYS (input/outputs) will use those values directly
+#     postconditions:
+#         optional list of post conditions to track
+#               same rules as preconditions
+name: 'two_rivers_parsed'
+variable_mappings:
+    # Use these to map parsed binary values to parameter values
+    env_props:
+        wolf:
+            0: 'left'
+            1: 'middle'
+            2: 'right'
+        goat:
+            0: 'left'
+            1: 'middle'
+            2: 'right'
+        corn:
+            0: 'left'
+            1: 'middle'
+            2: 'right'
+        farmer:
+            0: 'left'
+            1: 'middle'
+            2: 'right'
+    sys_props:
+        # Can go here or custom_mappings
+        move_item :
+            0: 'None' # Farmer alone
+            1: 'wolf'
+            2: 'goat'
+            3: 'corn'
+        move_dest:
+            0: 'left'
+            1: 'middle'
+            2: 'right'
+
+capabilities:
+    begin_game:
+        interface: LogState
+        parameters:
+            text: Ready to begin WGCF game with TWO rivers
+    log_finished:
+        interface: LogState
+        parameters:
+            text: Everything has crossed to the far right bank
+        preconditions:
+            - 'wolf=2'  # A list of conjuctions
+            - 'goat=2'  # In this case, our real goal condition
+            - 'corn=2'
+            - 'farmer=2'
+        postconditions:
+            completed:
+                # '!log_finished_a' does not work here — postconditions are state setters
+                # and generate incorrect frame rules for *_a activation variables.
+                # The guard is encoded instead in specs/two_rivers_parsed.yaml (SYS_TRANS).
+                # See the flexbe_synthesis_slugs Known Limitations for details.
+                - 'log_finished'     # memory flag (used as goal condition)
+    log_failed:
+        interface: LogState
+        parameters:
+            text: Error in the previous move
+        preconditions:
+            - 'move_state_f'
+        # postconditions:
+        #     completed:
+        #         - '!log_failed_a'  # Does not work — *_a variables must not be postcondition
+        #                            # targets; the guard is in specs/two_rivers_parsed.yaml
+    move_state:
+        interface: MoveState2R
+        parameters:
+            item: '@move_item'
+            tracker: farmer
+            destination: '@move_dest'
+        transition_relation:
+            failure: [log_failed]  # activate log on any failure
+        postconditions: ['@wolf', '@goat', '@corn', '@farmer']

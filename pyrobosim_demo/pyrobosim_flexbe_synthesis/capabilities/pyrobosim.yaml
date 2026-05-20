@@ -1,0 +1,139 @@
+# PyRoboSim capability interfaces for hand-written full specs.
+#
+# Used by p0_full_spec.launch.py and p0_move_only_spec.launch.py with explicit specs
+# such as specs/p0_full_spec.yaml.
+# Those specs declare the environment variables
+# themselves, so this file only maps system parameters such as move_dest and pick
+# to FlexBE state parameters.
+#
+# Differs from p0_capabilities.yaml and p1_capabilities.yaml: this file does not
+# generate object/robot env_props, transition relations, or action preconditions.
+# ---------------------------------------------------
+#
+# Defined capabilities of the system
+# variable_mappings:
+#   # These are used to define enumerated types
+#   env_props:
+#       # variables under environment control
+#   sys_props:
+#       # variables under system control
+#           enumerated values (e.g. 1: 'some item')
+#
+# capabilities:
+#  capability name:
+#     interface : FlexBE state implementation
+#     parameters:
+#         defined parameters for FlexBE State
+#         these can be constants or use the '@variable' to retrieve from synthesis
+#     transition_relation:
+#         optional list of mutually exclusive transitions
+#             These are in addition to standard _activate --> _complete transitions, and are
+#             used to encode required activations or variable assignments
+#             variable assignments due to selections, or required transitions
+#             The key to these are mutually exclusive based on outcome, but multiple values can be set.
+#             Disjunctive choices are shown on one line with |.
+#     preconditions:
+#         optional list of preconditions
+#             capabilities that must be completed prior to activation,
+#             or values of environment or system variables
+#             treated as list of conjunctions of disjunctions, so "a | b" is allowed as entry
+#             variables matching capability names will be converted to memory elements in the specifications
+#             variables matching ENV or SYS (input/outputs) will use those values directly
+#     postconditions:
+#         optional list of post conditions to track based on outcomes
+#             same rules as preconditions
+name: 'pyrobosim_demo'
+variable_mappings:
+    # Use these to map parsed binary values to parameter values
+    sys_props:
+        move_dest:
+            # Open/closed boolean input, and ordered locations for pick/place items
+            0: 'None'
+            1: "dumpster"                # Location 1
+            2: "charger"                 # Location 2
+            3: "table"                   # Location 3
+            4: "pantry"                  # Location 4
+            5: "fridge"                  # Location 5
+            6: "desk"                    # Location 6
+            7: "bin"                     # Location 7
+            # # Open/closed boolean input, and ordered locations
+            8: "hall_trash_closet"       # Location 8
+            9: "hall_trash_dining"       # Location 9
+            10: "hall_trash_kitchen"      # Location 10
+            11: "hall_closet_dining"      # Location 11
+            12: "hall_closet_office"      # Location 12
+            13: "hall_dining_kitchen"     # Location 13
+            14: "hall_dining_office"      # Location 14
+            15: "hall_kitchen_office"     # Location 15
+            #Rooms locations, but do not have an associated input value
+            16: 'trash'     #16
+            17: 'closet'    #17
+            18: 'dining'    #18
+            19: 'kitchen'   #19
+            20: 'office'    #20
+
+        pick:
+            21: "None"     # Pass / no pick
+            22: "butter0"  #22
+            23: "bread0"   #23
+            24: "waste0"   #24
+            25: "waste1"   #25
+            26: "soda0"    #26
+            27: "snacks0"  #27
+
+capabilities:
+    begin_game:
+        interface: LogState
+        parameters:
+            text: Ready to begin
+    log_finished:
+        interface: LogState
+        parameters:
+            text: Everything is in its place
+    log_move_failed:
+        interface: LogState
+        parameters:
+            text: Error in the previous move
+    log_grab_failed:
+        interface: LogState
+        parameters:
+            text: Error in the previous grab attempt
+    log_place_failed:
+        interface: LogState
+        parameters:
+            text: Error in the previous place attempt
+    move_robot:
+        interface: NavigateActionState
+        parameters:
+            target_location:  '@move_dest'
+            robot_name: robot
+            action_topic: /execute_action
+            server_timeout: 5
+            navigate_timeout: None
+    grab_item:
+        interface: PickActionState
+        parameters:
+            robot_name: robot
+            action_topic: /execute_action
+            timeout: 2.5
+            object_name: '@pick'
+    place_item:
+        interface: PlaceActionState
+        parameters:
+            robot_name: robot
+            action_topic: /execute_action
+            timeout: 2.5
+    open:
+        interface: DoorActionState
+        parameters:
+            action_type: 'open'
+            robot_name: robot
+            action_topic: /execute_action
+            timeout: 2.5
+    close:
+        interface: DoorActionState
+        parameters:
+            action_type: 'close'
+            robot_name: robot
+            action_topic: /execute_action
+            timeout: 2.5

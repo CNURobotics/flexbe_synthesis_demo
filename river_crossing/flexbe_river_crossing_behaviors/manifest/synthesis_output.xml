@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="synthesis_output">
+
+    <executable package_path="flexbe_river_crossing_behaviors.synthesis_output_sm" class="Synthesis_OutputSM" />
+    <tagstring>flexbe</tagstring>
+    <author>Josh Luzier</author>
+    <date>Wed Feb 28 2024</date>
+    <description>
+        Synthesis generated demo
+
+    </description>
+
+
+    <!-- Contained Behaviors -->
+
+    <!-- Available Parameters -->
+
+</behavior>

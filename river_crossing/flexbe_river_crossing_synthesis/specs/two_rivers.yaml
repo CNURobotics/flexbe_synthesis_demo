@@ -1,0 +1,120 @@
+spec_name: "two_rivers"
+specs:
+    INPUT:
+        - "wolf:0...2"  # Updated for two rivers, 0 is left bank, 1 is middle bank, 2 is right bank
+        - "goat:0...2"
+        - "corn:0...2"
+        - "farmer:0...2"
+
+        # FlexBE state outcomes
+        - "move_wolf_c"
+        - "move_wolf_f"
+        - "move_goat_c"
+        - "move_goat_f"
+        - "move_corn_c"
+        - "move_corn_f"
+        - "move_null_c"
+        - "move_null_f"
+        - "log_failed_c"
+        - "begin_game_c"
+        - "begin_game_f"
+        - "log_finished_c"
+    OUTPUT:
+        - "move_wolf_a"
+        - "move_goat_a"
+        - "move_corn_a"
+        - "move_null_a"
+        - "begin_game_a"
+        - "log_failed_a"
+        - "log_finished_a"
+        - "finished"
+        - "move_dest:0...2"
+    ENV_INIT:
+        # Everyone on the left bank
+        - "wolf=0"
+        - "goat=0"
+        - "corn=0"
+        - "farmer=0"
+
+        # Initial FlexBE flags
+        - "!move_wolf_c"
+        - "!move_wolf_f"
+        - "!move_goat_c"
+        - "!move_goat_f"
+        - "!move_corn_c"
+        - "!move_corn_f"
+        - "!move_null_c"
+        - "!move_null_f"
+        - "!log_failed_c"
+        - "begin_game_c"
+        - "!begin_game_f"
+        - "!log_finished_c"
+    ENV_TRANS:
+        # Action to FlexBE state
+        - "move_wolf_a -> (!move_wolf_f' | !move_wolf_c') & (move_wolf_f' | move_wolf_c')"
+        - "move_goat_a -> (!move_goat_f' | !move_goat_c') & (move_goat_f' | move_goat_c')"
+        - "move_corn_a -> (!move_corn_f' | !move_corn_c') & (move_corn_f' | move_corn_c')"
+        - "move_null_a -> (!move_null_f' | !move_null_c') & (move_null_f' | move_null_c')"
+        - "log_failed_a -> log_failed_c'"
+        - "log_finished_a -> log_finished_c'"
+
+        # Negative actions
+        - "!move_wolf_a -> !move_wolf_c' & !move_wolf_f'"
+        - "!move_goat_a -> !move_goat_c' & !move_goat_f'"
+        - "!move_corn_a -> !move_corn_c' & !move_corn_f'"
+        - "!move_null_a -> !move_null_c' & !move_null_f'"
+        - "!log_failed_a -> !log_failed_c'"
+        - "!log_finished_a -> !log_finished_c'"
+        - "!begin_game_a -> !begin_game_c' & !begin_game_f'"
+
+        # State rules
+        - "!move_wolf_c' -> (wolf = wolf')"
+        - "!move_goat_c' -> (goat = goat')"
+        - "!move_corn_c' -> (corn = corn')"
+        - "!move_wolf_c' & !move_goat_c' & !move_corn_c' & !move_null_c' -> (farmer = farmer')"
+
+        # Movement rules
+        - "move_wolf_c' -> (wolf' = move_dest) & (farmer' = move_dest)"
+        - "move_goat_c' -> (goat' = move_dest) & (farmer' = move_dest)"
+        - "move_corn_c' -> (corn' = move_dest) & (farmer' = move_dest)"
+        - "move_null_c' -> (farmer' = move_dest)"
+
+    SYS_TRANS:
+        # Actions
+        - "move_wolf_a | move_goat_a | move_corn_a | move_null_a | log_failed_a | log_finished_a | finished"
+        - "!begin_game_a"
+        - "!(move_wolf_a & (move_goat_a | move_corn_a | move_null_a | log_failed_a | log_finished_a | finished))"
+        - "!(move_goat_a & (move_wolf_a | move_corn_a | move_null_a | log_failed_a | log_finished_a | finished))"
+        - "!(move_corn_a & (move_wolf_a | move_goat_a | move_null_a | log_failed_a | log_finished_a | finished))"
+        - "!(move_null_a & (move_wolf_a | move_goat_a | move_corn_a | log_failed_a | log_finished_a | finished))"
+        - "!(log_failed_a & (move_wolf_a | move_goat_a | move_corn_a | move_null_a | log_finished_a | finished))"
+        - "!(log_finished_a & (move_wolf_a | move_goat_a | move_corn_a | move_null_a | log_failed_a | finished))"
+        - "!(finished & (move_wolf_a | move_goat_a | move_corn_a | move_null_a | log_failed_a | log_finished_a))"
+
+        # Movement constraints
+        - "farmer != wolf -> !move_wolf_a"
+        - "farmer != goat -> !move_goat_a"
+        - "farmer != corn -> !move_corn_a"
+        - "(goat' = wolf') -> farmer' = goat'"
+        - "(goat' = corn') -> farmer' = goat'"
+
+        # Failure
+        - "log_failed_c -> !log_failed_a"
+        - "log_finished_c -> !log_finished_a"
+        - "!move_wolf_f & !move_goat_f & !move_corn_f & !move_null_f -> !log_failed_a"
+        - "move_wolf_f -> log_failed_a"
+        - "move_goat_f -> log_failed_a"
+        - "move_corn_f -> log_failed_a"
+        - "move_null_f -> log_failed_a"
+
+        # Completion
+        - "finished -> finished'"
+        - "!(wolf=2 & goat=2 & corn=2) & (wolf'=2 & goat'=2 & corn'=2) -> log_finished_a'"
+        - "!(wolf=2 & goat=2 & corn=2) -> !log_finished_a & !finished"
+        - "move_dest != farmer"
+        - "(farmer=0) -> (move_dest=1)"
+        - "(farmer=1) -> (move_dest=2 | move_dest=0)"
+        - "(farmer=2) -> (move_dest=1)"
+
+    SYS_LIVENESS:
+        - "finished | !(move_wolf_a -> move_wolf_c') | !(move_goat_a -> move_goat_c') | !(move_corn_a -> move_corn_c') | !(move_null_a -> move_null_c')"

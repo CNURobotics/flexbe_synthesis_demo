@@ -1,0 +1,17 @@
+repositories:
+  src/flexbe_behavior_engine:
+    type: git
+    url: https://github.com/FlexBE/flexbe_behavior_engine.git
+    version: ros2-devel
+  src/flexbe_webui:
+    type: git
+    url: https://github.com/FlexBE/flexbe_webui.git
+    version: main
+  src/flexbe_synthesis:
+    type: git
+    url: https://github.com/CNURobotics/flexbe_synthesis.git
+    version: main
+  src/flexbe_synthesis_demo:
+    type: git
+    url: https://github.com/CNURobotics/flexbe_synthesis_demo.git
+    version: main

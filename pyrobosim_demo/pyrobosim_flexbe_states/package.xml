@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package format="3">
+    <name>pyrobosim_flexbe_states</name>
+    <version>0.0.1</version>
+    <description>
+      All implemented FlexBE state implementations for pyrobosim interfaces.
+
+      Implemented for ROSCon '24 Deliberative Technologies Workshop.
+
+      Feel free to add new states.
+    </description>
+    <author email="robotics@cnu.edu">David Conner</author>
+    <maintainer email="robotics@cnu.edu">David Conner</maintainer>
+    <license>BSD-3-Clause</license>
+    <license>Apache-2.0</license>
+
+    <exec_depend>rclpy</exec_depend>
+    <exec_depend>action_msgs</exec_depend>
+    <exec_depend>flexbe_core</exec_depend>
+    <exec_depend>geometry_msgs</exec_depend>
+    <exec_depend>pyrobosim_flexbe_utilities</exec_depend>
+    <exec_depend>pyrobosim_msgs</exec_depend>
+
+    <test_depend>ament_copyright</test_depend>
+    <test_depend>ament_index_python</test_depend>
+    <test_depend>ament_flake8</test_depend>
+    <test_depend>ament_pep257</test_depend>
+    <test_depend>flexbe_testing</test_depend>
+    <test_depend>python3-pytest</test_depend>
+
+    <export>
+        <flexbe_states />
+        <build_type>ament_python</build_type>
+    </export>
+
+</package>

@@ -1,0 +1,287 @@
+spec_name: "p1_full_spec"
+specs:
+    INPUT:
+        # Where the robot is
+        - "robot_loc:1...20" #Robot is location 0 for item locations
+
+        # Open/closed boolean input, and ordered locations for pick/place items
+        - "dumpster"                # Location 1
+        - "charger"                 # Location 2
+        - "table"                   # Location 3
+        - "pantry"                  # Location 4
+        - "fridge"                  # Location 5
+        - "desk"                    # Location 6
+        - "bin"                     # Location 7
+
+        # Open/closed boolean input, and ordered locations
+        - "hall_trash_closet"       # Location 8
+        - "hall_trash_dining"       # Location 9
+        - "hall_trash_kitchen"      # Location 10
+        - "hall_closet_dining"      # Location 11
+        - "hall_closet_office"      # Location 12
+        - "hall_dining_kitchen"     # Location 13
+        - "hall_dining_office"      # Location 14
+        - "hall_kitchen_office"     # Location 16
+
+        #Rooms locations, but do not have an associated input value
+        #trash			#16
+        #closet			#17
+        #dining			#18
+        #kitchen		#19
+        #office			#20
+
+        #Variables locating the items
+        # Items can only be in certain places (0-7)
+        - "butter0:0...7"  #22
+        - "bread0:0...7"   #23
+        - "waste0:0...7"   #24
+        - "waste1:0...7"   #25
+        - "soda0:0...7"    #26
+        - "snacks0:0...7"  #27
+
+        # Outcomes of FlexBE state activations
+        - "grab_item_c"
+        - "grab_item_f"
+        - "place_item_c"
+        - "place_item_f"
+        - "open_c"
+        - "open_f"
+        - "close_c"
+        - "close_f"
+        - "move_robot_c"
+        - "move_robot_f"
+
+    OUTPUT:
+        # Output values for system
+        - "move_dest:1...20"  # Where do we want to go
+        - "pick:21...27"      # What item do we pick up (21 is pass)
+
+        # FlexBE state activations
+        - "move_robot_a"
+        - "grab_item_a"
+        - "place_item_a"
+        - "open_a"
+        - "close_a"
+        - "finished"
+
+    ENV_INIT:
+        - "robot_loc=18"
+        - "snacks0=4"
+        - "butter0=5"
+        - "bread0=4"
+        - "waste0=7"
+        - "waste1=6"
+        - "soda0=5"
+        # Close the lids
+        - "!dumpster"
+        - "!charger"
+        - "!table"
+        - "!pantry"
+        - "!fridge"
+        - "!desk"
+        - "!bin"
+        # Doors are open
+        - "hall_trash_closet"
+        - "hall_trash_dining"
+        - "hall_trash_kitchen"
+        - "hall_closet_dining"
+        - "hall_closet_office"
+        - "hall_dining_kitchen"
+        - "hall_dining_office"
+        - "hall_kitchen_office"
+        - "!grab_item_c"
+        - "!grab_item_f"
+        - "!place_item_c"
+        - "!place_item_f"
+        - "!open_c"
+        - "!open_f"
+        - "!close_c"
+        - "!close_f"
+        - "!move_robot_c"
+        - "!move_robot_f"
+
+    SYS_INIT:
+        - "pick=21"
+        - "!finished"
+
+    ENV_TRANS:
+        #If we don't activate an action, we can't complete or fail
+        - "!move_robot_a -> !move_robot_c' & !move_robot_f'"
+        - "!grab_item_a -> !grab_item_c' & !grab_item_f'"
+        - "!place_item_a -> !place_item_c' & !place_item_f'"
+        - "!open_a -> !open_c' & !open_f'"
+        - "!close_a -> !close_c' & !close_f'"
+
+        #If we activate an action, should complete one and fail the other
+        - "grab_item_a -> (grab_item_c' | grab_item_f') & (!grab_item_c' | !grab_item_f')"
+        - "place_item_a -> (place_item_c' | place_item_f') & (!place_item_c' | !place_item_f')"
+        - "open_a -> (open_c' | open_f') & (!open_c' | !open_f')"
+        - "close_a -> (close_c' | close_f') & (!close_c' | !close_f')"
+        - "move_robot_a -> (move_robot_c' | move_robot_f') & (!move_robot_c' | !move_robot_f')"
+
+        #Temp move behavior
+        - "move_robot_c' -> (robot_loc' = move_dest)"
+        - "move_robot_f' -> (robot_loc' = robot_loc)"
+
+        #If we don't move, stay in the same location
+        - "!move_robot_a -> robot_loc' = robot_loc"
+
+        #If we successfully grab an item, the item we picked should be held
+        - "pick=22 & grab_item_c' -> butter0'=0"
+        - "pick=23 & grab_item_c' -> bread0'=0"
+        - "pick=24 & grab_item_c' -> waste0'=0"
+        - "pick=25 & grab_item_c' -> waste1'=0"
+        - "pick=26 & grab_item_c' -> soda0'=0"
+        - "pick=27 & grab_item_c' -> snacks0'=0"
+
+        - "place_item_c' -> (snacks0=0 & snacks0'=robot_loc) | (butter0=0 & butter0'=robot_loc) | (bread0=0 & bread0'=robot_loc) | (waste0=0 & waste0'=robot_loc) | (waste1=0 & waste1'=robot_loc) | (soda0=0 & soda0'=robot_loc)"
+
+        #Only one item can be held at a time.
+        - "!(snacks0=0 & (butter0=0|bread0=0|waste0=0|waste1=0|soda0=0))"
+        - "!(butter0=0 & (snacks0=0|bread0=0|waste0=0|waste1=0|soda0=0))"
+        - "!(bread0=0 & (snacks0=0|butter0=0|waste0=0|waste1=0|soda0=0))"
+        - "!(waste0=0 & (snacks0=0|butter0=0|bread0=0|waste1=0|soda0=0))"
+        - "!(waste1=0 & (snacks0=0|butter0=0|bread0=0|waste0=0|soda0=0))"
+        - "!(soda0=0 & (snacks0=0|butter0=0|bread0=0|waste0=0|waste1=0))"
+
+        #If the robot isn't at the location, it can't change
+        - "!robot_loc=1 -> (dumpster & dumpster') | (!dumpster & !dumpster')"
+        - "!robot_loc=2 -> (charger & charger') | (!charger & !charger')"
+        - "!robot_loc=3 -> (table & table') | (!table & !table')"
+        - "!robot_loc=4 -> (pantry & pantry') | (!pantry & !pantry')"
+        - "!robot_loc=5 -> (fridge & fridge') | (!fridge & !fridge')"
+        - "!robot_loc=6 -> (desk & desk') | (!desk & !desk')"
+        - "!robot_loc=7 -> (bin & bin') | (!bin & !bin')"
+        - "!robot_loc=8 -> (hall_trash_closet & hall_trash_closet') | (!hall_trash_closet & !hall_trash_closet')"
+        - "!robot_loc=9 -> (hall_trash_dining & hall_trash_dining') | (!hall_trash_dining & !hall_trash_dining')"
+        - "!robot_loc=10 -> (hall_trash_kitchen & hall_trash_kitchen') | (!hall_trash_kitchen & !hall_trash_kitchen')"
+        - "!robot_loc=11 -> (hall_closet_dining & hall_closet_dining') | (!hall_closet_dining & !hall_closet_dining')"
+        - "!robot_loc=12 -> (hall_closet_office & hall_closet_office') | (!hall_closet_office & !hall_closet_office')"
+        - "!robot_loc=13 -> (hall_dining_kitchen & hall_dining_kitchen') | (!hall_dining_kitchen & !hall_dining_kitchen')"
+        - "!robot_loc=14 -> (hall_dining_office & hall_dining_office') | (!hall_dining_office & !hall_dining_office')"
+        - "!robot_loc=15 -> (hall_kitchen_office & hall_kitchen_office') | (!hall_kitchen_office & !hall_kitchen_office')"
+
+        #If we don't grab or place an item, and aren't currently holding it, it should remain in place
+        - "!((grab_item_c' & pick=22) | (butter0=0 & place_item_c')) -> (butter0' = butter0)"
+        - "!((grab_item_c' & pick=23) | (bread0=0 & place_item_c'))  -> (bread0'  = bread0)"
+        - "!((grab_item_c' & pick=24) | (waste0=0 & place_item_c'))  -> (waste0'  = waste0)"
+        - "!((grab_item_c' & pick=25) | (waste1=0 & place_item_c'))  -> (waste1'  = waste1)"
+        - "!((grab_item_c' & pick=26) | (soda0=0 & place_item_c'))   -> (soda0'   = soda0)"
+        - "!((grab_item_c' & pick=27) | (snacks0=0 & place_item_c')) -> (snacks0' = snacks0)"
+
+        #What happens on activating close
+        - "(close_a & robot_loc=1)  -> (close_c' & !dumpster') | (close_f' & dumpster')"
+        - "(close_a & robot_loc=2)  -> (close_c' & !charger')  | (close_f' & charger')"
+        - "(close_a & robot_loc=3)  -> (close_c' & !table')    | (close_f' & table')"
+        - "(close_a & robot_loc=4)  -> (close_c' & !pantry')   | (close_f' & pantry')"
+        - "(close_a & robot_loc=5)  -> (close_c' & !fridge')   | (close_f' & fridge')"
+        - "(close_a & robot_loc=6)  -> (close_c' & !desk')     | (close_f' & desk')"
+        - "(close_a & robot_loc=7)  -> (close_c' & !bin')      | (close_f' & bin')"
+        - "(close_a & robot_loc=8)  -> (close_c' & !hall_trash_closet')   | (close_f' & hall_trash_closet')"
+        - "(close_a & robot_loc=9)  -> (close_c' & !hall_trash_dining')   | (close_f' & hall_trash_dining')"
+        - "(close_a & robot_loc=10) -> (close_c' & !hall_trash_kitchen')  | (close_f' & hall_trash_kitchen')"
+        - "(close_a & robot_loc=11) -> (close_c' & !hall_closet_dining')  | (close_f' & hall_closet_dining')"
+        - "(close_a & robot_loc=12) -> (close_c' & !hall_closet_office')  | (close_f' & hall_closet_office')"
+        - "(close_a & robot_loc=13) -> (close_c' & !hall_dining_kitchen') | (close_f' & hall_dining_kitchen')"
+        - "(close_a & robot_loc=14) -> (close_c' & !hall_dining_office')  | (close_f' & hall_dining_office')"
+        - "(close_a & robot_loc=15) -> (close_c' & !hall_kitchen_office') | (close_f' & hall_kitchen_office')"
+
+        #What happens on activating open
+        - "(open_a & robot_loc=1)  -> (open_c' & dumpster') | (open_f' & !dumpster')"
+        - "(open_a & robot_loc=2)  -> (open_c' & charger')  | (open_f' & !charger')"
+        - "(open_a & robot_loc=3)  -> (open_c' & table')    | (open_f' & !table')"
+        - "(open_a & robot_loc=4)  -> (open_c' & pantry')   | (open_f' & !pantry')"
+        - "(open_a & robot_loc=5)  -> (open_c' & fridge')   | (open_f' & !fridge')"
+        - "(open_a & robot_loc=6)  -> (open_c' & desk')     | (open_f' & !desk')"
+        - "(open_a & robot_loc=7)  -> (open_c' & bin')      | (open_f' & !bin')"
+        - "(open_a & robot_loc=8)  -> (open_c' & hall_trash_closet')   | (open_f' & !hall_trash_closet')"
+        - "(open_a & robot_loc=9)  -> (open_c' & hall_trash_dining')   | (open_f' & !hall_trash_dining')"
+        - "(open_a & robot_loc=10) -> (open_c' & hall_trash_kitchen')  | (open_f' & !hall_trash_kitchen')"
+        - "(open_a & robot_loc=11) -> (open_c' & hall_closet_dining')  | (open_f' & !hall_closet_dining')"
+        - "(open_a & robot_loc=12) -> (open_c' & hall_closet_office')  | (open_f' & !hall_closet_office')"
+        - "(open_a & robot_loc=13) -> (open_c' & hall_dining_kitchen') | (open_f' & !hall_dining_kitchen')"
+        - "(open_a & robot_loc=14) -> (open_c' & hall_dining_office')  | (open_f' & !hall_dining_office')"
+        - "(open_a & robot_loc=15) -> (open_c' & hall_kitchen_office') | (open_f' & !hall_kitchen_office')"
+        - "(!open_a & !close_a & robot_loc=1)  -> (dumpster' & dumpster) | (!dumpster' & !dumpster)"
+        - "(!open_a & !close_a & robot_loc=2)  -> (charger' & charger) | (!charger' & !charger)"
+        - "(!open_a & !close_a & robot_loc=3)  -> (table' & table) | (!table' & !table)"
+        - "(!open_a & !close_a & robot_loc=4)  -> (pantry' & pantry) | (!pantry' & !pantry)"
+        - "(!open_a & !close_a & robot_loc=5)  -> (fridge' & fridge) | (!fridge' & !fridge)"
+        - "(!open_a & !close_a & robot_loc=6)  -> (desk' & desk) | (!desk' & !desk)"
+        - "(!open_a & !close_a & robot_loc=7)  -> (bin' & bin) | (!bin' & !bin)"
+        - "(!open_a & !close_a & robot_loc=8)  -> (hall_trash_closet' & hall_trash_closet) | (!hall_trash_closet' & !hall_trash_closet)"
+        - "(!open_a & !close_a & robot_loc=9)  -> (hall_trash_dining' & hall_trash_dining) | (!hall_trash_dining' & !hall_trash_dining)"
+        - "(!open_a & !close_a & robot_loc=10) -> (hall_trash_kitchen' & hall_trash_kitchen) | (!hall_trash_kitchen' & !hall_trash_kitchen)"
+        - "(!open_a & !close_a & robot_loc=11) -> (hall_closet_dining' & hall_closet_dining) | (!hall_closet_dining' & !hall_closet_dining)"
+        - "(!open_a & !close_a & robot_loc=12) -> (hall_closet_office' & hall_closet_office) | (!hall_closet_office' & !hall_closet_office)"
+        - "(!open_a & !close_a & robot_loc=13) -> (hall_dining_kitchen' & hall_dining_kitchen) | (!hall_dining_kitchen' & !hall_dining_kitchen)"
+        - "(!open_a & !close_a & robot_loc=14) -> (hall_dining_office' & hall_dining_office) | (!hall_dining_office' & !hall_dining_office)"
+        - "(!open_a & !close_a & robot_loc=15) -> (hall_kitchen_office' & hall_kitchen_office) | (!hall_kitchen_office' & !hall_kitchen_office)"
+
+    SYS_TRANS:
+        # Do something
+        - "move_robot_a | grab_item_a | place_item_a | open_a | close_a | finished"
+
+        # But only one thing at a time
+        - "!(move_robot_a & (grab_item_a | place_item_a | open_a | close_a | finished))"
+        - "!(grab_item_a & (move_robot_a | place_item_a | open_a | close_a | finished))"
+        - "!(place_item_a & (move_robot_a | grab_item_a | open_a | close_a | finished))"
+        - "!(open_a & (move_robot_a | grab_item_a | place_item_a | close_a | finished))"
+        - "!(close_a & (move_robot_a | grab_item_a | place_item_a | open_a | finished))"
+        - "!(finished & (move_robot_a | grab_item_a | place_item_a | open_a | close_a))"
+
+        #If we are holding an item, don't try to pick something up
+        - "(snacks0=0 | butter0=0 | bread0=0 | waste0=0 | waste1=0 | soda0=0) -> !grab_item_a"
+
+        #If we are holding an item, don't try to close or open something.
+        - "(snacks0=0 | butter0=0 | bread0=0 | waste0=0 | waste1=0 | soda0=0) -> !open_a & !close_a"
+
+        #If we aren't holding an item, we can't place something
+        - "!(snacks0=0 | butter0=0 | bread0=0 | waste0=0 | waste1=0 | soda0=0) -> !place_item_a"
+
+        #Must be at a valid item location
+        - "robot_loc>7 -> !place_item_a & !grab_item_a"
+        - "robot_loc>15 -> !open_a & !close_a"
+        - "robot_loc=1 -> (dumpster & !open_a) | (!dumpster & !close_a & !grab_item_a & !place_item_a)"
+        - "robot_loc=2 -> (charger & !open_a) | (!charger & !close_a & !grab_item_a & !place_item_a)"
+        - "robot_loc=3 -> (table & !open_a) | (!table & !close_a & !grab_item_a & !place_item_a)"
+        - "robot_loc=4 -> (pantry & !open_a) | (!pantry & !close_a & !grab_item_a & !place_item_a)"
+        - "robot_loc=5 -> (fridge & !open_a) | (!fridge & !close_a & !grab_item_a & !place_item_a)"
+        - "robot_loc=6 -> (desk & !open_a) | (!desk & !close_a & !grab_item_a & !place_item_a)"
+        - "robot_loc=7 -> (bin & !open_a) | (!bin & !close_a & !grab_item_a & !place_item_a)"
+        - "robot_loc=8 -> (hall_trash_closet & !open_a) | (!hall_trash_closet & !close_a & !grab_item_a & !place_item_a)"
+        - "robot_loc=9 -> (hall_trash_dining & !open_a) | (!hall_trash_dining & !close_a & !grab_item_a & !place_item_a)"
+        - "robot_loc=10 -> (hall_trash_kitchen & !open_a) | (!hall_trash_kitchen & !close_a & !grab_item_a & !place_item_a)"
+        - "robot_loc=11 -> (hall_closet_dining & !open_a) | (!hall_closet_dining & !close_a & !grab_item_a & !place_item_a)"
+        - "robot_loc=12 -> (hall_closet_office & !open_a) | (!hall_closet_office & !close_a & !grab_item_a & !place_item_a)"
+        - "robot_loc=13 -> (hall_dining_kitchen & !open_a) | (!hall_dining_kitchen & !close_a & !grab_item_a & !place_item_a)"
+        - "robot_loc=14 -> (hall_dining_office & !open_a) | (!hall_dining_office & !close_a & !grab_item_a & !place_item_a)"
+        - "robot_loc=15 -> (hall_kitchen_office & !open_a) | (!hall_kitchen_office & !close_a & !grab_item_a & !place_item_a)"
+
+        #Needs to be an item to try and pick one up
+        - "robot_loc != butter0 -> pick!=22"
+        - "robot_loc != bread0 -> pick!=23"
+        - "robot_loc != waste0 -> pick!=24"
+        - "robot_loc != waste1 -> pick!=25"
+        - "robot_loc != soda0 -> pick!=26"
+        - "robot_loc != snacks0 -> pick!=27"
+
+        #If we are on the pass option, don't try to pick something up
+        - "pick=21 -> !grab_item_a"
+
+        # Full-spec goals are encoded here; request goals are not merged into this pipeline.
+        - "bread0!=3 | butter0!=3 -> !finished"
+        - "bread0=3 & butter0=3 -> finished"
+
+        # Once finished, stay finished
+        - "finished -> finished'"
+
+        # Keep moving if we are not finished
+        - "!finished -> move_dest!=robot_loc"
+
+    SYS_LIVENESS:
+        # Our goal or, keep trying actions while we don't get a complete
+        - "finished | !(move_robot_a -> move_robot_c') | !(place_item_a -> place_item_c') | !(grab_item_a -> grab_item_c') | !(close_a -> close_c') | !(open_a -> open_c')"
+
+    ENV_LIVENESS: []
+        # No ENV_LIVENESS conditions

@@ -1,0 +1,94 @@
+# Reference spec for the fair-outcome liveness approach (not used by any current launch file).
+# Contrast with wgcf_env_spec.yaml (adversarial liveness, SYS_LIVENESS) which is the active spec.
+#
+# This file uses _p (pending) OUTPUT variables to track in-flight actions and an ENV_LIVENESS
+# section to assert that the environment will eventually complete every pending action.
+# The active launch files use slugs_adversarial_liveness instead (no _p variables needed).
+specs:
+    INPUT:
+        - "wolf"
+        - "goat"
+        - "corn"
+        - "farmer"
+
+    ENV_INIT:
+        # All start on the left bank
+        - "!wolf"
+        - "!goat"
+        - "!corn"
+        - "!farmer"
+
+    OUTPUT:
+        - "move_corn_p"
+        - "move_goat_p"
+        - "move_null_p"
+        - "move_wolf_p"
+
+    SYS_INIT:
+        - "!move_corn_p"
+        - "!move_goat_p"
+        - "!move_null_p"
+        - "!move_wolf_p"
+
+    ENV_TRANS:
+        # How the move actions impact environment variables
+        - "!move_wolf_c' -> ((wolf & wolf') | (!wolf & !wolf'))"
+        - "!move_goat_c' -> ((goat & goat') | (!goat & !goat'))"
+        - "!move_corn_c' -> ((corn & corn') | (!corn & !corn'))"
+        - "!move_wolf_c' & !move_goat_c' & !move_corn_c' & !move_null_c' -> ((farmer & farmer') | (!farmer & !farmer'))"
+        - "(!wolf & move_wolf_c' & !farmer) -> wolf' & farmer'"
+        - "( wolf & move_wolf_c' &  farmer) ->!wolf' &!farmer'"
+        - "(!goat & move_goat_c' & !farmer) -> goat' & farmer'"
+        - "( goat & move_goat_c' &  farmer) ->!goat' &!farmer'"
+        - "(!corn & move_corn_c' & !farmer) -> corn' & farmer'"
+        - "( corn & move_corn_c' &  farmer) ->!corn' &!farmer'"
+        - "( farmer & move_null_a) -> (!farmer' & move_null_c') | ( farmer' & move_null_f')"
+        - "(!farmer & move_null_a) -> ( farmer' & move_null_c') | (!farmer' & move_null_f')"
+
+    SYS_TRANS:
+        # Logical rules for operation of move state
+        - "(goat & !farmer) -> !move_goat_a"
+        - "(!goat & farmer) -> !move_goat_a"
+        - "(wolf & !farmer) -> !move_wolf_a"
+        - "(!wolf & farmer) -> !move_wolf_a"
+        - "(corn & !farmer) -> !move_corn_a"
+        - "(!corn & farmer) -> !move_corn_a"
+        - "(goat' & wolf') -> farmer'"
+        - "(!goat' & !wolf') -> !farmer'"
+        - "(goat' & corn') -> farmer'"
+        - "(!goat' & !corn') -> !farmer'"
+
+        # Custom specs for defining when to log finished
+        - "!(wolf & goat & corn) & (wolf' & goat' & corn') -> log_finished_a'"
+        - "!(wolf & goat & corn) -> !log_finished_a & !finished"
+
+        # Custom specs to log failures
+        # (vs. putting them in transition_relation and preconditions of capabilities file.)
+        - "!move_wolf_f & !move_goat_f & !move_corn_f & !move_null_f -> !log_failed_a"
+        - "move_wolf_f -> log_failed_a"
+        - "move_goat_f -> log_failed_a"
+        - "move_corn_f -> log_failed_a"
+        - "move_null_f -> log_failed_a"
+
+        # Rules for pending actions required for cases where we want action between retry
+        - "move_corn_a' -> move_corn_p'"
+        - "move_corn_c' -> !move_corn_p'"
+        - "(move_corn_p & !move_corn_c') -> move_corn_p'"
+
+        - "move_goat_a' -> move_goat_p'"
+        - "move_goat_c' -> !move_goat_p'"
+        - "(move_goat_p & !move_goat_c') -> move_goat_p'"
+
+        - "move_null_a' -> move_null_p'"
+        - "move_null_c' -> !move_null_p'"
+        - "(move_null_p & !move_null_c') -> move_null_p'"
+
+        - "move_wolf_a' -> move_wolf_p'"
+        - "move_wolf_c' -> !move_wolf_p'"
+        - "(move_wolf_p & !move_wolf_c') -> move_wolf_p'"
+
+    ENV_LIVENESS:
+        - "(!move_wolf_p | move_wolf_c')"
+        - "(!move_goat_p | move_goat_c')"
+        - "(!move_corn_p | move_corn_c')"
+        - "(!move_null_p | move_null_c')"

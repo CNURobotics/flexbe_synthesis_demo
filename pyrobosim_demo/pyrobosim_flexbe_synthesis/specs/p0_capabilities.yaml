@@ -1,0 +1,93 @@
+spec_name: "p0_capabilities"
+specs:
+    # INPUT:
+    # OUTPUT:
+    # Both are defined based on variables and capabilities in capabilties file
+
+    ENV_INIT:
+        - "robot_loc=18"
+        - "snacks0=4"
+        - "butter0=5"
+        - "bread0=4"
+        - "waste0=7"
+        - "waste1=6"
+        - "soda0=5"
+
+    SYS_INIT:
+        # Limit the initial states
+        #- "move_dest=butter0 | move_dest=bread0"  # move to one of sub goals first
+        - "pick=21"
+
+        # We clearly are not logging failures at the start
+        - "!log_move_failed_a"
+        - "!log_grab_failed_a"
+        - "!log_place_failed_a"
+        - "!log_finished_a"
+
+        # Allow all other action choices
+
+    ENV_TRANS:
+
+        # Result of actions on environment
+        - "move_robot_c' -> (robot_loc' = move_dest)"
+        - "!move_robot_c' -> (robot_loc' = robot_loc)"
+
+        #If we successfully grab an item, the item we picked should be held
+        - "pick=22 & grab_item_c' -> butter0'=0"
+        - "pick=23 & grab_item_c' -> bread0'=0"
+        - "pick=24 & grab_item_c' -> waste0'=0"
+        - "pick=25 & grab_item_c' -> waste1'=0"
+        - "pick=26 & grab_item_c' -> soda0'=0"
+        - "pick=27 & grab_item_c' -> snacks0'=0"
+
+        #If holding an item and complete a place operation, then update location
+        - "place_item_c' & (snacks0=0) -> (snacks0'=robot_loc)"
+        - "place_item_c' & (butter0=0) -> (butter0'=robot_loc)"
+        - "place_item_c' & (bread0=0) -> (bread0'=robot_loc)"
+        - "place_item_c' & (waste0=0) -> (waste0'=robot_loc)"
+        - "place_item_c' & (waste1=0) -> (waste1'=robot_loc)"
+        - "place_item_c' & (soda0=0) -> (soda0'=robot_loc)"
+
+        #Only one item can be held at a time.
+        - "!(snacks0=0 & (butter0=0|bread0=0|waste0=0|waste1=0|soda0=0))"
+        - "!(butter0=0 & (snacks0=0|bread0=0|waste0=0|waste1=0|soda0=0))"
+        - "!(bread0=0 & (snacks0=0|butter0=0|waste0=0|waste1=0|soda0=0))"
+        - "!(waste0=0 & (snacks0=0|butter0=0|bread0=0|waste1=0|soda0=0))"
+        - "!(waste1=0 & (snacks0=0|butter0=0|bread0=0|waste0=0|soda0=0))"
+        - "!(soda0=0 & (snacks0=0|butter0=0|bread0=0|waste0=0|waste1=0))"
+
+        #If we don't grab or place an item, and aren't currently holding it, it should remain in place
+        - "!((grab_item_c' & pick=22) | (butter0=0 & place_item_c')) -> (butter0' = butter0)"
+        - "!((grab_item_c' & pick=23) | (bread0=0 & place_item_c'))  -> (bread0'  = bread0)"
+        - "!((grab_item_c' & pick=24) | (waste0=0 & place_item_c'))  -> (waste0'  = waste0)"
+        - "!((grab_item_c' & pick=25) | (waste1=0 & place_item_c'))  -> (waste1'  = waste1)"
+        - "!((grab_item_c' & pick=26) | (soda0=0 & place_item_c'))   -> (soda0'   = soda0)"
+        - "!((grab_item_c' & pick=27) | (snacks0=0 & place_item_c')) -> (snacks0' = snacks0)"
+
+    SYS_TRANS:
+
+        # Do not stay passively in one place if not finished
+        - "!finished -> move_dest!=robot_loc"
+
+        # Only mark the request as finished after the log_finished capability completes
+        - "!log_finished_c' & !finished -> !finished'"
+
+        #If we are holding an item, don't try to pick something up
+        - "(snacks0=0 | butter0=0 | bread0=0 | waste0=0 | waste1=0 | soda0=0) -> !grab_item_a"
+
+        #If we aren't holding an item, we can't place something
+        - "!(snacks0=0 | butter0=0 | bread0=0 | waste0=0 | waste1=0 | soda0=0) -> !place_item_a"
+
+        #Must be at a valid item location
+        - "robot_loc>7 -> !place_item_a & !grab_item_a"
+
+        #Needs to be an item to try and pick one up
+        - "robot_loc != butter0 -> pick!=22"
+        - "robot_loc != bread0 -> pick!=23"
+        - "robot_loc != waste0 -> pick!=24"
+        - "robot_loc != waste1 -> pick!=25"
+        - "robot_loc != soda0 -> pick!=26"
+        - "robot_loc != snacks0 -> pick!=27"
+
+        #If we are on the pass option, don't try to pick something up
+        - "pick=21 -> !grab_item_a"
