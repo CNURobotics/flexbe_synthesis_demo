@@ -72,9 +72,14 @@ for custom install locations and environment configuration.
 From the workspace root folder, build and source:
 
 ```bash
-colcon build --symlink-install
+colcon build --symlink-install --packages-up-to flexbe_synthesis_demo
 source install/setup.bash
 ```
+
+The `flexbe_synthesis_demo/` directory contains a lightweight ROS 2 aggregator
+package. It contains no nodes or launch files of its own; it exists so
+`colcon build --packages-up-to flexbe_synthesis_demo` builds the demonstration
+packages and their dependencies as a coherent target.
 
 Install `pygame` for the river crossing visualization:
 

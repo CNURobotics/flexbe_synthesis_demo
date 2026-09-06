@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>flexbe_synthesis_demo</name>
+  <version>0.0.1</version>
+  <description>
+    ROS 2 aggregator package for the FlexBE synthesis demonstration packages.
+  </description>
+  <maintainer email="robotics@cnu.edu">David Conner</maintainer>
+  <license>Apache-2.0</license>
+
+  <url type="website">https://github.com/CNURobotics/flexbe_synthesis_demo</url>
+  <url type="bugtracker">https://github.com/CNURobotics/flexbe_synthesis_demo/issues</url>
+  <url type="repository">https://github.com/CNURobotics/flexbe_synthesis_demo</url>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>drone_demo_flexbe_behaviors</exec_depend>
+  <exec_depend>drone_demo_flexbe_synthesis</exec_depend>
+  <exec_depend>flexbe_river_crossing</exec_depend>
+  <exec_depend>flexbe_river_crossing_behaviors</exec_depend>
+  <exec_depend>flexbe_river_crossing_flexbe_states</exec_depend>
+  <exec_depend>flexbe_river_crossing_msgs</exec_depend>
+  <exec_depend>flexbe_river_crossing_synthesis</exec_depend>
+  <exec_depend>flexbe_river_crossing_visualization</exec_depend>
+  <exec_depend>flexbe_synthesis</exec_depend>
+  <exec_depend>pyrobosim_flexbe_behaviors</exec_depend>
+  <exec_depend>pyrobosim_flexbe_problems</exec_depend>
+  <exec_depend>pyrobosim_flexbe_states</exec_depend>
+  <exec_depend>pyrobosim_flexbe_synthesis</exec_depend>
+  <exec_depend>pyrobosim_flexbe_utilities</exec_depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+  <test_depend>ament_pep257</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
