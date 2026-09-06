@@ -36,7 +36,7 @@ usage() {
   cat <<USAGE
 Usage: $(basename "$0") [--clear] [--slow-first] [--super-long] [--skip-long] [--skip-fp] [--no-terminal-hold]
 
-Runs the experiments documented in experiments/experiment_run.md with at most
+Runs the experiments documented in experiments/README.md with at most
 two active experiment runs at a time. The scheduler prints overall status in
 this terminal and each experiment opens in its own terminal window when a
 terminal emulator is available.

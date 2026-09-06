@@ -72,7 +72,7 @@ except ImportError:
     print(
         'ERROR: could not import flexbe_synthesis_slugs.\n'
         'Source the workspace install/setup.bash first, same as the other '
-        'manual commands in experiment_run.md.',
+        'manual commands described in experiments/README.md.',
         file=sys.stderr,
     )
     raise
