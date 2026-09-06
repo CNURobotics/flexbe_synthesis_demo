@@ -321,10 +321,10 @@ hand-written spec entry.
 |---|---|---|
 | `preprocesses_def.yaml` | All modes (runs once at server startup) | — |
 | `processes_def.yaml` | Full-spec modes | *(liveness in hand-written `SYS_LIVENESS`)* |
-| `capability_processes_def.yaml` | Capability modes | `slugs_adversarial_liveness` |
-| `capability_processes_def_parsed.yaml` | Parsed-capability modes | `slugs_adversarial_liveness` |
+| `capability_processes_def.yaml` | Capability modes | `slugs_system_goal_liveness` |
+| `capability_processes_def_parsed.yaml` | Parsed-capability modes | `slugs_system_goal_liveness` |
 
-**Adversarial liveness** (`slugs_adversarial_liveness`): the synthesized controller
+**System-goal liveness** (`slugs_system_goal_liveness`): the synthesized controller
 wins if either the goal is achieved *or* the environment fails to deliver an outcome
 to an activated state — i.e., the environment is assumed adversarial.  This is the
 correct assumption for reactive synthesis against an uncooperative environment.
@@ -333,7 +333,7 @@ correct assumption for reactive synthesis against an uncooperative environment.
 *will* eventually deliver an outcome to every activated state (fair scheduling).
 Produces a simpler automaton but is only correct when the environment is cooperative.
 
-For these demonstrations `slugs_adversarial_liveness` is the default; the
+For these demonstrations `slugs_system_goal_liveness` is the default; the
 `slugs_fair_outcome_liveness` alternative is retained as a commented line for comparison.
 
 ### Startup handling

@@ -55,6 +55,7 @@ setup(
             'request_two_rivers_parsed = flexbe_river_crossing_synthesis.request_two_rivers_parsed:main',
             'request_two_rivers_capabilities = flexbe_river_crossing_synthesis.request_two_rivers_capabilities:main',
             'request_two_rivers_capabilities_parsed = flexbe_river_crossing_synthesis.request_two_rivers_capabilities_parsed:main',
+            'two_rivers_matrix = flexbe_river_crossing_synthesis.two_rivers_matrix:main',
         ],
     },
 )

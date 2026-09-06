@@ -40,7 +40,7 @@
         outputs:
             slugs_specification: Specification
     - entry_point:
-        name: slugs_adversarial_liveness
+        name: slugs_system_goal_liveness
         #name: slugs_fair_outcome_liveness
         inputs:
             spec_name: str
@@ -64,6 +64,18 @@
         outputs:
             error_code: SynthesisErrorCode
     - entry_point:
+        name: slugs_well_separation_analyzer
+        inputs:
+            specs_output_dir_path: FilePathStr
+            spec_name: NameStr
+            well_separation_timeout_s: float
+            fail_on_non_well_separated: bool
+            fail_on_incomplete: bool
+            minimize_well_separation_core: bool
+        outputs:
+            well_separation_result: dict
+            error_code: SynthesisErrorCode
+    - entry_point:
         name: slugs_synthesizer
         inputs:
             specs_output_dir_path: FilePathStr
@@ -71,6 +83,21 @@
             synthesis_timeout_s: float
         outputs:
             automaton: Automaton
+            error_code: SynthesisErrorCode
+    - entry_point:
+        name: strategy_auditor
+        inputs:
+            automaton: Automaton
+            specs_output_dir_path: FilePathStr
+            spec_name: NameStr
+            system_capabilities: SystemCapabilities
+            state_mappings: Mappings
+            slugs_specification: Specification
+            strategy_auditor_spec_path: FilePathStr
+            strategy_auditor_goal_outcomes: List[str]
+            strategy_auditor_timeout_s: float
+        outputs:
+            strategy_auditor_result: dict
             error_code: SynthesisErrorCode
     - entry_point:
         name: slugs_mealy_graph
@@ -86,6 +113,21 @@
             automaton: Automaton
         outputs:
             reduced_automaton: Automaton
+            error_code: SynthesisErrorCode
+    - entry_point:
+        name: strategy_auditor
+        inputs:
+            reduced_automaton: Automaton
+            specs_output_dir_path: FilePathStr
+            spec_name: NameStr
+            system_capabilities: SystemCapabilities
+            state_mappings: Mappings
+            slugs_specification: Specification
+            strategy_auditor_spec_path: FilePathStr
+            strategy_auditor_goal_outcomes: List[str]
+            strategy_auditor_timeout_s: float
+        outputs:
+            reduced_strategy_auditor_result: dict
             error_code: SynthesisErrorCode
     - entry_point:
         name: slugs_mealy_graph

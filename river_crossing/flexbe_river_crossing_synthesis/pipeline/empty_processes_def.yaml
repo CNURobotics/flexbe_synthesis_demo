@@ -1,0 +1,3 @@
+/pipeline: []
+    # No synthesis processing; this file lets preprocessing-only launches stop
+    # after workspace/capability preprocessing completes.

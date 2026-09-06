@@ -1,9 +1,9 @@
 # Reference spec for the fair-outcome liveness approach (not used by any current launch file).
-# Contrast with wgcf_env_spec.yaml (adversarial liveness, SYS_LIVENESS) which is the active spec.
+# Contrast with wgcf_env_spec.yaml (system-goal liveness, SYS_LIVENESS) which is the active spec.
 #
 # This file uses _p (pending) OUTPUT variables to track in-flight actions and an ENV_LIVENESS
 # section to assert that the environment will eventually complete every pending action.
-# The active launch files use slugs_adversarial_liveness instead (no _p variables needed).
+# The active launch files use slugs_system_goal_liveness instead (no _p variables needed).
 specs:
     INPUT:
         - "wolf"

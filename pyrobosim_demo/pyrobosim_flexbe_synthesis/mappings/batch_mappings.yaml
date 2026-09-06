@@ -1,0 +1,47 @@
+# Mappings used to standardize names for the Slugs batch harness.
+#
+# `flexbe_synthesis_slugs.helpers.batch_run_harness` only accepts a single
+# `--state-mappings` file (see `default_state_mappings_path()` /
+# `workspace_parser_main([state_mappings])` in batch_run_harness.py) — unlike
+# the interactive server pipeline, it has no separate `custom_mappings_path`
+# stage. The interactive pipeline (`pipeline/preprocesses_def.yaml`) merges
+# `flexbe_synthesis_generic/mappings/global_mappings.yaml` and this package's
+# `mappings/custom_mappings.yaml` in two passes; this file pre-merges the same
+# two sources by hand so a single `--state-mappings` argument produces
+# identical outcome-name normalization for batch runs.
+#
+# Keep in sync with:
+#   - flexbe_synthesis/flexbe_synthesis_generic/mappings/global_mappings.yaml
+#   - mappings/custom_mappings.yaml
+sm_outcome_mappings:
+    # The potential outcomes of the state machine
+    finished: finished
+    # By default, we will presume desire to recover from failures
+    # So we disallow failed outcome
+    # failed: failed
+state_outcome_mappings:
+    # --- Successes ---
+    done: completed
+    finished: completed
+    received: completed
+    'true': completed
+    ###################
+    # --- Failures  ---
+    aborted: failure
+    canceled: failure
+    data_error: failure
+    empty: failure
+    failed: failure
+    'false': failure
+    no_connection: failure
+    param_error: failure
+    timeout: failure
+    unavailable: failure
+    # --- PyRoboSim-specific failures (from custom_mappings.yaml) ---
+    motion_failed: failure
+    planning_failed: failure
+transition_outcomes:
+    # Allowable transitions
+    # These should have unique first characters for tagging (e.g. _f, _c)
+    - completed
+    - failure

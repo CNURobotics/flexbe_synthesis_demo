@@ -373,8 +373,8 @@ can treat different failure modes uniformly.
 |---|---|---|
 | `preprocesses_def.yaml` | All modes (runs once at server startup) | — |
 | `processes_def.yaml` | Full-spec modes | *(liveness in hand-written `SYS_LIVENESS`)* |
-| `capability_processes_def.yaml` | Capability modes | `slugs_adversarial_liveness` |
-| `capability_processes_def_parsed.yaml` | Parsed-capability modes | `slugs_adversarial_liveness` |
+| `capability_processes_def.yaml` | Capability modes | `slugs_system_goal_liveness` |
+| `capability_processes_def_parsed.yaml` | Parsed-capability modes | `slugs_system_goal_liveness` |
 | `load_processes_def.yaml` | Load pre-built | skips synthesis; loads saved automaton |
 
 **Pre-process steps** (`preprocesses_def.yaml`): validate slugs install, crawl workspace for
@@ -384,7 +384,7 @@ generate discrete abstraction.
 **Process steps** (varies by pipeline): load slugs spec, compile, run synthesizer,
 generate Mealy graph, reduce automaton, generate FlexBE state machine, lay out states.
 
-**Adversarial liveness** (`slugs_adversarial_liveness`): the controller wins if either the
+**System-goal liveness** (`slugs_system_goal_liveness`): the controller wins if either the
 goal is achieved *or* the environment fails to deliver an outcome to an activated state,
 modeling an uncooperative environment.  This is the correct liveness assumption for reactive
 synthesis.
