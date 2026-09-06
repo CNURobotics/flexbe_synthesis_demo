@@ -1,0 +1,16 @@
+spec_name: 'drones_gates'
+specs:
+    OUTPUT:
+        - 'route_segment:0...5'
+
+    SYS_INIT:
+        - '!armed_m'
+        - '!flying_m'
+        - '!execution_complete_m'
+        - 'route_segment=0'
+
+    SYS_TRANS:
+        - "gate1'=gate1"
+        - "gate2'=gate2"
+        - "gate3'=gate3"
+        - "gate4'=gate4"

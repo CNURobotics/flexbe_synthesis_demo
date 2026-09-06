@@ -1,0 +1,897 @@
+# Capability model for the portable four-gate aerial demonstration.
+#
+# Gate IDs are resolved by GateTrajectoryBoundaryState into the TF-frame
+# convention used by flexible_drones_flexbe_behaviors/gates_demo_sm.py.
+name: 'drone_gates_demo'
+
+variable_mappings:
+    sys_props:
+        gate1: &gate_ids
+            0: 'A1'
+            1: 'A2'
+            2: 'B1'
+            3: 'B2'
+            4: 'C1'
+            5: 'C2'
+            6: 'D1'
+            7: 'D2'
+            8: 'A1R'
+            9: 'A2R'
+            10: 'B1R'
+            11: 'B2R'
+            12: 'C1R'
+            13: 'C2R'
+            14: 'D1R'
+            15: 'D2R'
+        gate2:
+            <<: *gate_ids
+        gate3:
+            <<: *gate_ids
+        gate4:
+            <<: *gate_ids
+        route_segment:
+            0: 'initializing'
+            1: 'gate1_planned'
+            2: 'gate2_planned'
+            3: 'gate3_planned'
+            4: 'gate4_planned'
+            5: 'home_planned'
+
+memory:
+    sys_props:
+        begun: False
+        initialized: False
+        gate1_boundary: False
+        gate2_boundary: False
+        gate3_boundary: False
+        gate4_boundary: False
+        home_boundary: False
+        obstacle_avoidance_ready: False
+        obstacle_avoidance_set: False
+        visualized: False
+        approved: False
+        uploaded: False
+        armed: False
+        flying: False
+        at_home: False
+        execution_complete: False
+        execution_failure_logged: False
+        recovery_landed: False
+
+capabilities:
+    begin_game:
+        interface: LogState
+        parameters:
+            text: Ready to plan four-gate flight
+        preconditions:
+            - '!begun'
+        postconditions:
+            - begun
+
+    set_planner_bounds:
+        interface: SetTrajectoryBoundsState
+        parameters:
+            x_min: -3.0
+            x_max: 3.0
+            y_min: -3.0
+            y_max: 3.0
+            z_min: 0.48
+            z_max: 3.0
+            service_name: /set_trajectory_bounds
+            wait_timeout: 10.0
+            call_timeout: 10.0
+        preconditions:
+            - begun
+
+    initialize_trajectory:
+        interface: InitializeTrajectoryState
+        parameters:
+            trajectory_id: 1
+        userdata_out:
+            trajectory:
+                remapping: trajectory
+        preconditions:
+            - begun
+            - '!initialized'
+        postconditions:
+            - initialized
+            - route_segment=0
+
+    gate1_boundary:
+        interface: GateTrajectoryBoundaryState
+        parameters:
+            gate_id: '@gate1'
+            cruise_velocity: 0.5
+            home_position: [0.0, 0.0, 1.0]
+        userdata_out:
+            boundary:
+                remapping: gate1
+        preconditions:
+            - begun
+            - '!gate1_boundary'
+        postconditions:
+            - gate1_boundary
+
+    gate2_boundary:
+        interface: GateTrajectoryBoundaryState
+        parameters:
+            gate_id: '@gate2'
+            cruise_velocity: 0.5
+            home_position: [0.0, 0.0, 1.0]
+        userdata_out:
+            boundary:
+                remapping: gate2
+        preconditions:
+            - begun
+            - '!gate2_boundary'
+        postconditions:
+            - gate2_boundary
+
+    gate3_boundary:
+        interface: GateTrajectoryBoundaryState
+        parameters:
+            gate_id: '@gate3'
+            cruise_velocity: 0.5
+            home_position: [0.0, 0.0, 1.0]
+        userdata_out:
+            boundary:
+                remapping: gate3
+        preconditions:
+            - begun
+            - '!gate3_boundary'
+        postconditions:
+            - gate3_boundary
+
+    gate4_boundary:
+        interface: GateTrajectoryBoundaryState
+        parameters:
+            gate_id: '@gate4'
+            cruise_velocity: 0.5
+            home_position: [0.0, 0.0, 1.0]
+        userdata_out:
+            boundary:
+                remapping: gate4
+        preconditions:
+            - begun
+            - '!gate4_boundary'
+        postconditions:
+            - gate4_boundary
+
+    home_boundary:
+        interface: GateTrajectoryBoundaryState
+        parameters:
+            gate_id: home
+            cruise_velocity: 0.5
+            home_position: [0.0, 0.0, 1.0]
+        userdata_out:
+            boundary:
+                remapping: home
+        preconditions:
+            - begun
+            - '!home_boundary'
+        postconditions:
+            - home_boundary
+
+    home_gate1_avoidance:
+        interface: GateObstacleAvoidanceState
+        parameters:
+            start_gate_id: home
+            target_gate_id: '@gate1'
+        userdata_in:
+            gate_distance:
+                remapping: gate_distance
+            avoidance_radius:
+                remapping: gate_radius
+        userdata_out:
+            obstacles:
+                remapping: home_gate1_obstacles
+        preconditions:
+            - initialized
+            - route_segment=0
+            - '!obstacle_avoidance_ready'
+        postconditions:
+            - obstacle_avoidance_ready
+
+    set_home_gate1_avoidance:
+        interface: SetTrajectoryObstaclesState
+        parameters:
+            service_name: /set_trajectory_obstacles
+            wait_timeout: 10.0
+            call_timeout: 10.0
+        userdata_in:
+            obstacles:
+                remapping: home_gate1_obstacles
+        preconditions:
+            - initialized
+            - route_segment=0
+            - obstacle_avoidance_ready
+            - '!obstacle_avoidance_set'
+        postconditions:
+            - obstacle_avoidance_set
+
+    gate1_gate2_avoidance:
+        interface: GateObstacleAvoidanceState
+        parameters:
+            start_gate_id: '@gate1'
+            target_gate_id: '@gate2'
+        userdata_in:
+            gate_distance:
+                remapping: gate_distance
+            avoidance_radius:
+                remapping: gate_radius
+        userdata_out:
+            obstacles:
+                remapping: gate1_gate2_obstacles
+        preconditions:
+            - route_segment=1
+            - '!obstacle_avoidance_ready'
+        postconditions:
+            - obstacle_avoidance_ready
+
+    set_gate1_gate2_avoidance:
+        interface: SetTrajectoryObstaclesState
+        parameters:
+            service_name: /set_trajectory_obstacles
+            wait_timeout: 10.0
+            call_timeout: 10.0
+        userdata_in:
+            obstacles:
+                remapping: gate1_gate2_obstacles
+        preconditions:
+            - route_segment=1
+            - obstacle_avoidance_ready
+            - '!obstacle_avoidance_set'
+        postconditions:
+            - obstacle_avoidance_set
+
+    gate2_gate3_avoidance:
+        interface: GateObstacleAvoidanceState
+        parameters:
+            start_gate_id: '@gate2'
+            target_gate_id: '@gate3'
+        userdata_in:
+            gate_distance:
+                remapping: gate_distance
+            avoidance_radius:
+                remapping: gate_radius
+        userdata_out:
+            obstacles:
+                remapping: gate2_gate3_obstacles
+        preconditions:
+            - route_segment=2
+            - '!obstacle_avoidance_ready'
+        postconditions:
+            - obstacle_avoidance_ready
+
+    set_gate2_gate3_avoidance:
+        interface: SetTrajectoryObstaclesState
+        parameters:
+            service_name: /set_trajectory_obstacles
+            wait_timeout: 10.0
+            call_timeout: 10.0
+        userdata_in:
+            obstacles:
+                remapping: gate2_gate3_obstacles
+        preconditions:
+            - route_segment=2
+            - obstacle_avoidance_ready
+            - '!obstacle_avoidance_set'
+        postconditions:
+            - obstacle_avoidance_set
+
+    gate3_gate4_avoidance:
+        interface: GateObstacleAvoidanceState
+        parameters:
+            start_gate_id: '@gate3'
+            target_gate_id: '@gate4'
+        userdata_in:
+            gate_distance:
+                remapping: gate_distance
+            avoidance_radius:
+                remapping: gate_radius
+        userdata_out:
+            obstacles:
+                remapping: gate3_gate4_obstacles
+        preconditions:
+            - route_segment=3
+            - '!obstacle_avoidance_ready'
+        postconditions:
+            - obstacle_avoidance_ready
+
+    set_gate3_gate4_avoidance:
+        interface: SetTrajectoryObstaclesState
+        parameters:
+            service_name: /set_trajectory_obstacles
+            wait_timeout: 10.0
+            call_timeout: 10.0
+        userdata_in:
+            obstacles:
+                remapping: gate3_gate4_obstacles
+        preconditions:
+            - route_segment=3
+            - obstacle_avoidance_ready
+            - '!obstacle_avoidance_set'
+        postconditions:
+            - obstacle_avoidance_set
+
+    gate4_home_avoidance:
+        interface: GateObstacleAvoidanceState
+        parameters:
+            start_gate_id: '@gate4'
+            target_gate_id: home
+        userdata_in:
+            gate_distance:
+                remapping: gate_distance
+            avoidance_radius:
+                remapping: gate_radius
+        userdata_out:
+            obstacles:
+                remapping: gate4_home_obstacles
+        preconditions:
+            - route_segment=4
+            - '!obstacle_avoidance_ready'
+        postconditions:
+            - obstacle_avoidance_ready
+
+    set_gate4_home_avoidance:
+        interface: SetTrajectoryObstaclesState
+        parameters:
+            service_name: /set_trajectory_obstacles
+            wait_timeout: 10.0
+            call_timeout: 10.0
+        userdata_in:
+            obstacles:
+                remapping: gate4_home_obstacles
+        preconditions:
+            - route_segment=4
+            - obstacle_avoidance_ready
+            - '!obstacle_avoidance_set'
+        postconditions:
+            - obstacle_avoidance_set
+
+    plan_gate1:
+        interface: GetTrajectoryState
+        parameters:
+            action_topic: /plan_trajectory
+            timeout: 180.0
+            timeout_buffer: 5.0
+        userdata_in:
+            trajectory:
+                remapping: trajectory
+            start:
+                remapping: home
+            target:
+                remapping: gate1
+        userdata_out:
+            trajectory:
+                remapping: trajectory
+        preconditions:
+            - initialized
+            - route_segment=0
+            - home_boundary
+            - gate1_boundary
+            - obstacle_avoidance_set
+        postconditions:
+            completed:
+                - route_segment=1
+                - '!obstacle_avoidance_ready'
+                - '!obstacle_avoidance_set'
+        transition_relation:
+            failure:
+                - log_plan_gate1_failed
+
+    plan_gate2:
+        interface: GetTrajectoryState
+        parameters:
+            action_topic: /plan_trajectory
+            timeout: 180.0
+            timeout_buffer: 5.0
+        userdata_in:
+            trajectory:
+                remapping: trajectory
+            start:
+                remapping: gate1
+            target:
+                remapping: gate2
+        userdata_out:
+            trajectory:
+                remapping: trajectory
+        preconditions:
+            - route_segment=1
+            - gate1_boundary
+            - gate2_boundary
+            - obstacle_avoidance_set
+        postconditions:
+            completed:
+                - route_segment=2
+                - '!obstacle_avoidance_ready'
+                - '!obstacle_avoidance_set'
+        transition_relation:
+            failure:
+                - log_plan_gate2_failed
+
+    plan_gate3:
+        interface: GetTrajectoryState
+        parameters:
+            action_topic: /plan_trajectory
+            timeout: 180.0
+            timeout_buffer: 5.0
+        userdata_in:
+            trajectory:
+                remapping: trajectory
+            start:
+                remapping: gate2
+            target:
+                remapping: gate3
+        userdata_out:
+            trajectory:
+                remapping: trajectory
+        preconditions:
+            - route_segment=2
+            - gate2_boundary
+            - gate3_boundary
+            - obstacle_avoidance_set
+        postconditions:
+            completed:
+                - route_segment=3
+                - '!obstacle_avoidance_ready'
+                - '!obstacle_avoidance_set'
+        transition_relation:
+            failure:
+                - log_plan_gate3_failed
+
+    plan_gate4:
+        interface: GetTrajectoryState
+        parameters:
+            action_topic: /plan_trajectory
+            timeout: 180.0
+            timeout_buffer: 5.0
+        userdata_in:
+            trajectory:
+                remapping: trajectory
+            start:
+                remapping: gate3
+            target:
+                remapping: gate4
+        userdata_out:
+            trajectory:
+                remapping: trajectory
+        preconditions:
+            - route_segment=3
+            - gate3_boundary
+            - gate4_boundary
+            - obstacle_avoidance_set
+        postconditions:
+            completed:
+                - route_segment=4
+                - '!obstacle_avoidance_ready'
+                - '!obstacle_avoidance_set'
+        transition_relation:
+            failure:
+                - log_plan_gate4_failed
+
+    plan_home:
+        interface: GetTrajectoryState
+        parameters:
+            action_topic: /plan_trajectory
+            timeout: 180.0
+            timeout_buffer: 5.0
+        userdata_in:
+            trajectory:
+                remapping: trajectory
+            start:
+                remapping: gate4
+            target:
+                remapping: home
+        userdata_out:
+            trajectory:
+                remapping: trajectory
+        preconditions:
+            - route_segment=4
+            - gate4_boundary
+            - home_boundary
+            - obstacle_avoidance_set
+        postconditions:
+            completed:
+                - route_segment=5
+                - '!obstacle_avoidance_ready'
+                - '!obstacle_avoidance_set'
+        transition_relation:
+            failure:
+                - log_plan_home_failed
+
+    visualize_trajectory:
+        interface: VisualizeTrajectoryState
+        parameters:
+            topic: /planned_trajectory
+            frame_id: map
+            offset: [0.0, 0.0, 0.0]
+            sample_dt: 0.05
+        userdata_in:
+            trajectory:
+                remapping: trajectory
+        preconditions:
+            - route_segment=5
+            - '!visualized'
+        postconditions:
+            - visualized
+
+    approve_trajectory:
+        interface: OperatorDecisionState
+        parameters:
+            outcomes: [execute, cancel]
+            hint: Execute the planned four-gate trajectory?
+            suggestion: execute
+        preconditions:
+            - visualized
+            - '!approved'
+        postconditions:
+            completed:
+                - approved
+        transition_relation:
+            failure:
+                - log_approval_cancelled
+        autonomy:
+            execute: 2  # High autonomy required
+            cancel: 3   # Full autonomy required
+
+    upload_trajectory:
+        interface: UploadTrajectoryState
+        parameters:
+            timeout: 15.0
+            namespace: self.drone_name
+        userdata_in:
+            trajectory:
+                remapping: trajectory
+        preconditions:
+            - approved
+            - '!uploaded'
+        postconditions:
+            - uploaded
+        transition_relation:
+            failure:
+                - log_upload_failed
+
+    arm:
+        interface: ArmState
+        parameters:
+            arm: True
+            namespace: self.drone_name
+            wait_timeout: 5.0
+            call_timeout: 10.0
+            request_timeout: 0.0
+        preconditions:
+            - uploaded
+            - '!armed'
+        postconditions:
+            - armed
+        transition_relation:
+            failure:
+                - log_arm_failed
+
+    takeoff:
+        interface: TakeoffState
+        parameters:
+            timeout: 15.0
+            namespace: self.drone_name
+        userdata_in:
+            group_mask:
+                remapping: group_mask
+            height:
+                remapping: takeoff_height
+            duration_sec:
+                remapping: takeoff_duration_sec
+        preconditions:
+            - armed
+            - '!flying'
+        postconditions:
+            - flying
+        transition_relation:
+            failure:
+                - confirm_takeoff_failure
+
+    confirm_takeoff_failure:
+        interface: OperatorDecisionState
+        parameters:
+            outcomes: [continue, abort]
+            hint: Confirm the drone is safely airborne before continuing.
+            suggestion: abort
+        preconditions:
+            - takeoff_f
+        postconditions:
+            completed:
+                - flying
+        transition_relation:
+            failure:
+                - log_takeoff_failed
+
+    go_home:
+        interface: GoToState
+        parameters:
+            timeout: 15.0
+            namespace: self.drone_name
+        userdata_in:
+            group_mask:
+                remapping: group_mask
+            frame:
+                remapping: frame
+            goal:
+                remapping: home_position
+            duration_sec:
+                remapping: go_home_duration_sec
+        preconditions:
+            - flying
+            - '!at_home'
+        postconditions:
+            - at_home
+        transition_relation:
+            failure:
+                - confirm_go_home_failure
+
+    confirm_go_home_failure:
+        interface: OperatorDecisionState
+        parameters:
+            outcomes: [continue, abort]
+            hint: Confirm the drone is safe at the route start before continuing.
+            suggestion: abort
+        preconditions:
+            - go_home_f
+        postconditions:
+            completed:
+                - at_home
+        transition_relation:
+            failure:
+                - log_go_home_failed
+
+    execute_trajectory:
+        interface: ExecuteTrajectoryState
+        parameters:
+            timeout: 30.0
+            namespace: self.drone_name
+        userdata_in:
+            group_mask:
+                remapping: group_mask
+            trajectory:
+                remapping: trajectory
+            timescale:
+                remapping: timescale
+            reversed:
+                remapping: reversed
+            relative:
+                remapping: relative
+        preconditions:
+            - flying
+            - at_home
+            - uploaded
+            - '!execution_complete'
+        postconditions:
+            completed:
+                - execution_complete
+        transition_relation:
+            failure:
+                - log_execution_failed
+
+    land:
+        interface: LandState
+        parameters:
+            timeout: 15.0
+            namespace: self.drone_name
+        userdata_in:
+            group_mask:
+                remapping: group_mask
+            height:
+                remapping: landing_height
+            duration_sec:
+                remapping: landing_duration_sec
+        preconditions:
+            - flying
+            - execution_complete
+        postconditions:
+            - '!flying'
+        transition_relation:
+            failure:
+                - log_landing_failed
+
+    recover_land:
+        interface: LandState
+        parameters:
+            timeout: 15.0
+            namespace: self.drone_name
+        userdata_in:
+            group_mask:
+                remapping: group_mask
+            height:
+                remapping: landing_height
+            duration_sec:
+                remapping: landing_duration_sec
+        preconditions:
+            - flying
+            - execution_failure_logged
+        postconditions:
+            - '!flying'
+            - recovery_landed
+        transition_relation:
+            failure:
+                - log_recovery_landing_failed
+
+    disarm:
+        interface: ArmState
+        parameters:
+            arm: False
+            namespace: self.drone_name
+            wait_timeout: 5.0
+            call_timeout: 10.0
+            request_timeout: 0.0
+        preconditions:
+            - armed
+            - '!flying'
+        postconditions:
+            - '!armed'
+        transition_relation:
+            failure:
+                - log_disarm_failed
+
+    log_finished:
+        interface: LogState
+        parameters:
+            text: Four-gate flight completed and drone disarmed
+        preconditions:
+            - '!armed'
+            - '!flying'
+            - execution_complete
+        postconditions:
+            - log_finished
+        transition_relation:
+            completed:
+                - finished
+
+    log_plan_gate1_failed:
+        interface: LogState
+        parameters:
+            text: Failed to plan home to gate 1 trajectory segment
+        preconditions:
+            - plan_gate1_f
+        transition_relation:
+            completed:
+                - failed
+
+    log_plan_gate2_failed:
+        interface: LogState
+        parameters:
+            text: Failed to plan gate 1 to gate 2 trajectory segment
+        preconditions:
+            - plan_gate2_f
+        transition_relation:
+            completed:
+                - failed
+
+    log_plan_gate3_failed:
+        interface: LogState
+        parameters:
+            text: Failed to plan gate 2 to gate 3 trajectory segment
+        preconditions:
+            - plan_gate3_f
+        transition_relation:
+            completed:
+                - failed
+
+    log_plan_gate4_failed:
+        interface: LogState
+        parameters:
+            text: Failed to plan gate 3 to gate 4 trajectory segment
+        preconditions:
+            - plan_gate4_f
+        transition_relation:
+            completed:
+                - failed
+
+    log_plan_home_failed:
+        interface: LogState
+        parameters:
+            text: Failed to plan gate 4 to home trajectory segment
+        preconditions:
+            - plan_home_f
+        transition_relation:
+            completed:
+                - failed
+
+    log_approval_cancelled:
+        interface: LogState
+        parameters:
+            text: Operator cancelled the planned trajectory
+        preconditions:
+            - approve_trajectory_f
+        transition_relation:
+            completed:
+                - failed
+
+    log_upload_failed:
+        interface: LogState
+        parameters:
+            text: Failed to upload trajectory
+        preconditions:
+            - upload_trajectory_f
+        transition_relation:
+            completed:
+                - failed
+
+    log_arm_failed:
+        interface: LogState
+        parameters:
+            text: Failed to arm drone
+        preconditions:
+            - arm_f
+        transition_relation:
+            completed:
+                - failed
+
+    log_takeoff_failed:
+        interface: LogState
+        parameters:
+            text: Takeoff was not confirmed safe by the operator
+        preconditions:
+            - confirm_takeoff_failure_f
+        transition_relation:
+            completed:
+                - failed
+
+    log_go_home_failed:
+        interface: LogState
+        parameters:
+            text: Route-start position was not confirmed safe by the operator
+        preconditions:
+            - confirm_go_home_failure_f
+        transition_relation:
+            completed:
+                - failed
+
+    log_execution_failed:
+        interface: LogState
+        parameters:
+            text: Trajectory execution failed; attempting recovery landing
+        preconditions:
+            - execute_trajectory_f
+        postconditions:
+            - execution_failure_logged
+
+    log_landing_failed:
+        interface: LogState
+        parameters:
+            text: Landing failed
+        preconditions:
+            - land_f
+        transition_relation:
+            completed:
+                - failed
+
+    log_recovery_landing_failed:
+        interface: LogState
+        parameters:
+            text: Recovery landing failed
+        preconditions:
+            - recover_land_f
+        transition_relation:
+            completed:
+                - failed
+
+    log_recovery_finished:
+        interface: LogState
+        parameters:
+            text: Disarmed after recovery landing
+        preconditions:
+            - recovery_landed
+            - '!armed'
+            - '!flying'
+        transition_relation:
+            completed:
+                - failed
+
+    log_disarm_failed:
+        interface: LogState
+        parameters:
+            text: Drone landed but did not disarm
+        preconditions:
+            - disarm_f
+        transition_relation:
+            completed:
+                - failed

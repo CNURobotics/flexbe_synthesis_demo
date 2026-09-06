@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="drone_synthesis_enumerated">
+
+    <executable package_path="drone_demo_flexbe_behaviors.drone_synthesis_enumerated_sm" class="drone_synthesis_enumeratedSM" />
+    <tagstring>drones, flexible_drones, synthesis</tagstring>
+    <author>David Conner</author>
+    <date>Fri Aug 14 2026</date>
+    <description>
+        Behavior synthesized for the drone synthesis demonstration using enumerated
+        encoding
+    </description>
+
+
+    <!-- Contained Behaviors -->
+
+    <!-- Available Parameters -->
+    <params>
+
+        <param type="text" name="drone_name" default="cf1" label="Drone namespace" hint="Sets the flexible_drones namespace" />
+
+        <param type="text" name="gate_radius" default="0.9" label="Gate clearance radius" hint="Radius (m) of the obstacle-clearing cylinder over each route gate" />
+
+        <param type="text" name="gate_distance" default="1.5" label="Gate course distance" hint="Distance (m) from the course origin to each gate center" />
+
+    </params>
+
+
+</behavior>

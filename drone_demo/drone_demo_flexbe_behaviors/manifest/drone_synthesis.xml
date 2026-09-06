@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<behavior name="drone_synthesis">
+
+    <executable package_path="drone_demo_flexbe_behaviors.drone_synthesis_sm" class="drone_synthesisSM" />
+    <tagstring>drones, flexible_drones, synthesis</tagstring>
+    <author>David Conner</author>
+    <date>Fri Jul 24 2026</date>
+    <description>
+        Starter behavior for the portable drone synthesis demonstration.
+    </description>
+
+    <!-- Contained Behaviors -->
+
+    <!-- Available Parameters -->
+    <params>
+        <param type="text" name="drone_name" default="cf1" label="Drone namespace" hint="Sets the flexible_drones namespace" />
+        <param type="text" name="gate_radius" default="0.9" label="Gate clearance radius" hint="Radius (m) of the obstacle-clearing cylinder over each route gate" />
+        <param type="text" name="gate_distance" default="1.5" label="Gate course distance" hint="Distance (m) from the course origin to each gate center" />
+    </params>
+
+</behavior>

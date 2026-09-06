@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>drone_demo_flexbe_synthesis</name>
+  <version>0.0.1</version>
+  <description>Capability-based FlexBE synthesis configuration for a portable four-gate drone route.</description>
+  <maintainer email="robotics@cnu.edu">David Conner</maintainer>
+  <license>Apache-2.0</license>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>flexbe_behavior_engine</exec_depend>
+  <exec_depend>flexbe_webui</exec_depend>
+  <exec_depend>flexbe_synthesis_core</exec_depend>
+  <exec_depend>flexbe_synthesis_generic</exec_depend>
+  <exec_depend>flexbe_synthesis_msgs</exec_depend>
+  <exec_depend>flexbe_synthesis_slugs</exec_depend>
+  <exec_depend>drone_demo_flexbe_behaviors</exec_depend>
+  <exec_depend>flexible_drones_flexbe_states</exec_depend>
+  <exec_depend>flexible_drones_msgs</exec_depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

@@ -1,6 +1,6 @@
 # FlexBE Synthesis Demonstrations
 
-This repository provides two available demonstrations, plus a planned Crazyflie demonstration, of Hierarchical Finite State Machine (HFSM) synthesis as described in:
+This repository provides three demonstrations of Hierarchical Finite State Machine (HFSM) synthesis as described in:
 
   * D. C. Conner, J. Luzier, E. R. Faith, W. J. Doyle, A. B. Kooiker, A. J. Farney, and I. G. Conner, "Capability-based robot controller synthesis," in Proc. 2026 IEEE Int. Conf. Electro/Information Technology (EIT), La Crosse, WI, USA, May 21–23, 2026, to be published.
 
@@ -12,21 +12,22 @@ behaviors from GR(1) Linear Temporal Logic specifications.
 Each demonstration subfolder can be excluded from the workspace build by placing a `COLCON_IGNORE`
 file in its directory.
 
-* **[River-crossing demonstrations](river_crossing/README.md)** *(available)*
+* **[River-crossing demonstrations](river_crossing/README.md)**
 
   Synthesis and execution of a FlexBE HFSM controller that solves the classic
   Wolf-Goat-Corn-Farmer puzzle, with single-river and two-river variants spanning
   four specification styles.
 
-* **[PyRoboSim demonstration](pyrobosim_demo/README.md)** *(available)*
+* **[PyRoboSim demonstration](pyrobosim_demo/README.md)**
 
   Capability-based synthesis applied to a mobile manipulation scenario in the
   [PyRoboSim](https://github.com/sea-bass/pyrobosim) simulator.
 
-* **Crazyflie demonstration** *(coming soon)*
+* **[Flexible-drones demonstration](drone_demo/README.md)**
 
-  Synthesis of multi-step aerial behaviors for the
-  [Crazyflie](https://www.bitcraze.io/products/crazyflie-2-1/) quadrotor.
+  Synthesis of multi-step aerial behaviors using the portable
+  [`flexible_drones`](https://github.com/CNURobotics/flexible_drones) interfaces,
+  with support for Crazyflie and PiHawk/ArduCopter deployments.
 
 ## Setup
 
@@ -101,7 +102,6 @@ This synthesis work builds on:
 
   * S. Maniatopoulos, P. Schillinger, V. Pong, D. C. Conner and H. Kress-Gazit, ["Reactive high-level behavior synthesis for an Atlas humanoid robot,"](http://dx.doi.org/10.1109/ICRA.2016.7487613) ICRA 2016, Stockholm, Sweden.
 
-  * R. Ehlers and V. Raman, [Slugs: Extensible GR(1) Synthesis](https://www.ruediger-ehlers.de/papers/cav2016.pdf), CAV 2016.
 
 Please cite the following when using FlexBE:
 

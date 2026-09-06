@@ -1,0 +1,15 @@
+state_outcome_mappings:
+    done: completed
+    succeeded: completed
+    execute: completed
+    continue: completed
+    failed: failure
+    aborted: failure
+    timeout: failure
+    unavailable: failure
+    cancel: failure
+    abort: failure
+
+sm_outcome_mappings:
+    finished: finished
+    failed: failed

@@ -1,0 +1,51 @@
+# Mappings used to standardize names for the Slugs batch harness.
+#
+# `flexbe_synthesis_slugs.helpers.batch_run_harness` only accepts a single
+# `--state-mappings` file — unlike the interactive server pipeline, it has no
+# separate `custom_mappings_path` stage. The interactive pipeline
+# (`pipeline/preprocesses_def.yaml`) merges
+# `flexbe_synthesis_generic/mappings/global_mappings.yaml` and this package's
+# `mappings/custom_mappings.yaml` in two passes; this file pre-merges the
+# same two sources by hand so a single `--state-mappings` argument produces
+# identical outcome-name normalization for batch runs. Same reason this file
+# exists for pyrobosim_flexbe_synthesis.
+#
+# Unlike pyrobosim's merged file, `failed: failed` is active here, not
+# commented out: drone_demo's own `custom_mappings.yaml` explicitly maps it
+# (the capability model treats `failed` as a real terminal SM outcome with
+# its own recovery-landing path, not something to suppress).
+#
+# Keep in sync with:
+#   - flexbe_synthesis/flexbe_synthesis_generic/mappings/global_mappings.yaml
+#   - mappings/custom_mappings.yaml
+sm_outcome_mappings:
+    finished: finished
+    failed: failed
+state_outcome_mappings:
+    # --- Successes ---
+    done: completed
+    finished: completed
+    received: completed
+    'true': completed
+    succeeded: completed
+    execute: completed
+    continue: completed
+    ###################
+    # --- Failures  ---
+    aborted: failure
+    canceled: failure
+    data_error: failure
+    empty: failure
+    failed: failure
+    'false': failure
+    no_connection: failure
+    param_error: failure
+    timeout: failure
+    unavailable: failure
+    cancel: failure
+    abort: failure
+transition_outcomes:
+    # Allowable transitions
+    # These should have unique first characters for tagging (e.g. _f, _c)
+    - completed
+    - failure
