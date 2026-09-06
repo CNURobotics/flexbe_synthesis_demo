@@ -14,7 +14,7 @@ READY_TIMEOUT_S="${READY_TIMEOUT_S:-300}"
 LAUNCH_TIMEOUT_S="${LAUNCH_TIMEOUT_S:-20}"
 EXPERIMENT_TIMEOUT_S_OVERRIDE="${EXPERIMENT_TIMEOUT_S_OVERRIDE:-}"
 
-TASKS=(
+ALL_TASKS=(
   coffee_full_rerun
   two_rivers_full_rerun
   pyrobosim_stats
@@ -22,6 +22,7 @@ TASKS=(
   drone_demo_stats
   drone_demo_fp
 )
+TASKS=("${ALL_TASKS[@]}")
 
 SLOW_FIRST_TASKS=(
   pyrobosim_p1
@@ -34,7 +35,7 @@ SLOW_FIRST_TASKS=(
 
 usage() {
   cat <<USAGE
-Usage: $(basename "$0") [--clear] [--slow-first] [--super-long] [--skip-long] [--skip-fp] [--no-terminal-hold]
+Usage: $(basename "$0") [--clear] [--slow-first] [--super-long] [--skip-long] [--skip-fp] [--tasks LIST] [--no-terminal-hold]
 
 Runs the experiments documented in experiments/README.md with at most
 two active experiment runs at a time. The scheduler prints overall status in
@@ -52,6 +53,8 @@ Options:
   --super-long        use a 36000s synthesis timeout for every experiment row
   --skip-long         do not launch pyrobosim or drone tasks
   --skip-fp           do not launch the drone_demo_fp task
+  --tasks LIST        comma-separated task list to run, in order
+                      (known tasks: ${ALL_TASKS[*]})
   --no-terminal-hold  do not keep per-task terminals open after completion
 
 Environment overrides:
@@ -120,6 +123,29 @@ filter_fp_task() {
     fi
   done
   TASKS=("${filtered[@]}")
+}
+
+is_known_task() {
+  local candidate="$1"
+  local task
+  for task in "${ALL_TASKS[@]}"; do
+    if [[ "$candidate" == "$task" ]]; then
+      return 0
+    fi
+  done
+  return 1
+}
+
+select_tasks() {
+  local raw_list="$1"
+  local selected=()
+  local item
+  IFS=',' read -r -a selected <<< "$raw_list"
+  [[ ${#selected[@]} -gt 0 && -n "${selected[0]}" ]] || die "--tasks requires at least one task"
+  for item in "${selected[@]}"; do
+    is_known_task "$item" || die "Unknown task in --tasks: $item"
+  done
+  TASKS=("${selected[@]}")
 }
 
 ensure_setup() {
@@ -740,6 +766,7 @@ main() {
   local slow_first=0
   local skip_long=0
   local skip_fp=0
+  local task_list=""
   while (($#)); do
     case "$1" in
       --clear)
@@ -756,6 +783,11 @@ main() {
         ;;
       --skip-fp)
         skip_fp=1
+        ;;
+      --tasks)
+        shift
+        [[ $# -gt 0 ]] || die "--tasks requires a comma-separated task list"
+        task_list="$1"
         ;;
       --no-terminal-hold)
         hold_terminals=0
@@ -781,6 +813,9 @@ main() {
   ensure_setup
   if (( slow_first )); then
     TASKS=("${SLOW_FIRST_TASKS[@]}")
+  fi
+  if [[ -n "$task_list" ]]; then
+    select_tasks "$task_list"
   fi
   if (( skip_long )); then
     filter_long_tasks
