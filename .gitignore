@@ -16,3 +16,4 @@ tmp/
 *.json
 *.slugsin
 *.structuredslugs
+well_separation_checks

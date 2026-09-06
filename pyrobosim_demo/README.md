@@ -101,7 +101,7 @@ Please cite the following when using the synthesis demonstration:
     "Capability-based robot controller synthesis," in Proc. 2026 IEEE Int. Conf.
     Electro/Information Technology (EIT), La Crosse, WI, USA, May 21–23, 2026, to be published.
 
-This work is based on an earlier paper:
+This work is based on earlier work:
 
   * J. Luzier and D. C. Conner, "Solving the Farmer's Dilemma with FlexBE Using GR(1) Synthesis," SoutheastCon 2024, Atlanta, GA, USA, 2024, pp. 1189–1196, doi: [10.1109/SoutheastCon52093.2024.10500189](https://doi.org/10.1109/SoutheastCon52093.2024.10500189).
 

@@ -225,7 +225,6 @@ This synthesis work builds on:
 
   * S. Maniatopoulos, P. Schillinger, V. Pong, D. C. Conner and H. Kress-Gazit, ["Reactive high-level behavior synthesis for an Atlas humanoid robot,"](http://dx.doi.org/10.1109/ICRA.2016.7487613) ICRA 2016, Stockholm, Sweden.
 
-  * R. Ehlers and V. Raman, [Slugs: Extensible GR(1) Synthesis](https://www.ruediger-ehlers.de/papers/cav2016.pdf), CAV 2016.
 
 Please cite the following when using FlexBE:
 
