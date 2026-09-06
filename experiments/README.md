@@ -75,28 +75,31 @@ All wrappers pass remaining arguments through to `run_experiment_plan.sh`, so
 
 ## Timing Estimates
 
-These estimates are planning values for this class of machine, based on the
-reported result tables in `main-ar.pdf` and the long-run behavior encoded in
-the scripts. The table values report per-trial pipeline timing; end-to-end
-script time also includes ROS startup, workspace crawling, Python process
-overhead, logging, CSV aggregation, plotting, and any rows intentionally capped
-as placeholders.
+These estimates are planning values for a modest 4-core x86_64 Linux
+workstation with about 5.5 GB of free RAM available to the run, using the ROS
+workspace layout assumed by these scripts and Slugs installed at
+`/usr/local/bin/slugs`. They are based on the reported result tables in
+`main-ar.pdf` and the long-run behavior encoded in the scripts. The table
+values report per-trial pipeline timing; end-to-end script time also includes
+ROS startup, workspace crawling, Python process overhead, logging, CSV
+aggregation, plotting, and any rows intentionally capped as placeholders.
 
 | Script | Workload | Reported per-trial scale | Planning estimate |
 |---|---|---:|---:|
-| `run_coffee.sh` | 1428 matrix rows, 5 trials each | roughly 0.20-0.25 ms overall per reported cell | 5-15 min |
-| `run_two_rivers.sh` | 840 matrix rows, 5 trials each | roughly 0.14-0.94 ms overall per reported cell | 5-20 min |
+| `run_coffee.sh` | 1428 matrix rows, 5 trials each | roughly 0.20-0.25 ms overall per reported cell | 20-35 min |
+| `run_two_rivers.sh` | 840 matrix rows, 5 trials each | roughly 0.14-0.94 ms overall per reported cell | 50-70 min |
 | `run_pyrobosim.sh` | P0 20-seed statistics sweep plus P1 fixed-ordering rows | P0: 29-764 s; P1: 177 s to about 6.9 h for completed rows | 18-30 h |
 | `run_pyrobosim.sh --with-followups` | main PyRoboSim run plus FullP1 retry and 4S/4F ordering sweep | FullP1 reached about 13.1 h overall with an unresolved well-separation check | 30-60 h |
 | `run_drone_demo.sh` | 20-seed drone statistics sweep plus capped FP placeholder rows | 23-4409 s overall across the six reported statistics cells | 12-24 h |
 | `run_drone_demo.sh --with-followups` | main drone run plus FP and incomplete-1SP retries | FP rows may need day-scale budgets; incomplete 1SP rows may finish quickly or run long | 36-96 h |
 | `weekend_run.sh` | all main tasks plus PyRoboSim and drone follow-ups | combines the long rows above sequentially after the main pass | 3-7 days |
 
-The small-domain estimates are dominated by runner overhead rather than Slugs
-time. The large-domain estimates are intentionally conservative: the reported
-means hide high variance from declaration ordering, and several follow-up rows
-are useful precisely because they establish that a configuration exceeds a
-large budget on this hardware class.
+The Coffee and Two Rivers estimates are calibrated from end-to-end wrapper
+runtime on this hardware class, because runner overhead dominates their small
+per-row solver times. The large-domain estimates are intentionally
+conservative: the reported means hide high variance from declaration ordering,
+and several follow-up rows are useful precisely because they establish that a
+configuration exceeds a large budget on this hardware class.
 
 ## Follow-Up Scripts
 
