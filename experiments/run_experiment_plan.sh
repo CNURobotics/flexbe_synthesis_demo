@@ -78,6 +78,24 @@ timestamp() {
   date '+%Y-%m-%d %H:%M:%S %z'
 }
 
+format_elapsed() {
+  local seconds="$1"
+  local days hours minutes
+  days=$((seconds / 86400))
+  hours=$(((seconds % 86400) / 3600))
+  minutes=$(((seconds % 3600) / 60))
+  seconds=$((seconds % 60))
+  if (( days > 0 )); then
+    printf '%dd%02dh%02dm%02ds' "$days" "$hours" "$minutes" "$seconds"
+  elif (( hours > 0 )); then
+    printf '%dh%02dm%02ds' "$hours" "$minutes" "$seconds"
+  elif (( minutes > 0 )); then
+    printf '%dm%02ds' "$minutes" "$seconds"
+  else
+    printf '%ds' "$seconds"
+  fi
+}
+
 log() {
   local message="$*"
   mkdir -p "$(dirname "$RUN_LOG")"
@@ -169,6 +187,7 @@ write_state() {
   local task="$1"
   local state="$2"
   local rc="${3:-}"
+  local elapsed_s="${4:-}"
   {
     printf 'task=%s\n' "$task"
     printf 'state=%s\n' "$state"
@@ -176,15 +195,28 @@ write_state() {
     if [[ -n "$rc" ]]; then
       printf 'rc=%s\n' "$rc"
     fi
+    if [[ -n "$elapsed_s" ]]; then
+      printf 'elapsed_s=%s\n' "$elapsed_s"
+    fi
   } > "$(state_file "$task")"
 }
 
 write_failed_state() {
   local task="$1"
   local rc="${2:-1}"
+  local elapsed_s="${3:-}"
   if [[ -n "${STATE_DIR:-}" && -d "${STATE_DIR:-}" ]]; then
-    write_state "$task" FAILED "$rc"
+    write_state "$task" FAILED "$rc" "$elapsed_s"
   fi
+}
+
+read_state_field() {
+  local task="$1"
+  local key="$2"
+  local file
+  file="$(state_file "$task")"
+  [[ -f "$file" ]] || return 1
+  awk -F= -v key="$key" '$1 == key { print $2; found = 1; exit } END { if (!found) exit 1 }' "$file"
 }
 
 read_state() {
@@ -568,19 +600,22 @@ run_task() {
   local task_log="$TASK_LOG_DIR/$task.log"
   exec > >(tee -a "$task_log") 2>&1
 
+  local task_start_epoch elapsed_s
+  task_start_epoch="$(date +%s)"
   write_state "$task" RUNNING
-  trap 'rc=$?; if (( rc != 0 )); then write_failed_state "$task" "$rc"; log "FAILED $task rc=$rc"; fi' EXIT
+  trap 'rc=$?; if (( rc != 0 )); then elapsed_s=$(( $(date +%s) - task_start_epoch )); write_failed_state "$task" "$rc" "$elapsed_s"; log "FAILED $task rc=$rc after $(format_elapsed "$elapsed_s")"; fi' EXIT
 
   ensure_setup
   log "START $task"
   local rc=0
   "$task" || rc=$?
+  elapsed_s=$(( $(date +%s) - task_start_epoch ))
   if (( rc == 0 )); then
-    write_state "$task" DONE "$rc"
-    log "COMPLETE $task rc=0"
+    write_state "$task" DONE "$rc" "$elapsed_s"
+    log "COMPLETE $task rc=0 in $(format_elapsed "$elapsed_s")"
   else
-    write_state "$task" FAILED "$rc"
-    log "FAILED $task rc=$rc"
+    write_state "$task" FAILED "$rc" "$elapsed_s"
+    log "FAILED $task rc=$rc after $(format_elapsed "$elapsed_s")"
   fi
   trap - EXIT
   return "$rc"
@@ -645,16 +680,35 @@ open_task_terminal() {
   bash -lc "$cmd" >/dev/null 2>&1 &
 }
 
+format_task_status() {
+  local task="$1"
+  local state elapsed_s
+  state="$(read_state "$task")"
+  if [[ "$state" == "DONE" || "$state" == "FAILED" ]]; then
+    elapsed_s="$(read_state_field "$task" elapsed_s || true)"
+    if [[ "$elapsed_s" =~ ^[0-9]+$ ]]; then
+      if [[ "$state" == "DONE" ]]; then
+        printf 'DONE in %s' "$(format_elapsed "$elapsed_s")"
+      else
+        printf 'FAILED after %s' "$(format_elapsed "$elapsed_s")"
+      fi
+      return
+    fi
+  fi
+  printf '%s' "$state"
+}
+
 print_status() {
   local task
   printf '\n[%s] Overall experiment status\n' "$(timestamp)"
   for task in "${TASKS[@]}"; do
-    printf '  %-24s %s\n' "$task" "$(read_state "$task")"
+    printf '  %-24s %s\n' "$task" "$(format_task_status "$task")"
   done
 }
 
 schedule_tasks() {
   local hold_terminals="$1"
+  local run_start_epoch="$2"
   local next=0
   local active=0
   local task state all_done
@@ -696,7 +750,7 @@ schedule_tasks() {
         age=$((now_epoch - state_epoch))
         if (( state_epoch == 0 || age >= LAUNCH_TIMEOUT_S )); then
           log "Task $task stayed LAUNCHING for ${age}s; marking FAILED"
-          write_state "$task" FAILED 124
+          write_state "$task" FAILED 124 "$age"
         fi
       fi
     done
@@ -720,7 +774,8 @@ schedule_tasks() {
     log "One or more experiment runs failed; see $TASK_LOG_DIR"
     return 1
   fi
-  log "All experiment runs completed"
+  local elapsed_s=$(( $(date +%s) - run_start_epoch ))
+  log "All experiment runs completed in $(format_elapsed "$elapsed_s")"
 }
 
 clear_synthesis_home() {
@@ -828,6 +883,8 @@ main() {
   fi
   require_empty_synthesis_home
 
+  local run_start_epoch
+  run_start_epoch="$(date +%s)"
   mkdir -p "$STATE_DIR" "$TASK_LOG_DIR"
   : > "$RUN_LOG"
   log "Experiment runner started"
@@ -847,7 +904,7 @@ main() {
 
   record_system_info
   init_workspace
-  schedule_tasks "$hold_terminals"
+  schedule_tasks "$hold_terminals" "$run_start_epoch"
 }
 
 main "$@"

@@ -131,14 +131,14 @@ def _fixed_ordering():
     }
 
 
-# Baseline `encoding` sentinel -> non-scenario non-scenario column label.
+# Baseline `encoding` sentinel -> the source table's non-scenario column label.
 _BASELINE_INDICATOR = {
     'full_spec': 'Full',
     'full_spec_move_only': 'MoveOnly',
     'full_spec_p1': 'FullP1',
 }
-# Capability `encoding` -> non-scenario leading column digit (2 = one-hot, 3 = enumerated).
-# P0 uses digits 2/3 (not 1/2) to match non-scenario case-study column numbering; P1's
+# Capability `encoding` -> the source table's leading column digit (2 = one-hot, 3 = enumerated).
+# P0 uses digits 2/3 (not 1/2) to match the source table's case-study column numbering; P1's
 # enumerated sweep then occupies digit 4 -- see `_p1_baseline_rows`'s `digit='4'` override.
 _ENCODING_DIGIT = {'one-hot': '2', 'enumerated': '3'}
 
@@ -205,9 +205,9 @@ def _capability_row(
 
     `digit` overrides the leading column-indicator digit that would
     otherwise be derived from `encoding` via `_ENCODING_DIGIT`. P0 uses the
-    default (`2`/`3` for one-hot/enumerated, matching non-scenario column
+    default (`2`/`3` for one-hot/enumerated, matching the source table's column
     numbering); P1's capability sweep passes `digit='4'` so its columns read
-    `4S`/`4F`/`4SP`/`4FP` -- non-scenario scenario-4 label -- rather than
+    `4S`/`4F`/`4SP`/`4FP` -- the source table's scenario-4 label -- rather than
     colliding visually with P0's `3S`-family columns despite both using the
     enumerated encoding. P1's one-hot row separately pins `digit='1'` so it
     doesn't inherit P0's new one-hot default (`2`).
