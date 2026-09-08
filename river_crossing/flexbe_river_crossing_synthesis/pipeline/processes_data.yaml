@@ -11,6 +11,7 @@
     strategy_auditor_spec_path: ''     # Empty means use generated compiled .slugsin
     strategy_auditor_goal_outcomes: []  # Empty means derive from mapped SM outcomes
     strategy_auditor_timeout_s: 5.0
+    max_reduction_sweeps: null       # null means sweep reduction until fixed point
     reduced_automaton_name: 'reduced_automaton'
     failure_outcome: ''             # Used in respec example - do NOT fail, retry
     failure_conditions: []          # Default to check all actions

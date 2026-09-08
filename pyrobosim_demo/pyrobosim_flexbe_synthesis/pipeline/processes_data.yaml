@@ -12,4 +12,5 @@
     strategy_auditor_goal_outcomes: []  # Empty means derive from mapped SM outcomes
     strategy_auditor_timeout_s: 5.0
     predefined_automaton_path: 'ros:automaton_path'  # Used by load pipeline only
+    max_reduction_sweeps: null          # null means sweep reduction until fixed point
     reduced_automaton_name: 'reduced_automaton'

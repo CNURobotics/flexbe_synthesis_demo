@@ -67,9 +67,9 @@ Runs the main-track experiment script, then all outlier/follow-up scripts
 See run_pyrobosim_p1_stats.sh for what that stage covers and why.
 
 Options:
-  --clear            wipe \$FLEXBE_SYNTHESIS_HOME first (forwarded to
-                      run_experiment_plan.sh); the main track otherwise
-                      refuses to start unless that directory is already empty
+  --clear            wipe \$FLEXBE_SYNTHESIS_HOME before this wrapper creates
+                      its log; the main track otherwise refuses to start unless
+                      that directory is already empty
   --hold-terminals    let run_experiment_plan.sh's per-task terminals stay
                       open after completion (default: --no-terminal-hold,
                       since nobody is expected to be watching over a weekend)
@@ -83,6 +83,11 @@ Options:
 This script does not run export_release_data.py. Run it by hand once you
 have inspected the outcome.
 
+Recommended for multi-day runs, choose one:
+  tmux new -s weekend_run 'experiments/weekend_run.sh --clear'
+  or
+  nohup experiments/weekend_run.sh --clear > ~/weekend_run.out 2>&1 &
+
 Log: $RUN_LOG
 USAGE
 }
@@ -94,6 +99,20 @@ timestamp() {
 log() {
   mkdir -p "$(dirname "$RUN_LOG")"
   printf '[%s] %s\n' "$(timestamp)" "$*" | tee -a "$RUN_LOG"
+}
+
+clear_synthesis_home() {
+  case "$SYNTHESIS_HOME" in
+    ""|"/"|"$HOME")
+      printf 'ERROR: Refusing to clear unsafe FLEXBE_SYNTHESIS_HOME: %s\n' "${SYNTHESIS_HOME:-<empty>}" >&2
+      exit 1
+      ;;
+  esac
+
+  if [[ -e "$SYNTHESIS_HOME" ]]; then
+    printf '[%s] Clearing synthesis home: %s\n' "$(timestamp)" "$SYNTHESIS_HOME"
+    rm -rf -- "$SYNTHESIS_HOME"
+  fi
 }
 
 hours_from_now() {
@@ -192,11 +211,12 @@ main() {
   local main_track_args=()
   local stop_on_failure=1
   local hold_terminals=0
+  local clear_home=0
 
   while (($#)); do
     case "$1" in
       --clear)
-        main_track_args+=(--clear)
+        clear_home=1
         ;;
       --hold-terminals)
         hold_terminals=1
@@ -230,6 +250,10 @@ main() {
   fi
 
   command -v bc >/dev/null 2>&1 || { printf 'ERROR: this script needs `bc` for duration arithmetic.\n' >&2; exit 1; }
+
+  if (( clear_home )); then
+    clear_synthesis_home
+  fi
 
   mkdir -p "$(dirname "$RUN_LOG")"
   log "weekend_run.sh started"

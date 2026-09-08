@@ -793,7 +793,9 @@ clear_synthesis_home() {
 
 require_empty_synthesis_home() {
   mkdir -p "$SYNTHESIS_HOME"
-  if find "$SYNTHESIS_HOME" -mindepth 1 -maxdepth 1 | read -r _; then
+  if find "$SYNTHESIS_HOME" -mindepth 1 \
+      ! -path "$SYNTHESIS_HOME/run_logs" \
+      ! -path "$SYNTHESIS_HOME/run_logs/weekend_run.log" | read -r _; then
     printf 'Refusing to run: %s already exists and is not empty.\n' "$SYNTHESIS_HOME" >&2
     printf 'This is a from-scratch run -- move it aside or empty it yourself, then rerun.\n' >&2
     exit 1
