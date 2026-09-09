@@ -1,6 +1,7 @@
 """Setup for drone_demo_flexbe_behaviors."""
 
 from glob import glob
+import os
 
 from setuptools import find_packages, setup
 
@@ -15,7 +16,7 @@ setup(
     data_files=[
         ('share/ament_index/resource_index/packages', ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        ('share/' + package_name + '/manifest', glob('manifest/*.xml')),
+        (os.path.join('lib', package_name, 'manifest'), glob('manifest/*.xml')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
