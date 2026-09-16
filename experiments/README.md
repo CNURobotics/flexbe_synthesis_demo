@@ -5,6 +5,12 @@ experiment datasets for the FlexBE synthesis demonstrations. The scripts assume
 they are run from a sourced ROS workspace that contains both this repository and
 `flexbe_synthesis`.
 
+`experiment_data_15Sep26.zip` contains the packaged outputs from the
+`weekend_run.sh` release experiment workflow. It is intended to accompany the
+upcoming technical report; citation and report-link details will be added when
+that report is available. The ZIP also includes the machine details recorded for
+the run at the root of the archive.
+
 Most scripts write under `FLEXBE_SYNTHESIS_HOME`, which defaults to
 `~/.flexbe_synthesis`. For isolated runs, set it explicitly:
 
