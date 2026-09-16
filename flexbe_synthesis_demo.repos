@@ -10,8 +10,8 @@ repositories:
   src/flexbe_synthesis:
     type: git
     url: https://github.com/CNURobotics/flexbe_synthesis.git
-    version: main
+    version: 0.0.2
   src/flexbe_synthesis_demo:
     type: git
     url: https://github.com/CNURobotics/flexbe_synthesis_demo.git
-    version: main
+    version: 0.0.2

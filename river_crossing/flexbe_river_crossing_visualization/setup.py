@@ -26,7 +26,7 @@ sound_files = glob(os.path.join('sounds', '*.mp3'))
 
 setup(
     name=PACKAGE_NAME,
-    version='0.0.1',
+    version='0.0.2',
     packages=[PACKAGE_NAME],
     data_files=[
         ('share/ament_index/resource_index/packages',

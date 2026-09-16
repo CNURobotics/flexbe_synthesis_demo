@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="3">
   <name>flexbe_river_crossing_synthesis</name>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
   <description>
       Launch files, pipeline configurations, GR(1) specifications, capability definitions,
       and request clients for the river-crossing synthesis demonstration (WGCF and two-rivers

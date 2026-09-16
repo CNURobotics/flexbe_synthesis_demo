@@ -2,6 +2,10 @@
 Changelog for package pyrobosim_flexbe_behaviors
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.0.2 (2026-09-16)
+------------------
+* No changes since 0.0.1.
+
 0.0.1 (2026-05-20)
 ------------------
 * Original release

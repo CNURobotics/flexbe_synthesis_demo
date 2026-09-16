@@ -2,7 +2,8 @@
 
 This repository provides three demonstrations of Hierarchical Finite State Machine (HFSM) synthesis as described in:
 
-  * D. C. Conner, J. Luzier, E. R. Faith, W. J. Doyle, A. B. Kooiker, A. J. Farney, and I. G. Conner, "Capability-based robot controller synthesis," in Proc. 2026 IEEE Int. Conf. Electro/Information Technology (EIT), La Crosse, WI, USA, May 21–23, 2026, to be published.
+  * D. C. Conner, J. Luzier, E. R. Faith, W. J. Doyle, A. B. Kooiker, A. J. Farney, and I. G. Conner, "Capability-Based Robot Controller Synthesis," 2026 IEEE International Conference on Electro Information Technology (eIT), La Crosse, WI, USA, 2026, pp. 115-120, [doi: 10.1109/eIT68936.2026.11670415](https://doi.org/10.1109/eIT68936.2026.11670415).
+
 
 The demonstrations use the capability-based synthesis pipeline from
 [`flexbe_synthesis`](https://github.com/CNURobotics/flexbe_synthesis.git)
@@ -97,7 +98,7 @@ For the PyRoboSim demonstration, additional prerequisites are required; see the
 
 Please cite the following when using this demonstration:
 
-  * D. C. Conner, J. Luzier, E. R. Faith, W. J. Doyle, A. B. Kooiker, A. J. Farney, and I. G. Conner, "Capability-based robot controller synthesis," in Proc. 2026 IEEE Int. Conf. Electro/Information Technology (EIT), La Crosse, WI, USA, May 21–23, 2026, to be published.
+  * D. C. Conner, J. Luzier, E. R. Faith, W. J. Doyle, A. B. Kooiker, A. J. Farney, and I. G. Conner, "Capability-Based Robot Controller Synthesis," 2026 IEEE International Conference on Electro Information Technology (eIT), La Crosse, WI, USA, 2026, pp. 115-120, [doi: 10.1109/eIT68936.2026.11670415](https://doi.org/10.1109/eIT68936.2026.11670415).
 
 This synthesis work builds on:
 
@@ -119,13 +120,14 @@ Please cite the following when using FlexBE:
 
 ```bibtex
 @inproceedings{FlexBESynthesis26,
-  author    = {Conner, David C. and Luzier, Joshua and Faith, Emma R. and Doyle, William J. and Kooiker, Aubrie B. and Farney, Andrew J. and Conner, Ian G.},
-  title     = {Capability-based Robot Controller Synthesis},
-  booktitle = {Proceedings of the 2026 IEEE International Conference on Electro/Information Technology (EIT)},
-  address   = {La Crosse, WI, USA},
-  month     = may,
-  year      = {2026},
-  note      = {To be published}
+  author={Conner, David C. and Luzier, Joshua and Faith, Emma R. and Doyle, William J. and Kooiker, Aubrie B. and Farney, Andrew J. and Conner, Ian G.},
+  booktitle={2026 IEEE International Conference on Electro Information Technology (eIT)},
+  title={Capability-Based Robot Controller Synthesis},
+  year={2026},
+  volume={},
+  number={},
+  pages={115-120},
+  doi={10.1109/eIT68936.2026.11670415}
 }
 ```
 

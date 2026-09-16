@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="3">
     <name>flexbe_river_crossing_flexbe_states</name>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <description>
         Custom FlexBE states for the wolf-goat-corn-farmer synthesis demonstration.
         Provides MoveState (single river) and MoveState2R (two rivers) to simulate

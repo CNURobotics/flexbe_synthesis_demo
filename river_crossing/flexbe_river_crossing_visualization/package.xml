@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="3">
     <name>flexbe_river_crossing_visualization</name>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <description>
         Pygame-based visualization node for the FlexBE river-crossing synthesis
         demonstration. Subscribes to /wgcf_status and renders characters, boats,

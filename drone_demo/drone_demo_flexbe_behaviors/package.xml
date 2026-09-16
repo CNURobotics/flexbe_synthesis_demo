@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="3">
   <name>drone_demo_flexbe_behaviors</name>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
   <description>FlexBE behavior helpers for the flexible-drones synthesis demo.</description>
   <maintainer email="robotics@cnu.edu">David Conner</maintainer>
   <license>Apache-2.0</license>

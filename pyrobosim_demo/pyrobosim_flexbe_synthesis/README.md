@@ -3,9 +3,7 @@
 This package provides launch files, pipeline configurations, GR(1) specifications, and capability definitions
 for the PyRoboSim HFSM synthesis demonstrations as described in
 
-  * D. C. Conner, J. Luzier, E. R. Faith, W. J. Doyle, A. B. Kooiker, A. J. Farney, and I. G. Conner,
-    "Capability-based robot controller synthesis," in Proc. 2026 IEEE Int. Conf.
-    Electro/Information Technology (EIT), La Crosse, WI, USA, May 21–23, 2026, to be published.
+  * D. C. Conner, J. Luzier, E. R. Faith, W. J. Doyle, A. B. Kooiker, A. J. Farney, and I. G. Conner, "Capability-Based Robot Controller Synthesis," 2026 IEEE International Conference on Electro Information Technology (eIT), La Crosse, WI, USA, 2026, pp. 115-120, [doi: 10.1109/eIT68936.2026.11670415](https://doi.org/10.1109/eIT68936.2026.11670415).
 
 The synthesis pipeline connects to `flexbe_synthesis_core` via a `FlexBESynthesis` ROS 2 action
 and generates a reactive [FlexBE](https://github.com/FlexBE) HFSM controller that delivers
