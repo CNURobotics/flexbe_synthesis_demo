@@ -11,6 +11,12 @@ upcoming technical report; citation and report-link details will be added when
 that report is available. The ZIP also includes the machine details recorded for
 the run at the root of the archive.
 
+[Supplemental evidence for arXiv v2](p0-supplemental-evidence.zip) contains
+the paired PyRoboSim P0 carriage-constraint runs and the targeted Coffee
+and P0 retry-justice checks. Start with the top-level README inside the
+ZIP for the run reports and commands for replaying and rerunning the checks.
+These records supplement the September release dataset.
+
 Most scripts write under `FLEXBE_SYNTHESIS_HOME`, which defaults to
 `~/.flexbe_synthesis`. For isolated runs, set it explicitly:
 
